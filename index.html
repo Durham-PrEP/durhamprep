@@ -4,84 +4,125 @@
   <title>Durham PrEP Clinic</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #f5f7fb;
-      color: #1a1a1a;
+      background: #f8fafc;
+      color: #0f172a;
     }
 
     header {
-      background: linear-gradient(135deg, #0b3c5d, #1d7cf2);
-      color: white;
-      padding: 60px 20px;
+      padding: 80px 20px 60px;
       text-align: center;
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: white;
     }
 
     h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 38px;
+      font-weight: 600;
     }
 
     header p {
-      margin-top: 10px;
+      margin-top: 12px;
       font-size: 18px;
+      opacity: 0.85;
+    }
+
+    .cta-group {
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      margin: 6px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    .primary {
+      background: white;
+      color: #1d4ed8;
+    }
+
+    .secondary {
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
       opacity: 0.9;
     }
 
-    .container {
-      margin-top: -30px;
-      padding: 20px;
+    .section {
+      padding: 70px 20px;
+      max-width: 900px;
+      margin: auto;
     }
 
     .card {
       background: white;
+      padding: 30px;
       border-radius: 16px;
-      padding: 25px;
-      margin: 15px auto;
-      max-width: 400px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-      text-align: center;
+      margin-top: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     }
 
-    .button {
-      display: block;
-      width: 100%;
-      padding: 15px;
-      margin-top: 15px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 16px;
-    }
-
-    .prep {
-      background: #1d7cf2;
-      color: white;
-    }
-
-    .pep {
-      background: #e63946;
-      color: white;
-    }
-
-    .secondary {
-      background: #eef2f7;
-      color: #1a1a1a;
-    }
-
-    .section {
-      padding: 50px 20px;
-      text-align: center;
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
     }
 
     .highlight {
-      background: #fff3f3;
-      border-left: 5px solid #e63946;
-      padding: 15px;
+      background: #fff1f2;
+      border: 1px solid #fecaca;
+      padding: 18px;
+      border-radius: 10px;
+      margin-top: 15px;
+      color: #991b1b;
+    }
+
+    .button-block {
+      display: block;
+      width: 100%;
+      text-align: center;
       margin-top: 20px;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .blue {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    .red {
+      background: #dc2626;
+      color: white;
+    }
+
+    .light {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #64748b;
     }
 
     html {
@@ -94,62 +135,54 @@
 
 <header>
   <h1>Durham PrEP Clinic</h1>
-  <p>Protect yourself. Fast, confidential HIV prevention.</p>
+  <p>Confidential HIV prevention and care. Fast. Simple. Accessible.</p>
+
+  <div class="cta-group">
+    <a href="#prep" class="btn primary">Start PrEP</a>
+    <a href="#pep" class="btn secondary">Need PEP</a>
+  </div>
 </header>
 
-<div class="container">
+<div class="section">
 
   <div class="card">
     <h2>Start PrEP</h2>
-    <p>Daily protection against HIV. Simple and effective.</p>
-    <a href="#prep" class="button prep">Get Started</a>
+    <p>PrEP is a highly effective medication that reduces your risk of HIV when taken as prescribed.</p>
+
+    <button onclick="showResult()" class="button-block blue">Am I at risk?</button>
+    <p id="result"></p>
+
+    <a href="#book" class="button-block blue">Begin PrEP Care</a>
   </div>
 
   <div class="card">
     <h2>Need PEP?</h2>
-    <p>Possible exposure in the last 72 hours?</p>
-    <a href="#pep" class="button pep">Get Help Now</a>
+    <p>Post-exposure prophylaxis must be started within 72 hours.</p>
+
+    <div class="highlight">
+      If you may have been exposed to HIV recently, seek care immediately.
+    </div>
+
+    <a href="tel:+9054200441" class="button-block red">Call Now</a>
   </div>
 
   <div class="card">
-    <h2>Book Appointment</h2>
-    <p>Fast, confidential care with our clinic.</p>
-    <a href="#book" class="button secondary">Book Now</a>
+    <h2>Book an Appointment</h2>
+    <p>Confidential consultations. Judgment-free care.</p>
+
+    <a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="button-block light">Book Now</a>
   </div>
-
+ <a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="button-block light">Book Now</a>
 </div>
 
-<div id="prep" class="section">
-  <h2>PrEP (Pre-Exposure Prophylaxis)</h2>
-  <p>PrEP is a medication that significantly reduces your risk of HIV.</p>
-
-  <button onclick="showResult()" class="button prep">Am I at risk?</button>
-  <p id="result"></p>
-
-  <a href="#book" class="button prep">Start PrEP</a>
-</div>
-
-<div id="pep" class="section">
-  <h2>PEP (Emergency Treatment)</h2>
-
-  <div class="highlight">
-    Had a possible HIV exposure in the last 72 hours? Start treatment immediately.
-  </div>
-
-  <a href="tel:+1234567890" class="button pep">Call Now</a>
-</div>
-
-<div id="book" class="section">
-  <h2>Book Appointment</h2>
-  <p>Confidential, judgment-free care.</p>
-
-  <a href="https://yourbookinglink.com" class="button prep">Book Now</a>
-</div>
+<footer>
+  Durham PrEP Clinic • Confidential Care • Ontario
+</footer>
 
 <script>
 function showResult() {
   document.getElementById("result").innerHTML =
-  "You may benefit from PrEP. Book an appointment to get started.";
+  "Based on your responses, you may benefit from PrEP. Book an appointment to get started.";
 }
 </script>
 
