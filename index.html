@@ -6,57 +6,82 @@
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       margin: 0;
-      background: #f7f9fc;
-      text-align: center;
+      background: #f5f7fb;
+      color: #1a1a1a;
     }
 
     header {
-      background: #0b3c5d;
+      background: linear-gradient(135deg, #0b3c5d, #1d7cf2);
       color: white;
-      padding: 30px 20px;
+      padding: 60px 20px;
+      text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 32px;
     }
 
-    p {
-      font-size: 16px;
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: 0.9;
     }
 
     .container {
-      padding: 30px;
+      margin-top: -30px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 25px;
+      margin: 15px auto;
+      max-width: 400px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
     }
 
     .button {
       display: block;
-      width: 80%;
-      max-width: 320px;
-      margin: 12px auto;
+      width: 100%;
       padding: 15px;
-      background: #1d7cf2;
-      color: white;
+      margin-top: 15px;
+      border-radius: 10px;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 16px;
       font-weight: bold;
+      font-size: 16px;
     }
 
-    .button.red {
+    .prep {
+      background: #1d7cf2;
+      color: white;
+    }
+
+    .pep {
       background: #e63946;
+      color: white;
+    }
+
+    .secondary {
+      background: #eef2f7;
+      color: #1a1a1a;
     }
 
     .section {
-      padding: 60px 20px;
-      border-top: 1px solid #ddd;
-      background: white;
+      padding: 50px 20px;
+      text-align: center;
     }
 
-    .section:nth-child(even) {
-      background: #f1f5f9;
+    .highlight {
+      background: #fff3f3;
+      border-left: 5px solid #e63946;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 8px;
     }
 
     html {
@@ -69,53 +94,64 @@
 
 <header>
   <h1>Durham PrEP Clinic</h1>
-  <p>Protect yourself. Fast, simple, confidential care.</p>
+  <p>Protect yourself. Fast, confidential HIV prevention.</p>
 </header>
 
 <div class="container">
-  <a href="#prep" class="button">Start PrEP</a>
-  <a href="#pep" class="button red">Need PEP Now</a>
-  <a href="#book" class="button">Book Appointment</a>
-  <a href="#chat" class="button">Ask a Question</a>
+
+  <div class="card">
+    <h2>Start PrEP</h2>
+    <p>Daily protection against HIV. Simple and effective.</p>
+    <a href="#prep" class="button prep">Get Started</a>
+  </div>
+
+  <div class="card">
+    <h2>Need PEP?</h2>
+    <p>Possible exposure in the last 72 hours?</p>
+    <a href="#pep" class="button pep">Get Help Now</a>
+  </div>
+
+  <div class="card">
+    <h2>Book Appointment</h2>
+    <p>Fast, confidential care with our clinic.</p>
+    <a href="#book" class="button secondary">Book Now</a>
+  </div>
+
 </div>
 
 <div id="prep" class="section">
-  <h2>Start PrEP</h2>
-  <p>PrEP is a daily medication that can significantly reduce your risk of HIV.</p>
+  <h2>PrEP (Pre-Exposure Prophylaxis)</h2>
+  <p>PrEP is a medication that significantly reduces your risk of HIV.</p>
 
-  <button onclick="showResult()" class="button">Am I at risk?</button>
+  <button onclick="showResult()" class="button prep">Am I at risk?</button>
   <p id="result"></p>
 
-  <a href="#book" class="button">Get Started</a>
+  <a href="#book" class="button prep">Start PrEP</a>
 </div>
 
 <div id="pep" class="section">
-  <h2>Need PEP?</h2>
-  <p>If you may have been exposed to HIV in the last 72 hours, start treatment immediately.</p>
+  <h2>PEP (Emergency Treatment)</h2>
 
-  <a href="tel:+9054200441" class="button red">Call Now</a>
+  <div class="highlight">
+    Had a possible HIV exposure in the last 72 hours? Start treatment immediately.
+  </div>
+
+  <a href="tel:+1234567890" class="button pep">Call Now</a>
 </div>
 
 <div id="book" class="section">
-  <h2>Book an Appointment</h2>
-  <p>Confidential, fast, and judgment-free care.</p>
+  <h2>Book Appointment</h2>
+  <p>Confidential, judgment-free care.</p>
 
-  <!-- REPLACE THIS LINK -->
-  <a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="button">Book Now</a>
-</div>
-<a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="button">Book Now</a>
-</div>
-<div id="chat" class="section">
-  <h2>Chat With Us</h2>
-  <p>Have questions? Use the chat bubble to message us anytime.</p>
+  <a href="https://yourbookinglink.com" class="button prep">Book Now</a>
 </div>
 
 <script>
 function showResult() {
   document.getElementById("result").innerHTML =
-  "Based on your answers, you may benefit from PrEP. Book an appointment to get started.";
+  "You may benefit from PrEP. Book an appointment to get started.";
 }
 </script>
-<script src="//code.tidio.co/ai3qrjkvr7obflhpicqpx82dgupy1url.js" async></script>
+
 </body>
 </html>
