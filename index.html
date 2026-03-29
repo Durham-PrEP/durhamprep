@@ -1,217 +1,1637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Durham PrEP Clinic</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DURHAM PrEP CLINIC | In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</title>
+  <meta
+    name="description"
+    content="Private, judgment-free PrEP, PEP, STI testing and sexual health support at DURHAM PrEP CLINIC in affiliation with HealRx Medical Clinic and Pharmacy Ltd."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #08192d;
+      --navy-2: #102743;
+      --gold: #b89257;
+      --gold-deep: #8f6b34;
+      --slate: #617082;
+      --cream: #fbf8f2;
+      --soft: #f5f1e8;
+      --white: #ffffff;
+      --line: rgba(8, 25, 45, 0.09);
+      --shadow: 0 18px 50px rgba(8, 25, 45, 0.08);
+      --shadow-lg: 0 25px 70px rgba(8, 25, 45, 0.18);
+      --radius: 24px;
+      --max: 1240px;
+      --transition: 0.3s ease;
+      --danger: #b33a3a;
+      --success: #1f6b4f;
+      --warn: #8a6a13;
+    }
 
-<style>
-:root{
---navy:#08192d;
---glass:rgba(13,39,64,0.6);
---teal:#2cc4a8;
---red:#e8445a;
---white:#ffffff;
---muted:#8ba8bf;
---border:rgba(255,255,255,0.08);
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-body{
-margin:0;
-font-family:'DM Sans',sans-serif;
-background:radial-gradient(circle at top right,#12334f, #08192d 60%);
-color:var(--white);
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-/* NAV */
-nav{
-display:flex;
-justify-content:space-between;
-padding:20px 40px;
-background:rgba(8,25,45,0.7);
-backdrop-filter:blur(10px);
-position:sticky;
-top:0;
-}
-nav a{color:var(--muted); text-decoration:none; margin-left:20px;}
-nav a:hover{color:var(--teal);}
+    body {
+      font-family: "Inter", sans-serif;
+      background: linear-gradient(to bottom, #fdfcf9 0%, #f6f2ea 100%);
+      color: var(--navy);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-/* HERO */
-.hero{
-text-align:center;
-padding:100px 20px;
-}
-.hero h1{
-font-family:'Cormorant Garamond',serif;
-font-size:64px;
-}
-.hero span{color:var(--teal);}
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-/* SECTIONS */
-.section{max-width:900px;margin:auto;padding:60px 20px;}
+    img {
+      display: block;
+      max-width: 100%;
+    }
 
-/* CARD */
-.card{
-background:var(--glass);
-padding:30px;
-border-radius:16px;
-border:1px solid var(--border);
-backdrop-filter:blur(10px);
-}
+    .container {
+      width: min(92%, var(--max));
+      margin: 0 auto;
+    }
 
-/* BUTTON */
-.btn{
-display:block;
-padding:14px;
-margin-top:15px;
-background:var(--teal);
-color:#000;
-text-align:center;
-border:none;
-cursor:pointer;
-border-radius:6px;
-text-decoration:none;
-}
+    .section {
+      padding: 96px 0;
+    }
 
-/* QUIZ */
-.quiz-option{
-display:block;
-margin:10px 0;
-padding:10px;
-border:1px solid var(--border);
-border-radius:8px;
-cursor:pointer;
-}
-.quiz-option:hover{border-color:var(--teal);}
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold-deep);
+    }
 
-.quiz-result{
-display:none;
-margin-top:15px;
-padding:15px;
-border-radius:10px;
-background:#0d2740;
-}
-.quiz-result.show{display:block;}
-</style>
+    .section-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 0.94;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    .section-copy {
+      color: var(--slate);
+      max-width: 780px;
+      font-size: 1.04rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 999px;
+      padding: 15px 26px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.96rem;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold) 0%, #d6b886 100%);
+      color: var(--navy);
+      box-shadow: 0 14px 30px rgba(184, 146, 87, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: rgba(255,255,255,0.28);
+      color: var(--white);
+      backdrop-filter: blur(8px);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--navy);
+      border: 1px solid rgba(8,25,45,0.08);
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(251, 248, 242, 0.84);
+      border-bottom: 1px solid rgba(8, 25, 45, 0.06);
+    }
+
+    .nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      max-width: 560px;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      margin-top: 6px;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-deep);
+      line-height: 1.45;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 0.94rem;
+      font-weight: 500;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 1px;
+      background: var(--gold);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.75rem;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(184,146,87,0.16), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,0.16), transparent 20%),
+        linear-gradient(135deg, #08192d 0%, #102743 55%, #173b61 100%);
+      color: var(--white);
+      min-height: calc(100vh - 84px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 48px;
+      align-items: center;
+      padding: 84px 0;
+    }
+
+    .hero .eyebrow {
+      color: #dbc39d;
+    }
+
+    .hero-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(3rem, 6.2vw, 5.8rem);
+      line-height: 0.9;
+      letter-spacing: -0.03em;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-text {
+      max-width: 700px;
+      color: rgba(255,255,255,0.82);
+      font-size: 1.08rem;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+
+    .hero-points {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-points span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 999px;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(16px);
+      border-radius: 32px;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .hero-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .hero-card p {
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 22px;
+    }
+
+    .hero-list {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero-list-item {
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero-list-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .hero-list-item span {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.78);
+    }
+
+    .trust-bar {
+      background: var(--white);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      padding: 28px 0;
+    }
+
+    .trust-item {
+      text-align: center;
+      padding: 10px;
+    }
+
+    .trust-item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .trust-item span {
+      color: var(--slate);
+      font-size: 0.93rem;
+    }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel p {
+      color: var(--slate);
+      margin-bottom: 14px;
+    }
+
+    .feature-stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature {
+      background: linear-gradient(180deg, #fff 0%, #fbfaf7 100%);
+      border: 1px solid rgba(8,25,45,0.08);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .feature h4 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+    }
+
+    .feature p {
+      color: var(--slate);
+      font-size: 0.96rem;
+    }
+
+    .services {
+      background: linear-gradient(to bottom, #f7f3ec 0%, #fcfbf8 100%);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 42px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+    }
+
+    .card-number {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(184,146,87,0.14);
+      color: var(--gold-deep);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.9rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--slate);
+      margin-bottom: 18px;
+      font-size: 0.96rem;
+    }
+
+    .card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .card li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.94rem;
+    }
+
+    .card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 1.1rem;
+      top: 0;
+    }
+
+    .quiz-section {
+      background: var(--cream);
+    }
+
+    .quiz-shell {
+      margin-top: 40px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quiz-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      background: #f8f4ec;
+    }
+
+    .quiz-tab {
+      flex: 1 1 240px;
+      padding: 18px 22px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--navy);
+      transition: var(--transition);
+      border-bottom: 2px solid transparent;
+    }
+
+    .quiz-tab.active {
+      background: var(--white);
+      border-bottom-color: var(--gold);
+      color: var(--gold-deep);
+    }
+
+    .quiz-panel {
+      display: none;
+      padding: 34px;
+    }
+
+    .quiz-panel.active {
+      display: block;
+    }
+
+    .quiz-intro {
+      color: var(--slate);
+      margin-bottom: 24px;
+      max-width: 860px;
+    }
+
+    .disclaimer {
+      padding: 16px 18px;
+      border-radius: 16px;
+      background: #fbfaf7;
+      border: 1px solid rgba(8,25,45,0.08);
+      color: var(--slate);
+      margin-bottom: 22px;
+      font-size: 0.93rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    select,
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(8,25,45,0.12);
+      background: var(--white);
+      border-radius: 16px;
+      padding: 14px 15px;
+      font: inherit;
+      color: var(--navy);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    select:focus,
+    input:focus,
+    textarea:focus {
+      border-color: rgba(184,146,87,0.85);
+      box-shadow: 0 0 0 4px rgba(184,146,87,0.12);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .quiz-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .result-box {
+      margin-top: 26px;
+      padding: 24px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fcfbf8;
+      display: none;
+    }
+
+    .result-box.show {
+      display: block;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 14px;
+    }
+
+    .result-badge.low {
+      background: rgba(31,107,79,0.12);
+      color: var(--success);
+    }
+
+    .result-badge.moderate {
+      background: rgba(138,106,19,0.14);
+      color: var(--warn);
+    }
+
+    .result-badge.high {
+      background: rgba(179,58,58,0.12);
+      color: var(--danger);
+    }
+
+    .result-box h4 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      line-height: 1;
+    }
+
+    .result-box p {
+      color: var(--slate);
+      margin-bottom: 10px;
+    }
+
+    .result-box ul {
+      margin-top: 12px;
+      padding-left: 18px;
+      color: var(--navy);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .contact-card,
+    .form-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3,
+    .form-card h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-card p,
+    .form-card p {
+      color: var(--slate);
+      margin-bottom: 18px;
+    }
+
+    .contact-info {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-info div {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #fbfaf7;
+      border: 1px solid rgba(8,25,45,0.06);
+    }
+
+    .contact-info strong {
+      display: block;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.9rem;
+    }
+
+    .contact-info span,
+    .contact-info a {
+      color: var(--slate);
+      font-size: 0.97rem;
+      word-break: break-word;
+    }
+
+    .cta {
+      padding: 96px 0;
+    }
+
+    .cta-box {
+      border-radius: 34px;
+      overflow: hidden;
+      position: relative;
+      padding: 56px 50px;
+      background:
+        radial-gradient(circle at top right, rgba(184,146,87,0.18), transparent 25%),
+        linear-gradient(135deg, #08192d 0%, #102743 60%, #173c63 100%);
+      color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .cta-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 46px 46px;
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .cta-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .cta h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+      line-height: 0.95;
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.82);
+      max-width: 720px;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: flex-start;
+    }
+
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.82);
+      padding: 38px 0;
+      margin-top: 40px;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .footer-brand {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.7rem;
+      color: var(--white);
+      text-transform: uppercase;
+    }
+
+    .footer-copy {
+      max-width: 720px;
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .split,
+      .cta-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .nav-links,
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav.open {
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
+
+      .nav.open .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        padding: 18px 0 8px;
+        gap: 16px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .cards,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 78px 0;
+      }
+
+      .cta-box {
+        padding: 40px 28px;
+      }
+
+      .brand-name {
+        font-size: 1.55rem;
+      }
+
+      .brand-sub {
+        font-size: 0.62rem;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container {
+        width: min(94%, var(--max));
+      }
+
+      .hero-actions,
+      .cta-actions,
+      .quiz-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .panel,
+      .card,
+      .contact-card,
+      .form-card,
+      .quiz-panel {
+        padding: 24px;
+      }
+
+      .hero-title {
+        font-size: clamp(2.5rem, 14vw, 4.2rem);
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-<div>Durham<span style="color:var(--teal)">PrEP</span></div>
-<div>
-<a href="#prep">PrEP</a>
-<a href="#pep">PEP</a>
-<a href="#book">Book</a>
-</div>
-</nav>
+  <header class="site-header">
+    <div class="container">
+      <nav class="nav" id="nav">
+        <a href="#" class="brand" aria-label="Durham PrEP Clinic home">
+          <span class="brand-name">DURHAM PrEP CLINIC</span>
+          <span class="brand-sub">In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</span>
+        </a>
 
-<section class="hero">
-<h1>Your health.<br><span>Protected.</span></h1>
-<p>Confidential, judgment-free HIV prevention care.</p>
-</section>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#screening">Screening</a>
+          <a href="#contact">Contact</a>
+        </div>
 
-<!-- PREP -->
-<section id="prep" class="section">
-<div class="card">
-<h2>PrEP Assessment</h2>
+        <div class="nav-actions">
+          <a href="#screening" class="btn btn-light">Start Screening</a>
+        </div>
 
-<label class="quiz-option"><input type="checkbox" class="prep"> Multiple partners</label>
-<label class="quiz-option"><input type="checkbox" class="prep"> Partner may have HIV</label>
-<label class="quiz-option"><input type="checkbox" class="prep"> Don’t always use condoms</label>
-<label class="quiz-option"><input type="checkbox" class="prep"> STI in last year</label>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      </nav>
+    </div>
+  </header>
 
-<button class="btn" onclick="runPrep()">Check</button>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="reveal">
+            <span class="eyebrow">Private • Modern • Judgment-Free Care</span>
+            <h1 class="hero-title">Durham’s elevated destination for PrEP, PEP and sexual health care.</h1>
+            <p class="hero-text">
+              DURHAM PrEP CLINIC, in affiliation with HealRx Medical Clinic and Pharmacy Ltd.,
+              offers discreet access to PrEP, PEP, STI testing, treatment, and pharmacy support
+              for people who want to protect their health with confidence.
+            </p>
 
-<div id="prepResult" class="quiz-result"></div>
-</div>
-</section>
+            <div class="hero-actions">
+              <a href="#screening" class="btn btn-primary">Start Your Screening</a>
+              <a href="#contact" class="btn btn-secondary">Contact the Clinic</a>
+            </div>
 
-<!-- PEP -->
-<section id="pep" class="section">
-<div class="card">
+            <div class="hero-points">
+              <span>✔ Inclusive care for all adults</span>
+              <span>✔ Fast access to PrEP & PEP</span>
+              <span>✔ Clinic + pharmacy support</span>
+            </div>
+          </div>
 
-<h2>Need PEP?</h2>
-<p style="color:var(--muted)">Must be started within 72 hours.</p>
+          <div class="hero-card reveal">
+            <h3>Your health. Your privacy. Your choice.</h3>
+            <p>
+              Sexual health protection is not for one type of person. It is for anyone
+              who wants prevention, clarity and support without shame.
+            </p>
 
-<input id="name" placeholder="Name" style="width:100%; padding:10px; margin-bottom:10px;">
-<input id="contact" placeholder="Phone or email" style="width:100%; padding:10px; margin-bottom:10px;">
+            <div class="hero-list">
+              <div class="hero-list-item">
+                <strong>PrEP Screening</strong>
+                <span>Quick risk review for patients considering prevention before exposure.</span>
+              </div>
+              <div class="hero-list-item">
+                <strong>PEP Urgency Screening</strong>
+                <span>Rapid review for recent exposures where timing matters.</span>
+              </div>
+              <div class="hero-list-item">
+                <strong>Confidential Follow-Up</strong>
+                <span>Book with the clinic after your result for the right next step.</span>
+              </div>
+            </div>
 
-<label class="quiz-option"><input type="checkbox" id="q1"> Not on PrEP</label>
-<label class="quiz-option"><input type="checkbox" id="q2"> Partner may have HIV</label>
-<label class="quiz-option"><input type="checkbox" id="q3"> No condom</label>
-<label class="quiz-option"><input type="checkbox" id="q4"> Within 72 hours</label>
-<label class="quiz-option"><input type="checkbox" id="q5"> Assault/exposure</label>
+            <a href="#screening" class="btn btn-primary">Begin Assessment</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<button class="btn" onclick="runPep()">Check</button>
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-grid reveal">
+          <div class="trust-item">
+            <strong>Judgment-Free</strong>
+            <span>Care rooted in dignity, privacy and respect.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Inclusive</strong>
+            <span>Welcoming LGBTQ+ and non-LGBTQ+ patients alike.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Discreet</strong>
+            <span>Confidential support every step of the way.</span>
+          </div>
+          <div class="trust-item">
+            <strong>Convenient</strong>
+            <span>Clinic and pharmacy support in one place.</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div id="pepResult" class="quiz-result"></div>
+    <section class="section" id="about">
+      <div class="container">
+        <div class="split">
+          <div class="panel reveal">
+            <span class="eyebrow">About Durham PrEP Clinic</span>
+            <h2 class="section-title">Care that feels elevated, human, and safe.</h2>
+            <p>
+              At DURHAM PrEP CLINIC, in affiliation with HealRx Medical Clinic and Pharmacy Ltd.,
+              we believe sexual health care should feel empowering, not cold, awkward or intimidating.
+            </p>
+            <p>
+              Whether someone is exploring PrEP, needs urgent PEP screening, or wants STI-related
+              support, the experience should feel respectful, informed and clear.
+            </p>
+          </div>
 
-</div>
-</section>
+          <div class="feature-stack reveal">
+            <div class="feature">
+              <h4>For every kind of patient</h4>
+              <p>PrEP and sexual health support are not limited to one community. We welcome all adults seeking safer care.</p>
+            </div>
+            <div class="feature">
+              <h4>Private by design</h4>
+              <p>These conversations can feel personal. The experience should reduce discomfort, not add to it.</p>
+            </div>
+            <div class="feature">
+              <h4>Modern access to care</h4>
+              <p>Screening, consultation, clinic guidance and pharmacy support work together in one connected experience.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<!-- BOOK -->
-<section id="book" class="section">
-<div class="card">
-<h2>Book Appointment</h2>
-<a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="btn">Book PrEP</a>
-<a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="btn" style="background:var(--red); color:white;">Book PEP</a>
-</div>
-</section>
+    <section class="section services" id="services">
+      <div class="container">
+        <span class="eyebrow reveal">Services</span>
+        <h2 class="section-title reveal">Protection, prevention, and peace of mind.</h2>
+        <p class="section-copy reveal">
+          Designed for patients who want thoughtful, discreet and practical support for sexual health.
+        </p>
 
-<!-- FORM -->
-<form id="form" action="https://formspree.io/f/mreopjbg" method="POST" style="display:none;">
-<input name="name" id="f_name">
-<input name="contact" id="f_contact">
-<input name="risk" id="f_risk">
-</form>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-number">01</div>
+            <h3>PrEP Care</h3>
+            <p>Support for patients interested in HIV prevention through proactive ongoing protection.</p>
+            <ul>
+              <li>PrEP screening and assessment</li>
+              <li>Education and follow-up support</li>
+              <li>Medication access guidance</li>
+              <li>Clinic and pharmacy coordination</li>
+            </ul>
+          </article>
 
-<script>
-function runPrep(){
-let boxes=document.querySelectorAll('.prep');
-let count=[...boxes].filter(b=>b.checked).length;
-let r=document.getElementById("prepResult");
+          <article class="card reveal">
+            <div class="card-number">02</div>
+            <h3>PEP Support</h3>
+            <p>Rapid guidance after a potential HIV exposure, because timing matters.</p>
+            <ul>
+              <li>Urgent exposure review</li>
+              <li>Time-sensitive support</li>
+              <li>Clear next-step planning</li>
+              <li>Confidential care pathway</li>
+            </ul>
+          </article>
 
-if(count===0) r.innerHTML="Low risk — consult recommended.";
-else if(count<=2) r.innerHTML="You may benefit from PrEP.";
-else r.innerHTML="PrEP strongly recommended.";
+          <article class="card reveal">
+            <div class="card-number">03</div>
+            <h3>STI Services</h3>
+            <p>Respectful testing and treatment options for patients who want answers and support.</p>
+            <ul>
+              <li>STI screening support</li>
+              <li>Treatment planning</li>
+              <li>Prevention counselling</li>
+              <li>Confidential follow-up care</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
 
-r.classList.add("show");
-}
+    <section class="section quiz-section" id="screening">
+      <div class="container">
+        <span class="eyebrow reveal">Screening Questionnaires</span>
+        <h2 class="section-title reveal">PrEP and PEP screening with built-in risk calculation.</h2>
+        <p class="section-copy reveal">
+          These tools help patients understand their next step. They do not replace a clinical assessment.
+        </p>
 
-function runPep(){
-let name=document.getElementById("name").value;
-let contact=document.getElementById("contact").value;
+        <div class="quiz-shell reveal">
+          <div class="quiz-tabs">
+            <button class="quiz-tab active" data-target="prep-panel">PrEP Screening</button>
+            <button class="quiz-tab" data-target="pep-panel">PEP Screening</button>
+          </div>
 
-if(!name||!contact){alert("Enter your info");return;}
+          <div class="quiz-panel active" id="prep-panel">
+            <p class="quiz-intro">
+              Use this questionnaire to identify whether a patient may benefit from a PrEP consultation.
+            </p>
 
-let q1=document.getElementById("q1").checked;
-let q2=document.getElementById("q2").checked;
-let q3=document.getElementById("q3").checked;
-let q4=document.getElementById("q4").checked;
-let q5=document.getElementById("q5").checked;
+            <div class="disclaimer">
+              This is a screening tool only and is not a diagnosis. A final decision should always be made by a licensed clinician after reviewing the full clinical picture.
+            </div>
 
-let r=document.getElementById("pepResult");
-let msg="",risk="";
+            <form id="prepForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="prepPartners">In the last 6 months, has the patient had more than one sexual partner?</label>
+                  <select id="prepPartners" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
-if(q5&&q4){msg="URGENT: Seek PEP immediately.";risk="HIGH";}
-else if(q4&&(q2||q3)){msg="High risk — start PEP ASAP.";risk="HIGH";}
-else if(q4){msg="Moderate risk — act quickly.";risk="MODERATE";}
-else if(!q4&&(q2||q3)){msg="Outside window — follow up.";risk="OUTSIDE";}
-else{msg="Lower risk — consult recommended.";risk="LOW";}
+                <div class="field">
+                  <label for="prepUnknownStatus">Has the patient had sex with a partner whose HIV status was unknown?</label>
+                  <select id="prepUnknownStatus" required>
+                    <option value="">Select</option>
+                    <option value="3">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
-r.innerHTML=msg+"<br><br><a href='https://calendly.com/clinic-healrx/hiv-pep-urgent-consult'>Book now</a>";
-r.classList.add("show");
+                <div class="field">
+                  <label for="prepCondomless">Has the patient had condomless vaginal or anal sex recently?</label>
+                  <select id="prepCondomless" required>
+                    <option value="">Select</option>
+                    <option value="3">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
-document.getElementById("f_name").value=name;
-document.getElementById("f_contact").value=contact;
-document.getElementById("f_risk").value=risk;
+                <div class="field">
+                  <label for="prepSti">Has the patient had an STI diagnosis in the last 12 months?</label>
+                  <select id="prepSti" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
-document.getElementById("form").submit();
-}
-</script>
+                <div class="field">
+                  <label for="prepHivPositivePartner">Does the patient have a sexual partner living with HIV, or a partner with unclear treatment/viral suppression status?</label>
+                  <select id="prepHivPositivePartner" required>
+                    <option value="">Select</option>
+                    <option value="4">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
 
+                <div class="field">
+                  <label for="prepInjection">Has the patient shared needles or injection equipment?</label>
+                  <select id="prepInjection" required>
+                    <option value="">Select</option>
+                    <option value="4">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="prepHousing">Is the patient in a situation that may increase exposure risk, such as unstable housing, shared living, or other higher-risk circumstances?</label>
+                  <select id="prepHousing" required>
+                    <option value="">Select</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="prepConcern">Does the patient personally feel they are at ongoing risk and wants extra protection?</label>
+                  <select id="prepConcern" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="prepNotes">Additional notes</label>
+                  <textarea id="prepNotes" placeholder="Optional notes..."></textarea>
+                </div>
+              </div>
+
+              <div class="quiz-actions">
+                <button type="submit" class="btn btn-primary">Calculate PrEP Risk</button>
+                <button type="button" class="btn btn-light" onclick="resetPrep()">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" id="prepResult"></div>
+          </div>
+
+          <div class="quiz-panel" id="pep-panel">
+            <p class="quiz-intro">
+              Use this screening tool to identify whether a patient may need urgent PEP assessment after a recent exposure.
+            </p>
+
+            <div class="disclaimer">
+              PEP is time-sensitive. This screen helps guide urgency but does not replace clinician review.
+            </div>
+
+            <form id="pepForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="pepHours">Did the possible exposure happen within the last 72 hours?</label>
+                  <select id="pepHours" required>
+                    <option value="">Select</option>
+                    <option value="within72">Yes, within 72 hours</option>
+                    <option value="over72">No, more than 72 hours ago</option>
+                    <option value="unsure">Not sure</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepExposureType">Type of possible exposure</label>
+                  <select id="pepExposureType" required>
+                    <option value="">Select</option>
+                    <option value="sexual">Sexual exposure</option>
+                    <option value="needle">Shared needle / injection equipment</option>
+                    <option value="blood">Blood or body fluid exposure</option>
+                    <option value="other">Other / unsure</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepPartnerStatus">Was the source partner HIV positive or of unknown status?</label>
+                  <select id="pepPartnerStatus" required>
+                    <option value="">Select</option>
+                    <option value="high">Yes</option>
+                    <option value="moderate">Unknown</option>
+                    <option value="low">No / known negative</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepCondomBreak">Was there condomless sex or condom failure?</label>
+                  <select id="pepCondomBreak" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepAnalVaginal">Did the exposure involve vaginal or anal sex, or direct blood exposure?</label>
+                  <select id="pepAnalVaginal" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepVisibleBlood">Was visible blood involved?</label>
+                  <select id="pepVisibleBlood" required>
+                    <option value="">Select</option>
+                    <option value="2">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepSharedEquipment">Was injection equipment shared?</label>
+                  <select id="pepSharedEquipment" required>
+                    <option value="">Select</option>
+                    <option value="3">Yes</option>
+                    <option value="0">No</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="pepSymptoms">Is the patient mainly seeking reassurance after a lower-risk or uncertain event?</label>
+                  <select id="pepSymptoms" required>
+                    <option value="">Select</option>
+                    <option value="reassurance">Yes</option>
+                    <option value="concerned">No / exposure seems significant</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="pepNotes">Additional notes</label>
+                  <textarea id="pepNotes" placeholder="Optional notes..."></textarea>
+                </div>
+              </div>
+
+              <div class="quiz-actions">
+                <button type="submit" class="btn btn-primary">Calculate PEP Urgency</button>
+                <button type="button" class="btn btn-light" onclick="resetPep()">Reset</button>
+              </div>
+            </form>
+
+            <div class="result-box" id="pepResult"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div class="cta-content">
+            <div>
+              <span class="eyebrow" style="color:#dbc39d;">Private support starts here</span>
+              <h2>Luxury in experience. Serious in care. Human at every step.</h2>
+              <p>
+                Whether someone needs prevention, urgent screening, or next-step guidance,
+                DURHAM PrEP CLINIC is here to help with respectful, confidential care.
+              </p>
+            </div>
+
+            <div class="cta-actions">
+              <a href="#contact" class="btn btn-primary">Book Now</a>
+              <a href="tel:9054200441" class="btn btn-secondary">Call 905-420-0441</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <span class="eyebrow reveal">Contact</span>
+        <h2 class="section-title reveal">Let’s make care easier to access.</h2>
+        <p class="section-copy reveal">
+          Reach out to DURHAM PrEP CLINIC in affiliation with HealRx Medical Clinic and Pharmacy Ltd.
+          for confidential and supportive sexual health care.
+        </p>
+
+        <div class="contact-grid">
+          <div class="contact-card reveal">
+            <h3>Clinic Details</h3>
+            <p>Private, respectful care in a professional environment designed to make patients feel comfortable, informed and supported.</p>
+
+            <div class="contact-info">
+              <div>
+                <strong>Location</strong>
+                <span>1550 Bayly Street, Pickering, ON, L1W 3W1</span>
+              </div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:9054200441">905-420-0441</a>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:clinic.healrx@gmail.com">clinic.healrx@gmail.com</a>
+              </div>
+              <div>
+                <strong>Affiliation</strong>
+                <span>HealRx Medical Clinic and Pharmacy Ltd.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card reveal">
+            <h3>Request a Confidential Consultation</h3>
+            <p>Use the screening tool above, then reach out for a clinical review and next steps.</p>
+
+            <form action="https://formspree.io/f/mreopjbg" method="POST">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="contactName">Full name</label>
+                  <input id="contactName" name="name" type="text" required />
+                </div>
+
+                <div class="field">
+                  <label for="contactEmail">Email address</label>
+                  <input id="contactEmail" name="email" type="email" required />
+                </div>
+
+                <div class="field">
+                  <label for="contactPhone">Phone number</label>
+                  <input id="contactPhone" name="phone" type="tel" />
+                </div>
+
+                <div class="field">
+                  <label for="contactService">Service needed</label>
+                  <select id="contactService" name="service">
+                    <option value="">Select</option>
+                    <option>PrEP consultation</option>
+                    <option>PEP urgent assessment</option>
+                    <option>STI testing / treatment</option>
+                    <option>General inquiry</option>
+                  </select>
+                </div>
+
+                <div class="field full">
+                  <label for="contactMessage">Message</label>
+                  <textarea id="contactMessage" name="message" placeholder="Tell us how we can help..."></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New Durham PrEP Clinic Contact Form Submission" />
+                <input type="hidden" name="_captcha" value="false" />
+              </div>
+
+              <div class="quiz-actions">
+                <button type="submit" class="btn btn-primary">Send Request</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">DURHAM PrEP CLINIC</div>
+          <div class="footer-copy">
+            In affiliation with HealRx Medical Clinic and Pharmacy Ltd. Premium, private
+            PrEP, PEP, STI and pharmacy support for patients who want thoughtful care without stigma.
+          </div>
+        </div>
+        <div class="footer-copy">© <span id="year"></span> DURHAM PrEP CLINIC. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const nav = document.getElementById("nav");
+
+    if (menuToggle) {
+      menuToggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => nav.classList.remove("open"));
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add("show");
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    const quizTabs = document.querySelectorAll(".quiz-tab");
+    const quizPanels = document.querySelectorAll(".quiz-panel");
+
+    quizTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        quizTabs.forEach(t => t.classList.remove("active"));
+        quizPanels.forEach(panel => panel.classList.remove("active"));
+        tab.classList.add("active");
+        document.getElementById(tab.dataset.target).classList.add("active");
+      });
+    });
+
+    function buildResultHTML(level, title, summary, bullets, contactText) {
+      return `
+        <span class="result-badge ${level}">${level} ${level === "high" ? "priority" : "risk"}</span>
+        <h4>${title}</h4>
+        <p>${summary}</p>
+        <ul>
+          ${bullets.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+        <p style="margin-top:14px;"><strong>${contactText}</strong></p>
+      `;
+    }
+
+    document.getElementById("prepForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const values = [
+        Number(document.getElementById("prepPartners").value || 0),
+        Number(document.getElementById("prepUnknownStatus").value || 0),
+        Number(document.getElementById("prepCondomless").value || 0),
+        Number(document.getElementById("prepSti").value || 0),
+        Number(document.getElementById("prepHivPositivePartner").value || 0),
+        Number(document.getElementById("prepInjection").value || 0),
+        Number(document.getElementById("prepHousing").value || 0),
+        Number(document.getElementById("prepConcern").value || 0)
+      ];
+
+      const score = values.reduce((a, b) => a + b, 0);
+      const result = document.getElementById("prepResult");
+
+      let level = "low";
+      let title = "Lower current PrEP screening score";
+      let summary = "Based on these responses, the patient may not show strong screening indicators for ongoing HIV exposure risk at this time.";
+      let bullets = [
+        "A clinician should still review the full history and context.",
+        "Continue prevention counselling and safer-sex discussion.",
+        "Encourage reassessment if circumstances change."
+      ];
+      let contactText = "Book a consultation if the patient wants a more personalized prevention review.";
+
+      if (score >= 6 && score <= 10) {
+        level = "moderate";
+        title = "Moderate PrEP screening score";
+        summary = "Based on the responses, the patient may benefit from a PrEP consultation to review ongoing risk and suitability.";
+        bullets = [
+          "A clinical review is recommended.",
+          "Discuss current sexual and exposure patterns in more detail.",
+          "Review STI history, partner status and prevention goals."
+        ];
+        contactText = "Recommended next step: book a PrEP consultation with the clinic.";
+      }
+
+      if (score >= 11) {
+        level = "high";
+        title = "Higher PrEP screening score";
+        summary = "Based on these answers, the patient appears more likely to benefit from a PrEP consultation and formal clinical assessment.";
+        bullets = [
+          "The patient may be a good candidate for prevention-focused review.",
+          "A clinician should assess ongoing exposure risk and suitability for PrEP.",
+          "Discuss testing, baseline workup and medication planning."
+        ];
+        contactText = "Recommended next step: arrange a PrEP appointment with DURHAM PrEP CLINIC.";
+      }
+
+      result.innerHTML = buildResultHTML(level, title, summary, bullets, contactText);
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    document.getElementById("pepForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const within72 = document.getElementById("pepHours").value;
+      const exposureType = document.getElementById("pepExposureType").value;
+      const partnerStatus = document.getElementById("pepPartnerStatus").value;
+      const condomBreak = Number(document.getElementById("pepCondomBreak").value || 0);
+      const analVaginal = Number(document.getElementById("pepAnalVaginal").value || 0);
+      const visibleBlood = Number(document.getElementById("pepVisibleBlood").value || 0);
+      const sharedEquipment = Number(document.getElementById("pepSharedEquipment").value || 0);
+      const reassurance = document.getElementById("pepSymptoms").value;
+      const result = document.getElementById("pepResult");
+
+      let score = condomBreak + analVaginal + visibleBlood + sharedEquipment;
+
+      if (partnerStatus === "high") score += 4;
+      if (partnerStatus === "moderate") score += 2;
+      if (exposureType === "needle") score += 3;
+      if (exposureType === "blood") score += 2;
+      if (reassurance === "concerned") score += 1;
+
+      let level = "low";
+      let title = "Lower PEP urgency screen";
+      let summary = "Based on the information entered, this does not appear to be a stronger PEP screen, but a clinician should still review the exposure details.";
+      let bullets = [
+        "Review the exact event and timing carefully.",
+        "Consider STI screening or reassurance counselling as appropriate.",
+        "Seek clinician input if there is uncertainty."
+      ];
+      let contactText = "If the patient is unsure, contact the clinic for further review.";
+
+      if (within72 === "over72") {
+        level = "moderate";
+        title = "Possible exposure, but outside the usual urgent PEP window";
+        summary = "The reported event was more than 72 hours ago, so urgent PEP may be less likely to be appropriate, but follow-up assessment is still important.";
+        bullets = [
+          "Review the exact timing with a clinician.",
+          "Discuss HIV testing and follow-up planning.",
+          "Assess STI risk and other prevention needs, including future PrEP."
+        ];
+        contactText = "Recommended next step: book follow-up assessment with the clinic as soon as possible.";
+      } else if (within72 === "within72" && score >= 7) {
+        level = "high";
+        title = "High-priority PEP screening result";
+        summary = "This screening suggests the patient may need urgent clinical review for possible PEP eligibility.";
+        bullets = [
+          "Possible exposure appears recent and potentially significant.",
+          "Timing matters and urgent assessment is recommended.",
+          "Do not delay clinical review when exposure may be within the 72-hour window."
+        ];
+        contactText = "Recommended next step: contact DURHAM PrEP CLINIC immediately for urgent PEP assessment.";
+      } else if ((within72 === "within72" && score >= 4) || within72 === "unsure") {
+        level = "moderate";
+        title = "Moderate PEP urgency screen";
+        summary = "The patient may still need timely review depending on the exact exposure details and timing.";
+        bullets = [
+          "Clarify what happened, with whom, and exactly when.",
+          "Partner status and exposure type should be reviewed in detail.",
+          "A clinician should determine whether urgent treatment is appropriate."
+        ];
+        contactText = "Recommended next step: contact the clinic promptly for further assessment.";
+      }
+
+      result.innerHTML = buildResultHTML(level, title, summary, bullets, contactText);
+      result.classList.add("show");
+      result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+
+    function resetPrep() {
+      document.getElementById("prepForm").reset();
+      const result = document.getElementById("prepResult");
+      result.classList.remove("show");
+      result.innerHTML = "";
+    }
+
+    function resetPep() {
+      document.getElementById("pepForm").reset();
+      const result = document.getElementById("pepResult");
+      result.classList.remove("show");
+      result.innerHTML = "";
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
