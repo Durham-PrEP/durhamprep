@@ -17,23 +17,25 @@
 
   <style>
     :root {
-      --navy: #08192d;
-      --navy-2: #102743;
-      --gold: #b89257;
-      --gold-deep: #8f6b34;
-      --slate: #617082;
-      --cream: #fbf8f2;
-      --soft: #f5f1e8;
+      --ink: #3f3128;
+      --ink-soft: #6e5b4f;
+      --espresso: #5a4334;
+      --rosewood: #8a6450;
+      --sand: #efe2d4;
+      --linen: #f8f1e8;
+      --cream: #fcf7f1;
       --white: #ffffff;
-      --line: rgba(8, 25, 45, 0.09);
-      --shadow: 0 18px 50px rgba(8, 25, 45, 0.08);
-      --shadow-lg: 0 25px 70px rgba(8, 25, 45, 0.18);
+      --gold: #c59a63;
+      --gold-deep: #9d7442;
+      --line: rgba(90, 67, 52, 0.12);
+      --shadow: 0 18px 45px rgba(90, 67, 52, 0.08);
+      --shadow-lg: 0 24px 65px rgba(90, 67, 52, 0.14);
+      --danger: #b34f4f;
+      --success: #4f7a61;
+      --warn: #9a7945;
       --radius: 24px;
       --max: 1240px;
-      --transition: 0.3s ease;
-      --danger: #b33a3a;
-      --success: #1f6b4f;
-      --warn: #8a6a13;
+      --transition: 0.28s ease;
     }
 
     * {
@@ -48,8 +50,8 @@
 
     body {
       font-family: "Inter", sans-serif;
-      background: linear-gradient(to bottom, #fdfcf9 0%, #f6f2ea 100%);
-      color: var(--navy);
+      background: linear-gradient(to bottom, #fdf9f4 0%, #f7efe5 100%);
+      color: var(--ink);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
@@ -58,11 +60,6 @@
     a {
       text-decoration: none;
       color: inherit;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
     }
 
     .container {
@@ -94,7 +91,7 @@
     }
 
     .section-copy {
-      color: var(--slate);
+      color: var(--ink-soft);
       max-width: 780px;
       font-size: 1.04rem;
     }
@@ -114,9 +111,9 @@
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--gold) 0%, #d6b886 100%);
-      color: var(--navy);
-      box-shadow: 0 14px 30px rgba(184, 146, 87, 0.25);
+      background: linear-gradient(135deg, var(--gold) 0%, #ddb17a 100%);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(197, 154, 99, 0.24);
     }
 
     .btn-primary:hover {
@@ -124,20 +121,20 @@
     }
 
     .btn-secondary {
-      background: transparent;
-      border-color: rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.24);
       color: var(--white);
       backdrop-filter: blur(8px);
     }
 
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.18);
     }
 
     .btn-light {
       background: var(--white);
-      color: var(--navy);
-      border: 1px solid rgba(8,25,45,0.08);
+      color: var(--ink);
+      border: 1px solid rgba(90, 67, 52, 0.1);
     }
 
     .btn-light:hover {
@@ -150,8 +147,8 @@
       top: 0;
       z-index: 1000;
       backdrop-filter: blur(12px);
-      background: rgba(251, 248, 242, 0.84);
-      border-bottom: 1px solid rgba(8, 25, 45, 0.06);
+      background: rgba(252, 247, 241, 0.85);
+      border-bottom: 1px solid rgba(90, 67, 52, 0.06);
     }
 
     .nav {
@@ -173,7 +170,7 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 1.95rem;
       font-weight: 700;
-      color: var(--navy);
+      color: var(--ink);
       text-transform: uppercase;
     }
 
@@ -225,18 +222,18 @@
       border: none;
       font-size: 1.75rem;
       cursor: pointer;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 10% 20%, rgba(184,146,87,0.16), transparent 28%),
-        radial-gradient(circle at 90% 15%, rgba(255,255,255,0.16), transparent 20%),
-        linear-gradient(135deg, #08192d 0%, #102743 55%, #173b61 100%);
+        radial-gradient(circle at 10% 20%, rgba(221, 177, 122, 0.20), transparent 28%),
+        radial-gradient(circle at 90% 15%, rgba(255,255,255,0.10), transparent 20%),
+        linear-gradient(135deg, #6c4d3e 0%, #8a6450 50%, #b48a73 100%);
       color: var(--white);
-      min-height: calc(100vh - 84px);
+      min-height: calc(92vh - 84px);
       display: flex;
       align-items: center;
     }
@@ -246,8 +243,8 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+        linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px);
       background-size: 48px 48px;
       opacity: 0.08;
       pointer-events: none;
@@ -257,19 +254,20 @@
       position: relative;
       z-index: 1;
       display: grid;
-      grid-template-columns: 1.06fr 0.94fr;
-      gap: 48px;
+      grid-template-columns: 1fr;
+      gap: 24px;
       align-items: center;
-      padding: 84px 0;
+      padding: 92px 0;
+      max-width: 820px;
     }
 
     .hero .eyebrow {
-      color: #dbc39d;
+      color: #f6dfc1;
     }
 
     .hero-title {
       font-family: "Cormorant Garamond", serif;
-      font-size: clamp(3rem, 6.2vw, 5.8rem);
+      font-size: clamp(3rem, 6.2vw, 5.9rem);
       line-height: 0.9;
       letter-spacing: -0.03em;
       font-weight: 600;
@@ -277,8 +275,8 @@
     }
 
     .hero-text {
-      max-width: 700px;
-      color: rgba(255,255,255,0.82);
+      max-width: 740px;
+      color: rgba(255,255,255,0.88);
       font-size: 1.08rem;
       margin-bottom: 32px;
     }
@@ -301,62 +299,72 @@
       align-items: center;
       gap: 8px;
       padding: 11px 16px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.14);
       border-radius: 999px;
       font-size: 0.9rem;
-      color: rgba(255,255,255,0.92);
+      color: rgba(255,255,255,0.96);
     }
 
-    .hero-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(16px);
-      border-radius: 32px;
-      padding: 32px;
+    .intro-card-section {
+      padding: 42px 0 10px;
+      background: transparent;
+    }
+
+    .intro-card {
+      background: linear-gradient(180deg, #fffaf4 0%, #fff 100%);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 34px;
       box-shadow: var(--shadow-lg);
+      max-width: 900px;
+      margin: 0 auto;
     }
 
-    .hero-card h3 {
+    .intro-card h3 {
       font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
+      font-size: 2.15rem;
       margin-bottom: 12px;
       font-weight: 600;
+      color: var(--espresso);
     }
 
-    .hero-card p {
-      color: rgba(255,255,255,0.82);
+    .intro-card p {
+      color: var(--ink-soft);
       margin-bottom: 22px;
     }
 
-    .hero-list {
+    .intro-list {
       display: grid;
       gap: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 10px;
     }
 
-    .hero-list-item {
+    .intro-list-item {
       padding: 16px 18px;
-      background: rgba(255,255,255,0.08);
+      background: #fff8f0;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(157, 116, 66, 0.14);
     }
 
-    .hero-list-item strong {
+    .intro-list-item strong {
       display: block;
       margin-bottom: 4px;
       font-size: 0.98rem;
+      color: var(--espresso);
     }
 
-    .hero-list-item span {
+    .intro-list-item span {
       font-size: 0.92rem;
-      color: rgba(255,255,255,0.78);
+      color: var(--ink-soft);
     }
 
     .trust-bar {
-      background: var(--white);
+      background: rgba(255,255,255,0.82);
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
+      margin-top: 36px;
     }
 
     .trust-grid {
@@ -375,10 +383,11 @@
       display: block;
       font-size: 1rem;
       margin-bottom: 4px;
+      color: var(--espresso);
     }
 
     .trust-item span {
-      color: var(--slate);
+      color: var(--ink-soft);
       font-size: 0.93rem;
     }
 
@@ -398,7 +407,7 @@
     }
 
     .panel p {
-      color: var(--slate);
+      color: var(--ink-soft);
       margin-bottom: 14px;
     }
 
@@ -408,8 +417,8 @@
     }
 
     .feature {
-      background: linear-gradient(180deg, #fff 0%, #fbfaf7 100%);
-      border: 1px solid rgba(8,25,45,0.08);
+      background: linear-gradient(180deg, #fff 0%, #fff7ee 100%);
+      border: 1px solid rgba(157, 116, 66, 0.11);
       border-radius: 20px;
       padding: 22px;
     }
@@ -417,15 +426,16 @@
     .feature h4 {
       margin-bottom: 8px;
       font-size: 1.05rem;
+      color: var(--espresso);
     }
 
     .feature p {
-      color: var(--slate);
+      color: var(--ink-soft);
       font-size: 0.96rem;
     }
 
     .services {
-      background: linear-gradient(to bottom, #f7f3ec 0%, #fcfbf8 100%);
+      background: linear-gradient(to bottom, #f8efe4 0%, #fcf7f1 100%);
     }
 
     .cards {
@@ -454,7 +464,7 @@
       display: grid;
       place-items: center;
       border-radius: 50%;
-      background: rgba(184,146,87,0.14);
+      background: rgba(197, 154, 99, 0.14);
       color: var(--gold-deep);
       font-weight: 700;
       margin-bottom: 18px;
@@ -465,10 +475,11 @@
       font-size: 1.9rem;
       font-weight: 600;
       margin-bottom: 12px;
+      color: var(--espresso);
     }
 
     .card p {
-      color: var(--slate);
+      color: var(--ink-soft);
       margin-bottom: 18px;
       font-size: 0.96rem;
     }
@@ -511,7 +522,7 @@
       display: flex;
       flex-wrap: wrap;
       border-bottom: 1px solid var(--line);
-      background: #f8f4ec;
+      background: #f7ede2;
     }
 
     .quiz-tab {
@@ -521,7 +532,7 @@
       background: transparent;
       cursor: pointer;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--ink);
       transition: var(--transition);
       border-bottom: 2px solid transparent;
     }
@@ -542,7 +553,7 @@
     }
 
     .quiz-intro {
-      color: var(--slate);
+      color: var(--ink-soft);
       margin-bottom: 24px;
       max-width: 860px;
     }
@@ -550,9 +561,9 @@
     .disclaimer {
       padding: 16px 18px;
       border-radius: 16px;
-      background: #fbfaf7;
-      border: 1px solid rgba(8,25,45,0.08);
-      color: var(--slate);
+      background: #fff8f1;
+      border: 1px solid rgba(157, 116, 66, 0.12);
+      color: var(--ink-soft);
       margin-bottom: 22px;
       font-size: 0.93rem;
     }
@@ -566,43 +577,84 @@
     .field {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
+      background: #fffaf5;
+      border: 1px solid rgba(157, 116, 66, 0.10);
+      border-radius: 20px;
+      padding: 18px;
     }
 
     .field.full {
       grid-column: 1 / -1;
+      background: transparent;
+      border: none;
+      padding: 0;
     }
 
     .field label {
-      font-size: 0.92rem;
+      font-size: 0.95rem;
       font-weight: 600;
-      color: var(--navy);
+      color: var(--espresso);
+      line-height: 1.45;
     }
 
-    select,
     input,
     textarea {
       width: 100%;
-      border: 1px solid rgba(8,25,45,0.12);
+      border: 1px solid rgba(90, 67, 52, 0.12);
       background: var(--white);
       border-radius: 16px;
       padding: 14px 15px;
       font: inherit;
-      color: var(--navy);
+      color: var(--ink);
       transition: var(--transition);
       outline: none;
     }
 
-    select:focus,
     input:focus,
     textarea:focus {
-      border-color: rgba(184,146,87,0.85);
-      box-shadow: 0 0 0 4px rgba(184,146,87,0.12);
+      border-color: rgba(197, 154, 99, 0.9);
+      box-shadow: 0 0 0 4px rgba(197, 154, 99, 0.12);
     }
 
     textarea {
       resize: vertical;
       min-height: 120px;
+    }
+
+    .choice-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .choice-btn {
+      border: 1px solid rgba(157, 116, 66, 0.16);
+      background: #fff;
+      color: var(--ink);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: var(--transition);
+      min-width: 88px;
+    }
+
+    .choice-btn:hover {
+      border-color: var(--gold);
+      background: #fff6ea;
+    }
+
+    .choice-btn.active {
+      background: linear-gradient(135deg, var(--gold) 0%, #ddb17a 100%);
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 10px 20px rgba(197, 154, 99, 0.20);
+    }
+
+    .choice-input {
+      display: none;
     }
 
     .quiz-actions {
@@ -617,7 +669,7 @@
       padding: 24px;
       border-radius: 20px;
       border: 1px solid var(--line);
-      background: #fcfbf8;
+      background: #fffaf5;
       display: none;
     }
 
@@ -639,17 +691,17 @@
     }
 
     .result-badge.low {
-      background: rgba(31,107,79,0.12);
+      background: rgba(79,122,97,0.12);
       color: var(--success);
     }
 
     .result-badge.moderate {
-      background: rgba(138,106,19,0.14);
+      background: rgba(154,121,69,0.14);
       color: var(--warn);
     }
 
     .result-badge.high {
-      background: rgba(179,58,58,0.12);
+      background: rgba(179,79,79,0.12);
       color: var(--danger);
     }
 
@@ -658,17 +710,18 @@
       font-size: 2rem;
       margin-bottom: 10px;
       line-height: 1;
+      color: var(--espresso);
     }
 
     .result-box p {
-      color: var(--slate);
+      color: var(--ink-soft);
       margin-bottom: 10px;
     }
 
     .result-box ul {
       margin-top: 12px;
       padding-left: 18px;
-      color: var(--navy);
+      color: var(--ink);
     }
 
     .contact-grid {
@@ -692,11 +745,12 @@
       font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
       margin-bottom: 14px;
+      color: var(--espresso);
     }
 
     .contact-card p,
     .form-card p {
-      color: var(--slate);
+      color: var(--ink-soft);
       margin-bottom: 18px;
     }
 
@@ -709,8 +763,8 @@
     .contact-info div {
       padding: 16px 18px;
       border-radius: 18px;
-      background: #fbfaf7;
-      border: 1px solid rgba(8,25,45,0.06);
+      background: #fff8f0;
+      border: 1px solid rgba(157, 116, 66, 0.10);
     }
 
     .contact-info strong {
@@ -719,11 +773,12 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-size: 0.9rem;
+      color: var(--espresso);
     }
 
     .contact-info span,
     .contact-info a {
-      color: var(--slate);
+      color: var(--ink-soft);
       font-size: 0.97rem;
       word-break: break-word;
     }
@@ -738,8 +793,8 @@
       position: relative;
       padding: 56px 50px;
       background:
-        radial-gradient(circle at top right, rgba(184,146,87,0.18), transparent 25%),
-        linear-gradient(135deg, #08192d 0%, #102743 60%, #173c63 100%);
+        radial-gradient(circle at top right, rgba(221,177,122,0.18), transparent 25%),
+        linear-gradient(135deg, #6c4d3e 0%, #8a6450 60%, #b48a73 100%);
       color: var(--white);
       box-shadow: var(--shadow-lg);
     }
@@ -774,7 +829,7 @@
     }
 
     .cta p {
-      color: rgba(255,255,255,0.82);
+      color: rgba(255,255,255,0.88);
       max-width: 720px;
     }
 
@@ -786,8 +841,8 @@
     }
 
     footer {
-      background: var(--navy);
-      color: rgba(255,255,255,0.82);
+      background: #5b4435;
+      color: rgba(255,255,255,0.86);
       padding: 38px 0;
       margin-top: 40px;
     }
@@ -824,7 +879,6 @@
     }
 
     @media (max-width: 1080px) {
-      .hero-grid,
       .split,
       .cta-content,
       .contact-grid {
@@ -914,12 +968,21 @@
       .card,
       .contact-card,
       .form-card,
-      .quiz-panel {
+      .quiz-panel,
+      .intro-card {
         padding: 24px;
       }
 
       .hero-title {
         font-size: clamp(2.5rem, 14vw, 4.2rem);
+      }
+
+      .choice-group {
+        flex-direction: column;
+      }
+
+      .choice-btn {
+        width: 100%;
       }
     }
   </style>
@@ -974,29 +1037,35 @@
               <span>✔ Clinic + pharmacy support</span>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="hero-card reveal">
-            <h3>Your health. Your privacy. Your choice.</h3>
-            <p>
-              Sexual health protection is not for one type of person. It is for anyone
-              who wants prevention, clarity and support without shame.
-            </p>
+    <section class="intro-card-section">
+      <div class="container">
+        <div class="intro-card reveal">
+          <h3>Your health. Your privacy. Your choice.</h3>
+          <p>
+            Sexual health protection is not for one type of person. It is for anyone
+            who wants prevention, clarity and support without shame.
+          </p>
 
-            <div class="hero-list">
-              <div class="hero-list-item">
-                <strong>PrEP Screening</strong>
-                <span>Quick risk review for patients considering prevention before exposure.</span>
-              </div>
-              <div class="hero-list-item">
-                <strong>PEP Urgency Screening</strong>
-                <span>Rapid review for recent exposures where timing matters.</span>
-              </div>
-              <div class="hero-list-item">
-                <strong>Confidential Follow-Up</strong>
-                <span>Book with the clinic after your result for the right next step.</span>
-              </div>
+          <div class="intro-list">
+            <div class="intro-list-item">
+              <strong>PrEP Screening</strong>
+              <span>Quick risk review for patients considering prevention before exposure.</span>
             </div>
+            <div class="intro-list-item">
+              <strong>PEP Urgency Screening</strong>
+              <span>Rapid review for recent exposures where timing matters.</span>
+            </div>
+            <div class="intro-list-item">
+              <strong>Confidential Follow-Up</strong>
+              <span>Book with the clinic after your result for the right next step.</span>
+            </div>
+          </div>
 
+          <div style="margin-top:22px;">
             <a href="#screening" class="btn btn-primary">Begin Assessment</a>
           </div>
         </div>
@@ -1134,75 +1203,75 @@
             <form id="prepForm">
               <div class="form-grid">
                 <div class="field">
-                  <label for="prepPartners">In the last 6 months, has the patient had more than one sexual partner?</label>
-                  <select id="prepPartners" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>In the last 6 months, has the patient had more than one sexual partner?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepPartners" value="">
+                    <button type="button" class="choice-btn" data-target="prepPartners" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepPartners" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepUnknownStatus">Has the patient had sex with a partner whose HIV status was unknown?</label>
-                  <select id="prepUnknownStatus" required>
-                    <option value="">Select</option>
-                    <option value="3">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Has the patient had sex with a partner whose HIV status was unknown?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepUnknownStatus" value="">
+                    <button type="button" class="choice-btn" data-target="prepUnknownStatus" data-value="3">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepUnknownStatus" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepCondomless">Has the patient had condomless vaginal or anal sex recently?</label>
-                  <select id="prepCondomless" required>
-                    <option value="">Select</option>
-                    <option value="3">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Has the patient had condomless vaginal or anal sex recently?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepCondomless" value="">
+                    <button type="button" class="choice-btn" data-target="prepCondomless" data-value="3">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepCondomless" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepSti">Has the patient had an STI diagnosis in the last 12 months?</label>
-                  <select id="prepSti" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Has the patient had an STI diagnosis in the last 12 months?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepSti" value="">
+                    <button type="button" class="choice-btn" data-target="prepSti" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepSti" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepHivPositivePartner">Does the patient have a sexual partner living with HIV, or a partner with unclear treatment/viral suppression status?</label>
-                  <select id="prepHivPositivePartner" required>
-                    <option value="">Select</option>
-                    <option value="4">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Does the patient have a sexual partner living with HIV, or a partner with unclear treatment/viral suppression status?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepHivPositivePartner" value="">
+                    <button type="button" class="choice-btn" data-target="prepHivPositivePartner" data-value="4">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepHivPositivePartner" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepInjection">Has the patient shared needles or injection equipment?</label>
-                  <select id="prepInjection" required>
-                    <option value="">Select</option>
-                    <option value="4">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Has the patient shared needles or injection equipment?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepInjection" value="">
+                    <button type="button" class="choice-btn" data-target="prepInjection" data-value="4">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepInjection" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepHousing">Is the patient in a situation that may increase exposure risk, such as unstable housing, shared living, or other higher-risk circumstances?</label>
-                  <select id="prepHousing" required>
-                    <option value="">Select</option>
-                    <option value="1">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Is the patient in a situation that may increase exposure risk, such as unstable housing, shared living, or other higher-risk circumstances?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepHousing" value="">
+                    <button type="button" class="choice-btn" data-target="prepHousing" data-value="1">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepHousing" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="prepConcern">Does the patient personally feel they are at ongoing risk and wants extra protection?</label>
-                  <select id="prepConcern" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Does the patient personally feel they are at ongoing risk and wants extra protection?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="prepConcern" value="">
+                    <button type="button" class="choice-btn" data-target="prepConcern" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="prepConcern" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field full">
@@ -1232,79 +1301,79 @@
             <form id="pepForm">
               <div class="form-grid">
                 <div class="field">
-                  <label for="pepHours">Did the possible exposure happen within the last 72 hours?</label>
-                  <select id="pepHours" required>
-                    <option value="">Select</option>
-                    <option value="within72">Yes, within 72 hours</option>
-                    <option value="over72">No, more than 72 hours ago</option>
-                    <option value="unsure">Not sure</option>
-                  </select>
+                  <label>Did the possible exposure happen within the last 72 hours?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepHours" value="">
+                    <button type="button" class="choice-btn" data-target="pepHours" data-value="within72">Yes, within 72 hours</button>
+                    <button type="button" class="choice-btn" data-target="pepHours" data-value="over72">No, over 72 hours</button>
+                    <button type="button" class="choice-btn" data-target="pepHours" data-value="unsure">Not sure</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepExposureType">Type of possible exposure</label>
-                  <select id="pepExposureType" required>
-                    <option value="">Select</option>
-                    <option value="sexual">Sexual exposure</option>
-                    <option value="needle">Shared needle / injection equipment</option>
-                    <option value="blood">Blood or body fluid exposure</option>
-                    <option value="other">Other / unsure</option>
-                  </select>
+                  <label>Type of possible exposure</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepExposureType" value="">
+                    <button type="button" class="choice-btn" data-target="pepExposureType" data-value="sexual">Sexual</button>
+                    <button type="button" class="choice-btn" data-target="pepExposureType" data-value="needle">Shared needle</button>
+                    <button type="button" class="choice-btn" data-target="pepExposureType" data-value="blood">Blood exposure</button>
+                    <button type="button" class="choice-btn" data-target="pepExposureType" data-value="other">Other / unsure</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepPartnerStatus">Was the source partner HIV positive or of unknown status?</label>
-                  <select id="pepPartnerStatus" required>
-                    <option value="">Select</option>
-                    <option value="high">Yes</option>
-                    <option value="moderate">Unknown</option>
-                    <option value="low">No / known negative</option>
-                  </select>
+                  <label>Was the source partner HIV positive or of unknown status?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepPartnerStatus" value="">
+                    <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="high">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="moderate">Unknown</button>
+                    <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="low">No / known negative</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepCondomBreak">Was there condomless sex or condom failure?</label>
-                  <select id="pepCondomBreak" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Was there condomless sex or condom failure?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepCondomBreak" value="">
+                    <button type="button" class="choice-btn" data-target="pepCondomBreak" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepCondomBreak" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepAnalVaginal">Did the exposure involve vaginal or anal sex, or direct blood exposure?</label>
-                  <select id="pepAnalVaginal" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Did the exposure involve vaginal or anal sex, or direct blood exposure?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepAnalVaginal" value="">
+                    <button type="button" class="choice-btn" data-target="pepAnalVaginal" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepAnalVaginal" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepVisibleBlood">Was visible blood involved?</label>
-                  <select id="pepVisibleBlood" required>
-                    <option value="">Select</option>
-                    <option value="2">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Was visible blood involved?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepVisibleBlood" value="">
+                    <button type="button" class="choice-btn" data-target="pepVisibleBlood" data-value="2">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepVisibleBlood" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepSharedEquipment">Was injection equipment shared?</label>
-                  <select id="pepSharedEquipment" required>
-                    <option value="">Select</option>
-                    <option value="3">Yes</option>
-                    <option value="0">No</option>
-                  </select>
+                  <label>Was injection equipment shared?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepSharedEquipment" value="">
+                    <button type="button" class="choice-btn" data-target="pepSharedEquipment" data-value="3">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepSharedEquipment" data-value="0">No</button>
+                  </div>
                 </div>
 
                 <div class="field">
-                  <label for="pepSymptoms">Is the patient mainly seeking reassurance after a lower-risk or uncertain event?</label>
-                  <select id="pepSymptoms" required>
-                    <option value="">Select</option>
-                    <option value="reassurance">Yes</option>
-                    <option value="concerned">No / exposure seems significant</option>
-                  </select>
+                  <label>Is the patient mainly seeking reassurance after a lower-risk or uncertain event?</label>
+                  <div class="choice-group">
+                    <input class="choice-input" type="hidden" id="pepSymptoms" value="">
+                    <button type="button" class="choice-btn" data-target="pepSymptoms" data-value="reassurance">Yes</button>
+                    <button type="button" class="choice-btn" data-target="pepSymptoms" data-value="concerned">No / significant exposure</button>
+                  </div>
                 </div>
 
                 <div class="field full">
@@ -1330,7 +1399,7 @@
         <div class="cta-box reveal">
           <div class="cta-content">
             <div>
-              <span class="eyebrow" style="color:#dbc39d;">Private support starts here</span>
+              <span class="eyebrow" style="color:#f6dfc1;">Private support starts here</span>
               <h2>Luxury in experience. Serious in care. Human at every step.</h2>
               <p>
                 Whether someone needs prevention, urgent screening, or next-step guidance,
@@ -1404,13 +1473,7 @@
 
                 <div class="field">
                   <label for="contactService">Service needed</label>
-                  <select id="contactService" name="service">
-                    <option value="">Select</option>
-                    <option>PrEP consultation</option>
-                    <option>PEP urgent assessment</option>
-                    <option>STI testing / treatment</option>
-                    <option>General inquiry</option>
-                  </select>
+                  <input id="contactService" name="service" type="text" placeholder="PrEP consultation / PEP urgent assessment / STI / General inquiry" />
                 </div>
 
                 <div class="field full">
@@ -1481,6 +1544,21 @@
       });
     });
 
+    document.querySelectorAll(".choice-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+        const value = button.dataset.value;
+        const hiddenInput = document.getElementById(targetId);
+
+        document.querySelectorAll(`.choice-btn[data-target="${targetId}"]`).forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        button.classList.add("active");
+        hiddenInput.value = value;
+      });
+    });
+
     function buildResultHTML(level, title, summary, bullets, contactText) {
       return `
         <span class="result-badge ${level}">${level} ${level === "high" ? "priority" : "risk"}</span>
@@ -1493,20 +1571,34 @@
       `;
     }
 
+    function requireAnswers(ids) {
+      for (const id of ids) {
+        const value = document.getElementById(id).value;
+        if (value === "") return false;
+      }
+      return true;
+    }
+
     document.getElementById("prepForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const values = [
-        Number(document.getElementById("prepPartners").value || 0),
-        Number(document.getElementById("prepUnknownStatus").value || 0),
-        Number(document.getElementById("prepCondomless").value || 0),
-        Number(document.getElementById("prepSti").value || 0),
-        Number(document.getElementById("prepHivPositivePartner").value || 0),
-        Number(document.getElementById("prepInjection").value || 0),
-        Number(document.getElementById("prepHousing").value || 0),
-        Number(document.getElementById("prepConcern").value || 0)
+      const requiredIds = [
+        "prepPartners",
+        "prepUnknownStatus",
+        "prepCondomless",
+        "prepSti",
+        "prepHivPositivePartner",
+        "prepInjection",
+        "prepHousing",
+        "prepConcern"
       ];
 
+      if (!requireAnswers(requiredIds)) {
+        alert("Please answer all PrEP screening questions before calculating the result.");
+        return;
+      }
+
+      const values = requiredIds.map(id => Number(document.getElementById(id).value || 0));
       const score = values.reduce((a, b) => a + b, 0);
       const result = document.getElementById("prepResult");
 
@@ -1551,6 +1643,22 @@
 
     document.getElementById("pepForm").addEventListener("submit", function(e) {
       e.preventDefault();
+
+      const requiredIds = [
+        "pepHours",
+        "pepExposureType",
+        "pepPartnerStatus",
+        "pepCondomBreak",
+        "pepAnalVaginal",
+        "pepVisibleBlood",
+        "pepSharedEquipment",
+        "pepSymptoms"
+      ];
+
+      if (!requireAnswers(requiredIds)) {
+        alert("Please answer all PEP screening questions before calculating the result.");
+        return;
+      }
 
       const within72 = document.getElementById("pepHours").value;
       const exposureType = document.getElementById("pepExposureType").value;
@@ -1617,15 +1725,44 @@
       result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
+    function resetChoiceGroup(targetId) {
+      document.getElementById(targetId).value = "";
+      document.querySelectorAll(`.choice-btn[data-target="${targetId}"]`).forEach(btn => {
+        btn.classList.remove("active");
+      });
+    }
+
     function resetPrep() {
-      document.getElementById("prepForm").reset();
+      [
+        "prepPartners",
+        "prepUnknownStatus",
+        "prepCondomless",
+        "prepSti",
+        "prepHivPositivePartner",
+        "prepInjection",
+        "prepHousing",
+        "prepConcern"
+      ].forEach(resetChoiceGroup);
+
+      document.getElementById("prepNotes").value = "";
       const result = document.getElementById("prepResult");
       result.classList.remove("show");
       result.innerHTML = "";
     }
 
     function resetPep() {
-      document.getElementById("pepForm").reset();
+      [
+        "pepHours",
+        "pepExposureType",
+        "pepPartnerStatus",
+        "pepCondomBreak",
+        "pepAnalVaginal",
+        "pepVisibleBlood",
+        "pepSharedEquipment",
+        "pepSymptoms"
+      ].forEach(resetChoiceGroup);
+
+      document.getElementById("pepNotes").value = "";
       const result = document.getElementById("pepResult");
       result.classList.remove("show");
       result.innerHTML = "";
@@ -1633,5 +1770,7 @@
 
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
+  <script src="//code.tidio.co/ai3qrjkvr7obflhpicqpx82dgupy1url.js" async></script>
 </body>
 </html>
