@@ -680,9 +680,9 @@
       <div class="pep-card">
         <div class="pep-left">
           <div class="pep-countdown">Act within 72 hours of exposure</div>
-          <span class="section-tag" style="color: var(--red-lt);">Emergency Treatment</span>
-          <h2>Need PEP?</h2>
-          <p class="section-lead" style="margin-bottom: 0;">If you think you may have been exposed to HIV in the <strong style="color:var(--white)">last 72 hours</strong>, do not wait. PEP must be started as soon as possible to be effective. Call us immediately — we will prioritize your care.</p>
+          
+          <h2>Need Post-Exposure Prophylaxis (PEP)?</h2>
+          <p class="section-lead" style="margin-bottom: 0;">If you think you may have been exposed to HIV in the <strong style="color:var(--white)">last 72 hours</strong>, contact us immediately. PEP must be started as soon as possible within 72 hours to be effective. Call NOW - we will prioritize your care.</p>
         </div>
         <div style="display:flex; flex-direction:column; gap:14px; min-width:220px;">
           <a href="tel:+9054200441" class="btn btn-danger" style="justify-content:center; font-size:17px; padding: 20px 36px;">
@@ -699,22 +699,41 @@
 
   <!-- Quiz -->
       <div class="quiz-box fade-in">
-        <h3>Am I a candidate for PEP?</h3>
-        <p>Select any that apply to your situation to see if PEP may be right for you.</p>
-        <div class="quiz-options">
-          <label class="quiz-option"><input type="checkbox" /> I have not been on PrEP prior to my encounter</label>
-          <label class="quiz-option"><input type="checkbox" /> My partner has or may have HIV</label>
-          <label class="quiz-option"><input type="checkbox" /> I did not use a condom, or my condom broke during anal, vaginal or front hole sex</label>
-          <label class="quiz-option"><input type="checkbox" /> My encounter was less than 72 hours ago</label>
-          <label class="quiz-option"><input type="checkbox" /> I was a victim of a sexual assault or workplace accident</label>
-        </div>
-        <button class="btn btn-primary" onclick="runQuiz()" style="width:100%; justify-content:center;">Check My Risk →</button>
-        <div id="quiz-result" class="quiz-result"></div>
-      </div>
-    </div>
-  </section>
 
-  <hr class="section-divider" />
+  <h3>Am I a candidate for PEP?</h3>
+  <p>Enter your details and answer a few quick questions.</p>
+
+  <!-- LEAD -->
+  <div id="pepLead">
+    <input type="text" id="pep_name" placeholder="Your name" style="width:100%; padding:10px; margin-bottom:10px;">
+    <input type="text" id="pep_contact" placeholder="Phone or email" style="width:100%; padding:10px; margin-bottom:10px;">
+    <button class="btn btn-primary" onclick="startPepQuiz()" style="width:100%;">Continue →</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div id="pepQuestions" style="display:none;">
+    <div class="quiz-options">
+      <label class="quiz-option"><input type="checkbox" id="pep_q1"> Not on PrEP before encounter</label>
+      <label class="quiz-option"><input type="checkbox" id="pep_q2"> Partner may have HIV</label>
+      <label class="quiz-option"><input type="checkbox" id="pep_q3"> No condom / condom broke</label>
+      <label class="quiz-option"><input type="checkbox" id="pep_q4"> Exposure within 72 hours</label>
+      <label class="quiz-option"><input type="checkbox" id="pep_q5"> Assault / workplace exposure</label>
+    </div>
+
+    <button class="btn btn-primary" onclick="runPepQuiz()" style="width:100%;">Check My Risk →</button>
+  </div>
+
+  <!-- RESULT -->
+  <div id="pepResult" class="quiz-result"></div>
+
+</div>
+
+<!-- HIDDEN EMAIL FORM -->
+<form id="pepForm" action="https://formspree.io/f/mreopjbg" method="POST" style="display:none;">
+  <input type="text" name="name" id="f_name">
+  <input type="text" name="contact" id="f_contact">
+  <input type="text" name="risk" id="f_risk">
+</form>
 
 
   <!-- ── BOOKING SECTION ── -->
@@ -733,6 +752,7 @@
             <li>Prescription renewals available online</li>
           </ul>
           <a href=" https://calendly.com/clinic-healrx/hiv-prep-consultation" class="btn btn-primary">Book Online For PrEP →</a>
+        </div>
           <a href=" https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="btn btn-primary">Book Online For PEP→</a>  
            </div>
   </section>
@@ -933,6 +953,73 @@ function runPepQuiz() {
   <input type="text" name="risk" id="f_risk">
 </form>
 </script>
+</script>
+  <script>
+let pepData = {};
+
+function startPepQuiz() {
+  const name = document.getElementById("pep_name").value;
+  const contact = document.getElementById("pep_contact").value;
+
+  if (!name || !contact) {
+    alert("Please enter your name and contact info");
+    return;
+  }
+
+  pepData = { name, contact };
+
+  document.getElementById("pepLead").style.display = "none";
+  document.getElementById("pepQuestions").style.display = "block";
+}
+
+function runPepQuiz() {
+  const noPrep = document.getElementById("pep_q1").checked;
+  const hivPartner = document.getElementById("pep_q2").checked;
+  const noCondom = document.getElementById("pep_q3").checked;
+  const within72 = document.getElementById("pep_q4").checked;
+  const assault = document.getElementById("pep_q5").checked;
+
+  const result = document.getElementById("pepResult");
+
+  let message = "";
+  let risk = "";
+
+  if (assault && within72) {
+    message = "🚨 You may need PEP immediately. Call now.";
+    risk = "HIGH - Assault";
+  } 
+  else if (within72 && (hivPartner || noCondom)) {
+    message = "🚨 High risk exposure. Start PEP immediately.";
+    risk = "HIGH";
+  } 
+  else if (within72) {
+    message = "⚠️ You may benefit from PEP. Book urgently.";
+    risk = "Moderate";
+  } 
+  else if (!within72 && (hivPartner || noCondom)) {
+    message = "⚠️ PEP window may have passed. Follow-up needed.";
+    risk = "Outside window";
+  } 
+  else {
+    message = "🟢 Risk appears lower, but consult recommended.";
+    risk = "Low";
+  }
+
+  result.innerHTML = `
+    <strong>${message}</strong><br><br>
+    <a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult">Book now →</a><br>
+    <a href="tel:+9054200441">Call clinic →</a>
+  `;
+
+  result.classList.add('show');
+
+  // SEND EMAIL
+  document.getElementById("f_name").value = pepData.name;
+  document.getElementById("f_contact").value = pepData.contact;
+  document.getElementById("f_risk").value = risk;
+
+  document.getElementById("pepForm").submit();
+}
 </script>
 </body>
 </html>
