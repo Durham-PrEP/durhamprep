@@ -10,14 +10,14 @@
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      background: #f8fafc;
-      color: #0f172a;
+      background: #f0f4f8;  /* Softer background */
+      color: #1e293b;       /* Darker text */
     }
 
     header {
       padding: 80px 20px 60px;
       text-align: center;
-      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      background: linear-gradient(135deg, #4b3e6d, #6c5ce7);  /* Elegant gradient */
       color: white;
     }
 
@@ -42,11 +42,11 @@
 
     .primary {
       background: white;
-      color: #1d4ed8;
+      color: #6c5ce7;  /* Updated color */
     }
 
     .secondary {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.4);
       color: white;
     }
 
@@ -61,7 +61,7 @@
       padding: 25px;
       border-radius: 16px;
       margin-top: 20px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);  /* Softer shadow */
     }
 
     .button-block {
@@ -75,13 +75,13 @@
       font-weight: 500;
     }
 
-    .blue { background: #1d4ed8; color: white; }
-    .red { background: #dc2626; color: white; }
-    .light { background: #e2e8f0; color: #0f172a; }
+    .blue { background: #6c5ce7; color: white; }
+    .red { background: #d63031; color: white; }
+    .light { background: #eaeaea; color: #1e293b; }
 
     .highlight {
-      background: #fff1f2;
-      border: 1px solid #fecaca;
+      background: #ffe6e6;
+      border: 1px solid #ff4d4d;
       padding: 15px;
       border-radius: 10px;
       color: #991b1b;
@@ -94,6 +94,7 @@
       font-size: 14px;
       color: #64748b;
     }
+
   </style>
 </head>
 
@@ -112,7 +113,7 @@
   <!-- PREP QUIZ -->
   <div id="prep" class="card">
     <h2>Start PrEP</h2>
-    <p>Answer a few quick questions.</p>
+    <p>Answer a few quick questions to see if PrEP is right for you.</p>
 
     <div id="quizBox">
       <p id="question">Do you have multiple sexual partners?</p>
@@ -146,64 +147,16 @@
     <a href="tel:+9054200441" class="button-block red">Call Now</a>
   </div>
 
+  <!-- STI TREATMENT SECTION -->
+  <div class="card">
+    <h2>STI Treatment</h2>
+    <p>Are you experiencing symptoms of an STI? Let us help.</p>
+
+    <button onclick="stiQuiz()" class="button-block light">Take STI Quiz</button>
+    <p id="stiResult"></p>
+  </div>
+
   <!-- GENERAL BOOKING -->
   <div class="card">
     <h2>Book Appointment</h2>
     <p>Confidential, judgment-free care.</p>
-
-    <a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="button-block light">Book Now</a>
-  </div>
-
-</div>
-
-<footer>
-  Durham PrEP Clinic • Ontario • Confidential Care
-</footer>
-
-<script>
-const questions = [
-  "Do you have multiple sexual partners?",
-  "Do you use condoms inconsistently?",
-  "Do you have a new or unknown-status partner?",
-  "Have you had a recent STI?"
-];
-
-let current = 0;
-let score = 0;
-
-function answer(val) {
-  if (val) score++;
-  current++;
-
-  if (current < questions.length) {
-    document.getElementById("question").innerText = questions[current];
-  } else {
-    document.getElementById("quizBox").style.display = "none";
-
-    let result = score >= 2
-      ? "You may benefit from PrEP. We recommend starting care."
-      : "You may still benefit from PrEP. Speak with us to learn more.";
-
-    document.getElementById("finalResult").innerText = result;
-    document.getElementById("prepCTA").style.display = "block";
-  }
-}
-
-function pepCheck(isUrgent) {
-  let text = "";
-
-  if (isUrgent) {
-    text = "You may need PEP immediately. Please book or call now.";
-    document.getElementById("pepCTA").style.display = "block";
-  } else {
-    text = "PEP may not be effective after 72 hours. Contact us to discuss options.";
-  }
-
-  document.getElementById("pepResult").innerText = text;
-}
-</script>
-
-<script src="//code.tidio.co/ai3qrjkvr7obflhpicqpx82dgupy1url.js" async></script>
-
-</body>
-</html>
