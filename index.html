@@ -1,1026 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Durham PrEP Clinic</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Durham PrEP Clinic</title>
 
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    :root {
-      --navy:     #08192d;
-      --navy-mid: #0d2740;
-      --navy-lt:  #12334f;
-      --teal:     #2cc4a8;
-      --teal-lt:  #56d8bf;
-      --teal-glow:rgba(44,196,168,0.18);
-      --red:      #e8445a;
-      --red-lt:   #ff6b7a;
-      --cream:    #f0ece4;
-      --muted:    #8ba8bf;
-      --white:    #ffffff;
-      --border:   rgba(44,196,168,0.15);
-    }
+<style>
+:root{
+--navy:#08192d;
+--glass:rgba(13,39,64,0.6);
+--teal:#2cc4a8;
+--red:#e8445a;
+--white:#ffffff;
+--muted:#8ba8bf;
+--border:rgba(255,255,255,0.08);
+}
 
-    html { scroll-behavior: smooth; }
+body{
+margin:0;
+font-family:'DM Sans',sans-serif;
+background:radial-gradient(circle at top right,#12334f, #08192d 60%);
+color:var(--white);
+}
 
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--navy);
-      color: var(--cream);
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+/* NAV */
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 40px;
+background:rgba(8,25,45,0.7);
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+nav a{color:var(--muted); text-decoration:none; margin-left:20px;}
+nav a:hover{color:var(--teal);}
 
-    /* ── Noise texture overlay ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 0;
-      opacity: 0.6;
-    }
+/* HERO */
+.hero{
+text-align:center;
+padding:100px 20px;
+}
+.hero h1{
+font-family:'Cormorant Garamond',serif;
+font-size:64px;
+}
+.hero span{color:var(--teal);}
 
-    /* ── Ambient orbs ── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(90px);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .orb-1 {
-      width: 520px; height: 520px;
-      background: radial-gradient(circle, rgba(44,196,168,0.12) 0%, transparent 70%);
-      top: -120px; right: -160px;
-      animation: drift 14s ease-in-out infinite alternate;
-    }
-    .orb-2 {
-      width: 400px; height: 400px;
-      background: radial-gradient(circle, rgba(232,68,90,0.08) 0%, transparent 70%);
-      bottom: 10%; left: -100px;
-      animation: drift 18s ease-in-out infinite alternate-reverse;
-    }
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(30px, 20px) scale(1.05); }
-    }
+/* SECTIONS */
+.section{max-width:900px;margin:auto;padding:60px 20px;}
 
-    /* ── NAVBAR ── */
-    nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 18px 40px;
-      background: rgba(8,25,45,0.82);
-      backdrop-filter: blur(18px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--cream);
-      letter-spacing: 0.02em;
-    }
-    .nav-logo span { color: var(--teal); }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      list-style: none;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: color 0.25s;
-    }
-    .nav-links a:hover { color: var(--teal); }
-    .nav-cta {
-      background: var(--teal);
-      color: var(--navy) !important;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: 600 !important;
-      transition: background 0.25s, transform 0.2s !important;
-    }
-    .nav-cta:hover { background: var(--teal-lt) !important; transform: translateY(-1px); }
+/* CARD */
+.card{
+background:var(--glass);
+padding:30px;
+border-radius:16px;
+border:1px solid var(--border);
+backdrop-filter:blur(10px);
+}
 
-    /* ── HERO ── */
-    .hero {
-      position: relative;
-      z-index: 1;
-      min-height: 92vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 80px 24px 60px;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(44,196,168,0.12);
-      border: 1px solid var(--border);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      margin-bottom: 32px;
-      animation: fadeUp 0.8s ease both;
-    }
-    .hero-badge::before {
-      content: '';
-      width: 7px; height: 7px;
-      background: var(--teal);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: 0.4; transform: scale(0.7); }
-    }
-    .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(46px, 8vw, 88px);
-      font-weight: 700;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--white);
-      max-width: 780px;
-      margin-bottom: 24px;
-      animation: fadeUp 0.8s 0.1s ease both;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--teal);
-      position: relative;
-    }
-    .hero-sub {
-      font-size: 18px;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 480px;
-      line-height: 1.7;
-      margin-bottom: 52px;
-      animation: fadeUp 0.8s 0.2s ease both;
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      justify-content: center;
-      animation: fadeUp 0.8s 0.3s ease both;
-    }
+/* BUTTON */
+.btn{
+display:block;
+padding:14px;
+margin-top:15px;
+background:var(--teal);
+color:#000;
+text-align:center;
+border:none;
+cursor:pointer;
+border-radius:6px;
+text-decoration:none;
+}
 
-    /* ── BUTTONS ── */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: transform 0.2s, box-shadow 0.25s, background 0.25s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      background: var(--teal);
-      color: var(--navy);
-      box-shadow: 0 8px 32px rgba(44,196,168,0.3);
-    }
-    .btn-primary:hover { background: var(--teal-lt); box-shadow: 0 12px 40px rgba(44,196,168,0.45); }
-    .btn-danger {
-      background: var(--red);
-      color: var(--white);
-      box-shadow: 0 8px 32px rgba(232,68,90,0.3);
-    }
-    .btn-danger:hover { background: var(--red-lt); box-shadow: 0 12px 40px rgba(232,68,90,0.45); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--cream);
-      border: 1px solid rgba(240,236,228,0.2);
-    }
-    .btn-ghost:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-glow); }
-    .btn-outline {
-      background: transparent;
-      color: var(--teal);
-      border: 1.5px solid var(--teal);
-    }
-    .btn-outline:hover { background: var(--teal); color: var(--navy); }
+/* QUIZ */
+.quiz-option{
+display:block;
+margin:10px 0;
+padding:10px;
+border:1px solid var(--border);
+border-radius:8px;
+cursor:pointer;
+}
+.quiz-option:hover{border-color:var(--teal);}
 
-    /* ── STATS STRIP ── */
-    .stats-strip {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0;
-      background: rgba(13,39,64,0.6);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-    }
-    .stat {
-      flex: 1;
-      min-width: 160px;
-      padding: 28px 24px;
-      text-align: center;
-      border-right: 1px solid var(--border);
-    }
-    .stat:last-child { border-right: none; }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
-      font-weight: 700;
-      color: var(--teal);
-      line-height: 1;
-    }
-    .stat-label {
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-top: 6px;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      position: relative;
-      z-index: 1;
-      padding: 100px 24px;
-    }
-    .section-inner {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-    .section-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--teal);
-      margin-bottom: 16px;
-    }
-    .section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(34px, 5vw, 54px);
-      font-weight: 700;
-      color: var(--white);
-      line-height: 1.1;
-      margin-bottom: 18px;
-    }
-    .section-lead {
-      font-size: 17px;
-      font-weight: 300;
-      color: var(--muted);
-      max-width: 580px;
-      line-height: 1.75;
-      margin-bottom: 48px;
-    }
-    .section-divider {
-      border: none;
-      border-top: 1px solid var(--border);
-    }
-
-    /* ── CARDS ── */
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: rgba(13,39,64,0.5);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 30px;
-      backdrop-filter: blur(10px);
-      transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    }
-    .card:hover {
-      border-color: var(--teal);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(44,196,168,0.1);
-    }
-    .card-icon {
-      width: 48px; height: 48px;
-      background: var(--teal-glow);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-    .card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ── PEP EMERGENCY SECTION ── */
-    .pep-section {
-      background: linear-gradient(135deg, rgba(232,68,90,0.08) 0%, rgba(8,25,45,0) 60%);
-      border-top: 1px solid rgba(232,68,90,0.2);
-      border-bottom: 1px solid rgba(232,68,90,0.2);
-    }
-    .pep-card {
-      background: rgba(232,68,90,0.07);
-      border: 1px solid rgba(232,68,90,0.25);
-      border-radius: 20px;
-      padding: 52px 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 32px;
-    }
-    .pep-card .pep-left h2 { color: var(--white); margin-bottom: 12px; }
-    .pep-countdown {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(232,68,90,0.15);
-      border: 1px solid rgba(232,68,90,0.35);
-      border-radius: 100px;
-      padding: 6px 16px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--red-lt);
-      margin-bottom: 18px;
-    }
-    .pep-countdown::before {
-      content: '⚠';
-      font-size: 14px;
-    }
-
-    /* ── RISK QUIZ ── */
-    .quiz-box {
-      background: rgba(13,39,64,0.6);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 52px 48px;
-      max-width: 680px;
-      margin: 0 auto;
-      backdrop-filter: blur(12px);
-    }
-    .quiz-box h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .quiz-box p { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; }
-    .quiz-options {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .quiz-option {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 16px 20px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.03);
-      cursor: pointer;
-      transition: border-color 0.2s, background 0.2s;
-      font-size: 14px;
-      color: var(--cream);
-    }
-    .quiz-option:hover { border-color: var(--teal); background: var(--teal-glow); }
-    .quiz-option input[type="checkbox"] { accent-color: var(--teal); width: 16px; height: 16px; }
-    .quiz-result {
-      display: none;
-      background: rgba(44,196,168,0.1);
-      border: 1px solid rgba(44,196,168,0.3);
-      border-radius: 12px;
-      padding: 22px 26px;
-      margin-top: 20px;
-      font-size: 15px;
-      color: var(--teal-lt);
-      line-height: 1.7;
-      animation: fadeUp 0.4s ease;
-    }
-    .quiz-result.show { display: block; }
-
-    /* ── BOOKING SECTION ── */
-    .booking-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-    .booking-info h2 { margin-bottom: 16px; }
-    .booking-info .section-lead { margin-bottom: 32px; }
-    .checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 36px;
-    }
-    .checklist li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      color: var(--muted);
-    }
-    .checklist li::before {
-      content: '✓';
-      width: 24px; height: 24px;
-      background: var(--teal-glow);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: var(--teal);
-      flex-shrink: 0;
-    }
-    .booking-card {
-      background: rgba(13,39,64,0.6);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 40px 36px;
-      text-align: center;
-      backdrop-filter: blur(12px);
-    }
-    .booking-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 10px;
-    }
-    .booking-card p { font-size: 14px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
-    .hours-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-    .hours-list li {
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: var(--muted);
-      padding-bottom: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-    .hours-list li:last-child { border-bottom: none; }
-    .hours-list li strong { color: var(--cream); }
-
-    /* ── CHAT SECTION ── */
-    .chat-section {
-      text-align: center;
-    }
-    .chat-section .section-inner { max-width: 600px; }
-    .chat-icon {
-      width: 80px; height: 80px;
-      background: var(--teal-glow);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 34px;
-      margin: 0 auto 28px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      position: relative;
-      z-index: 1;
-      border-top: 1px solid var(--border);
-      padding: 48px 40px 36px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      text-align: center;
-    }
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--cream);
-    }
-    .footer-logo span { color: var(--teal); }
-    .footer-links {
-      display: flex;
-      gap: 28px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .footer-links a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-links a:hover { color: var(--teal); }
-    .footer-copy {
-      font-size: 12px;
-      color: rgba(139,168,191,0.5);
-    }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 16px 20px; }
-      .nav-links { display: none; }
-      .hero { padding: 60px 20px 40px; min-height: 80vh; }
-      .stat { min-width: 140px; }
-      .pep-card { padding: 36px 28px; }
-      .booking-grid { grid-template-columns: 1fr; }
-      .quiz-box { padding: 36px 28px; }
-      .section { padding: 70px 20px; }
-    }
-  </style>
+.quiz-result{
+display:none;
+margin-top:15px;
+padding:15px;
+border-radius:10px;
+background:#0d2740;
+}
+.quiz-result.show{display:block;}
+</style>
 </head>
 
 <body>
 
-  <!-- Ambient orbs -->
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
+<nav>
+<div>Durham<span style="color:var(--teal)">PrEP</span></div>
+<div>
+<a href="#prep">PrEP</a>
+<a href="#pep">PEP</a>
+<a href="#book">Book</a>
+</div>
+</nav>
 
-  <!-- ── NAVBAR ── -->
-  <nav>
-    <div class="nav-logo">Durham<span>PrEP</span></div>
-    <ul class="nav-links">
-      <li><a href="#prep">PrEP</a></li>
-      <li><a href="#pep">PEP</a></li>
-      <li><a href="#book">Appointments</a></li>
-      <li><a href="#chat">Contact</a></li>
-      <li><a href="#book" class="nav-cta">Book Now</a></li>
-    </ul>
-  </nav>
+<section class="hero">
+<h1>Your health.<br><span>Protected.</span></h1>
+<p>Confidential, judgment-free HIV prevention care.</p>
+</section>
 
-  <!-- ── HERO ── -->
-  <section class="hero">
-    <div class="hero-badge">Confidential · Judgment-Free · Durham</div>
-    <h1>Your health.<br/><em>Protected.</em></h1>
-    <p class="hero-sub">Fast, simple, and confidential HIV prevention care for the Durham community. Start PrEP or access PEP today.</p>
-    <div class="hero-actions">
-      <a href="#prep" class="btn btn-primary">⟶&nbsp; Start PrEP</a>
-      <a href="#pep" class="btn btn-danger">⚠&nbsp; Need PEP Now</a>
-      <a href="#book" class="btn btn-ghost">Book an Appointment</a>
-    </div>
-  </section>
+<!-- PREP -->
+<section id="prep" class="section">
+<div class="card">
+<h2>PrEP Assessment</h2>
 
-  <!-- ── STATS ── -->
-  <div class="stats-strip">
-    <div class="stat"><div class="stat-num">99%</div><div class="stat-label">HIV reduction with PrEP</div></div>
-    <div class="stat"><div class="stat-num">72h</div><div class="stat-label">PEP effectiveness window</div></div>
-    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Confidential care</div></div>
-    <div class="stat"><div class="stat-num">Same Day</div><div class="stat-label">Appointments available</div></div>
-  </div>
+<label class="quiz-option"><input type="checkbox" class="prep"> Multiple partners</label>
+<label class="quiz-option"><input type="checkbox" class="prep"> Partner may have HIV</label>
+<label class="quiz-option"><input type="checkbox" class="prep"> Don’t always use condoms</label>
+<label class="quiz-option"><input type="checkbox" class="prep"> STI in last year</label>
 
-  <!-- ── PREP SECTION ── -->
-  <section id="prep" class="section fade-in">
-    <div class="section-inner">
-      <span class="section-tag">HIV Prevention</span>
-      <h2>Start PrEP Today</h2>
-      <p class="section-lead">PrEP (Pre-Exposure Prophylaxis) is a once-daily medication that reduces your risk of HIV by up to 99% when taken as prescribed. We make starting it simple.</p>
+<button class="btn" onclick="runPrep()">Check</button>
 
-      <div class="card-grid" style="margin-bottom: 60px;">
-        <div class="card">
-          <div class="card-icon">💊</div>
-          <h3>Daily Medication</h3>
-          <p>A single pill taken daily that creates powerful protection against HIV for people at higher risk.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🔒</div>
-          <h3>Fully Confidential</h3>
-          <p>Your privacy matters. All visits, prescriptions, and records are kept strictly confidential.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon">🩺</div>
-          <h3>Ongoing Support</h3>
-          <p>Regular check-ins, bloodwork, and prescription renewals — all managed by our caring team.</p>
-        </div>
-      </div>
+<div id="prepResult" class="quiz-result"></div>
+</div>
+</section>
 
-      <!-- Quiz -->
-      <div class="quiz-box fade-in">
-        <h3>Am I a candidate for PrEP?</h3>
-        <p>Select any that apply to your situation to see if PrEP may be right for you.</p>
-        <div class="quiz-options">
-          <label class="quiz-option"><input type="checkbox" /> I have multiple sexual partners</label>
-          <label class="quiz-option"><input type="checkbox" /> My partner has or may have HIV</label>
-          <label class="quiz-option"><input type="checkbox" /> I don't always use condoms</label>
-          <label class="quiz-option"><input type="checkbox" /> I use injection drugs or share equipment</label>
-          <label class="quiz-option"><input type="checkbox" /> I've had an STI in the past year</label>
-        </div>
-        <button class="btn btn-primary" onclick="runQuiz()" style="width:100%; justify-content:center;">Check My Risk →</button>
-        <div id="quiz-result" class="quiz-result"></div>
-      </div>
-    </div>
-  </section>
+<!-- PEP -->
+<section id="pep" class="section">
+<div class="card">
 
-  <hr class="section-divider" />
+<h2>Need PEP?</h2>
+<p style="color:var(--muted)">Must be started within 72 hours.</p>
 
-  <!-- ── PEP SECTION ── -->
-  <section id="pep" class="section pep-section fade-in">
-    <div class="section-inner">
-      <div class="pep-card">
-        <div class="pep-left">
-          <div class="pep-countdown">Act within 72 hours of exposure</div>
-          
-          <h2>Need Post-Exposure Prophylaxis (PEP)?</h2>
-          <p class="section-lead" style="margin-bottom: 0;">If you think you may have been exposed to HIV in the <strong style="color:var(--white)">last 72 hours</strong>, contact us immediately. PEP must be started as soon as possible within 72 hours to be effective. Call NOW - we will prioritize your care.</p>
-        </div>
-        <div style="display:flex; flex-direction:column; gap:14px; min-width:220px;">
-          <a href="tel:+9054200441" class="btn btn-danger" style="justify-content:center; font-size:17px; padding: 20px 36px;">
-            📞&nbsp; Call Now
-          </a>
-          <p style="font-size:12px; color:var(--muted); text-align:center; margin:0;">+1 (905) 420-0441</p>
-          <a href="#book" class="btn btn-ghost" style="justify-content:center; font-size:14px;">Walk-In Info →</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<input id="name" placeholder="Name" style="width:100%; padding:10px; margin-bottom:10px;">
+<input id="contact" placeholder="Phone or email" style="width:100%; padding:10px; margin-bottom:10px;">
 
-  <hr class="section-divider" />
+<label class="quiz-option"><input type="checkbox" id="q1"> Not on PrEP</label>
+<label class="quiz-option"><input type="checkbox" id="q2"> Partner may have HIV</label>
+<label class="quiz-option"><input type="checkbox" id="q3"> No condom</label>
+<label class="quiz-option"><input type="checkbox" id="q4"> Within 72 hours</label>
+<label class="quiz-option"><input type="checkbox" id="q5"> Assault/exposure</label>
 
-  <!-- Quiz -->
-      <div class="quiz-box fade-in">
+<button class="btn" onclick="runPep()">Check</button>
 
-  <h3>Am I a candidate for PEP?</h3>
-  <p>Enter your details and answer a few quick questions.</p>
-
-  <!-- LEAD -->
-  <div id="pepLead">
-    <input type="text" id="pep_name" placeholder="Your name" style="width:100%; padding:10px; margin-bottom:10px;">
-    <input type="text" id="pep_contact" placeholder="Phone or email" style="width:100%; padding:10px; margin-bottom:10px;">
-    <button class="btn btn-primary" onclick="startPepQuiz()" style="width:100%;">Continue →</button>
-  </div>
-
-  <!-- QUIZ -->
-  <div id="pepQuestions" style="display:none;">
-    <div class="quiz-options">
-      <label class="quiz-option"><input type="checkbox" id="pep_q1"> Not on PrEP before encounter</label>
-      <label class="quiz-option"><input type="checkbox" id="pep_q2"> Partner may have HIV</label>
-      <label class="quiz-option"><input type="checkbox" id="pep_q3"> No condom / condom broke</label>
-      <label class="quiz-option"><input type="checkbox" id="pep_q4"> Exposure within 72 hours</label>
-      <label class="quiz-option"><input type="checkbox" id="pep_q5"> Assault / workplace exposure</label>
-    </div>
-
-    <button class="btn btn-primary" onclick="runPepQuiz()" style="width:100%;">Check My Risk →</button>
-  </div>
-
-  <!-- RESULT -->
-  <div id="pepResult" class="quiz-result"></div>
+<div id="pepResult" class="quiz-result"></div>
 
 </div>
+</section>
 
-<!-- HIDDEN EMAIL FORM -->
-<form id="pepForm" action="https://formspree.io/f/mreopjbg" method="POST" style="display:none;">
-  <input type="text" name="name" id="f_name">
-  <input type="text" name="contact" id="f_contact">
-  <input type="text" name="risk" id="f_risk">
+<!-- BOOK -->
+<section id="book" class="section">
+<div class="card">
+<h2>Book Appointment</h2>
+<a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="btn">Book PrEP</a>
+<a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="btn" style="background:var(--red); color:white;">Book PEP</a>
+</div>
+</section>
+
+<!-- FORM -->
+<form id="form" action="https://formspree.io/f/mreopjbg" method="POST" style="display:none;">
+<input name="name" id="f_name">
+<input name="contact" id="f_contact">
+<input name="risk" id="f_risk">
 </form>
-
-
-  <!-- ── BOOKING SECTION ── -->
-  <section id="book" class="section fade-in">
-    <div class="section-inner">
-      <div class="booking-grid">
-        <div class="booking-info">
-          <span class="section-tag">Appointments</span>
-          <h2>Book Your Visit</h2>
-          <p class="section-lead">Confidential, fast, and judgment-free care. Our team is ready to support your health journey with zero pressure.</p>
-          <ul class="checklist">
-            <li>Same-day and next-day appointments</li>
-            <li>Virtual & in-person options</li>
-            <li>No referral required</li>
-            <li>OHIP & private insurance accepted</li>
-            <li>Prescription renewals available online</li>
-          </ul>
-          <a href=" https://calendly.com/clinic-healrx/hiv-prep-consultation" class="btn btn-primary">Book Online For PrEP →</a>
-        </div>
-          <a href=" https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="btn btn-primary">Book Online For PEP→</a>  
-           </div>
-  </section>
-          <h3>Clinic Hours</h3>  
-          <p>Walk-ins welcome during all open hours</p>
-          <ul class="hours-list">
-            <li><span>Monday – Friday</span><strong>9:00 AM – 5:00 PM</strong></li>
-            <li><span>Saturday</span><strong>Closed</strong></li>
-            <li><span>Sunday</span><strong>Closed</strong></li>
-          </ul>
-          <a href="tel:+9054200441" class="btn btn-outline" style="width:20%; justify-content:center;">📞 +1 (905) 420-0441</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <hr class="section-divider" />
-
-  <!-- ── CHAT SECTION ── -->
-  <section id="chat" class="section chat-section fade-in">
-    <div class="section-inner">
-      <div class="chat-icon">💬</div>
-      <span class="section-tag">Support</span>
-      <h2>Chat With Our Team</h2>
-      <p class="section-lead" style="margin: 0 auto 36px;">Have questions before booking? Our team is here to help — no question is too small. Use the chat bubble in the corner to reach us anytime.</p>
-      <a href="#" class="btn btn-ghost" onclick="alert('Tidio chat will appear in the bottom-right corner.')">Open Chat →</a>
-      <script src="//code.tidio.co/ai3qrjkvr7obflhpicqpx82dgupy1url.js" async></script>
-    </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-logo">Durham<span>PrEP</span> Clinic</div>
-    <nav class="footer-links">
-      <a href="#prep">PrEP</a>
-      <a href="#pep">PEP</a>
-      <a href="#book">Book</a>
-      <a href="#chat">Contact</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Accessibility</a>
-    </nav>
-    <p class="footer-copy">© 2025 Durham PrEP Clinic. All rights reserved. Confidential Sexual Health Care for the Durham Region.</p>
-  </footer>
-
-  <script>
-    // ── Scroll fade-in ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // ── PrEP Risk Quiz ──
-    function runQuiz() {
-      const checks = document.querySelectorAll('.quiz-option input[type="checkbox"]');
-      const selected = Array.from(checks).filter(c => c.checked).length;
-      const result = document.getElementById('quiz-result');
-
-      if (selected === 0) {
-        result.style.background = 'rgba(139,168,191,0.08)';
-        result.style.borderColor = 'rgba(139,168,191,0.2)';
-        result.style.color = 'var(--muted)';
-        result.innerHTML = '🔵 &nbsp;None selected. If you have other concerns about HIV risk, we\'d still love to speak with you. Book a confidential consultation.';
-      } else if (selected <= 2) {
-        result.style.background = 'rgba(44,196,168,0.08)';
-        result.style.borderColor = 'rgba(44,196,168,0.25)';
-        result.style.color = 'var(--teal-lt)';
-        result.innerHTML = '✅ &nbsp;You may benefit from PrEP. Based on your responses, speaking with one of our clinicians is a great next step. <a href="#book" style="color:var(--teal); font-weight:600;">Book a free consultation →</a>';
-      } else {
-        result.style.background = 'rgba(44,196,168,0.12)';
-        result.style.borderColor = 'rgba(44,196,168,0.35)';
-        result.style.color = 'var(--teal-lt)';
-        result.innerHTML = '✅ &nbsp;<strong style="color:var(--white)">PrEP is strongly recommended for you.</strong> You have multiple risk factors that PrEP can protect against. <a href="#book" style="color:var(--teal); font-weight:600;">Get started today →</a>';
-      }
-
-      result.classList.add('show');
-      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  </script>
-
-// ── PEP Risk Quiz ──
-<div class="quiz-box fade-in">
-
-  <h3>Am I a candidate for PEP?</h3>
-  <p>Enter your details and answer a few quick questions.</p>
-
-  <!-- STEP 1: LEAD CAPTURE -->
-  <div id="leadForm">
-    <input type="text" id="name" placeholder="Your name" style="width:100%; padding:10px; margin-bottom:10px;" />
-    <input type="text" id="contact" placeholder="Phone or email" style="width:100%; padding:10px; margin-bottom:10px;" />
-
-    <button class="btn btn-primary" onclick="startPepQuiz()" style="width:100%;">
-      Continue →
-    </button>
-  </div>
-
-  <!-- STEP 2: QUIZ -->
-  <div id="pepQuiz" style="display:none;">
-    <div class="quiz-options">
-      <label class="quiz-option"><input type="checkbox" /> I have not been on PrEP prior to my encounter</label>
-      <label class="quiz-option"><input type="checkbox" /> My partner has or may have HIV</label>
-      <label class="quiz-option"><input type="checkbox" /> I did not use a condom</label>
-      <label class="quiz-option"><input type="checkbox" /> My encounter was less than 72 hours ago</label>
-      <label class="quiz-option"><input type="checkbox" /> I was a victim of a sexual assault or workplace accident</label>
-    </div>
-
-    <button class="btn btn-primary" onclick="runPepQuiz()" style="width:100%;">
-      Check My Risk →
-    </button>
-  </div>
-
-  <!-- RESULT -->
-  <div id="quiz-result" class="quiz-result"></div>
-
-</div>
-</script>
-  <script>
-let patientData = {};
-
-function startPepQuiz() {
-  const name = document.getElementById("name").value;
-  const contact = document.getElementById("contact").value;
-
-  if (!name || !contact) {
-    alert("Please enter your name and contact info");
-    return;
-  }
-
-  // Save patient data
-  patientData = { name, contact };
-
-  // Hide form, show quiz
-  document.getElementById("leadForm").style.display = "none";
-  document.getElementById("pepQuiz").style.display = "block";
-}
 
 <script>
-function runPepQuiz() {
-  const checks = document.querySelectorAll('.quiz-option input[type="checkbox"]');
-  const selectedOptions = Array.from(checks).map(c => c.checked);
+function runPrep(){
+let boxes=document.querySelectorAll('.prep');
+let count=[...boxes].filter(b=>b.checked).length;
+let r=document.getElementById("prepResult");
 
-  const result = document.getElementById('quiz-result');
+if(count===0) r.innerHTML="Low risk — consult recommended.";
+else if(count<=2) r.innerHTML="You may benefit from PrEP.";
+else r.innerHTML="PrEP strongly recommended.";
 
-  const noPrep = selectedOptions[0];
-  const hivPartner = selectedOptions[1];
-  const noCondom = selectedOptions[2];
-  const within72 = selectedOptions[3];
-  const assault = selectedOptions[4];
-
-  const total = selectedOptions.filter(v => v).length;
-
-  let message = "";
-  let riskLevel = "";
-
-  if (total === 0) {
-    message = "We recommend speaking with our clinic to assess your risk.";
-    riskLevel = "Low / Unclear";
-  } 
-  else if (assault && within72) {
-    message = "URGENT: Possible exposure requiring immediate PEP.";
-    riskLevel = "HIGH - Assault + <72h";
-  } 
-  else if (within72 && (hivPartner || noCondom)) {
-    message = "High risk exposure within 72 hours.";
-    riskLevel = "HIGH - Exposure <72h";
-  } 
-  else if (!within72 && total >= 1) {
-    message = "Exposure outside 72 hours window.";
-    riskLevel = "Moderate - Outside window";
-  } 
-  else {
-    message = "Moderate risk - requires clinical assessment.";
-    riskLevel = "Moderate";
-  }
-
-  // Show result
-  result.innerHTML = `
-    <strong>${message}</strong><br><br>
-    <a href="https://calendly.com/your-pep-link" style="font-weight:600;">Book now →</a>
-  `;
-  result.classList.add('show');
-
-  // 🔥 SEND EMAIL
-  document.getElementById("f_name").value = patientData.name;
-  document.getElementById("f_contact").value = patientData.contact;
-  document.getElementById("f_risk").value = riskLevel;
-
-  document.getElementById("leadFormBackend").submit();
-}
-    Your information is kept confidential and used only for clinical follow-up.
-</script>
-    <form id="leadFormBackend" action="https://formspree.io/f/mreopjbg" method="POST" style="display:none;">
-  <input type="text" name="name" id="f_name">
-  <input type="text" name="contact" id="f_contact">
-  <input type="text" name="risk" id="f_risk">
-</form>
-</script>
-</script>
-  <script>
-let pepData = {};
-
-function startPepQuiz() {
-  const name = document.getElementById("pep_name").value;
-  const contact = document.getElementById("pep_contact").value;
-
-  if (!name || !contact) {
-    alert("Please enter your name and contact info");
-    return;
-  }
-
-  pepData = { name, contact };
-
-  document.getElementById("pepLead").style.display = "none";
-  document.getElementById("pepQuestions").style.display = "block";
+r.classList.add("show");
 }
 
-function runPepQuiz() {
-  const noPrep = document.getElementById("pep_q1").checked;
-  const hivPartner = document.getElementById("pep_q2").checked;
-  const noCondom = document.getElementById("pep_q3").checked;
-  const within72 = document.getElementById("pep_q4").checked;
-  const assault = document.getElementById("pep_q5").checked;
+function runPep(){
+let name=document.getElementById("name").value;
+let contact=document.getElementById("contact").value;
 
-  const result = document.getElementById("pepResult");
+if(!name||!contact){alert("Enter your info");return;}
 
-  let message = "";
-  let risk = "";
+let q1=document.getElementById("q1").checked;
+let q2=document.getElementById("q2").checked;
+let q3=document.getElementById("q3").checked;
+let q4=document.getElementById("q4").checked;
+let q5=document.getElementById("q5").checked;
 
-  if (assault && within72) {
-    message = "🚨 You may need PEP immediately. Call now.";
-    risk = "HIGH - Assault";
-  } 
-  else if (within72 && (hivPartner || noCondom)) {
-    message = "🚨 High risk exposure. Start PEP immediately.";
-    risk = "HIGH";
-  } 
-  else if (within72) {
-    message = "⚠️ You may benefit from PEP. Book urgently.";
-    risk = "Moderate";
-  } 
-  else if (!within72 && (hivPartner || noCondom)) {
-    message = "⚠️ PEP window may have passed. Follow-up needed.";
-    risk = "Outside window";
-  } 
-  else {
-    message = "🟢 Risk appears lower, but consult recommended.";
-    risk = "Low";
-  }
+let r=document.getElementById("pepResult");
+let msg="",risk="";
 
-  result.innerHTML = `
-    <strong>${message}</strong><br><br>
-    <a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult">Book now →</a><br>
-    <a href="tel:+9054200441">Call clinic →</a>
-  `;
+if(q5&&q4){msg="URGENT: Seek PEP immediately.";risk="HIGH";}
+else if(q4&&(q2||q3)){msg="High risk — start PEP ASAP.";risk="HIGH";}
+else if(q4){msg="Moderate risk — act quickly.";risk="MODERATE";}
+else if(!q4&&(q2||q3)){msg="Outside window — follow up.";risk="OUTSIDE";}
+else{msg="Lower risk — consult recommended.";risk="LOW";}
 
-  result.classList.add('show');
+r.innerHTML=msg+"<br><br><a href='https://calendly.com/clinic-healrx/hiv-pep-urgent-consult'>Book now</a>";
+r.classList.add("show");
 
-  // SEND EMAIL
-  document.getElementById("f_name").value = pepData.name;
-  document.getElementById("f_contact").value = pepData.contact;
-  document.getElementById("f_risk").value = risk;
+document.getElementById("f_name").value=name;
+document.getElementById("f_contact").value=contact;
+document.getElementById("f_risk").value=risk;
 
-  document.getElementById("pepForm").submit();
+document.getElementById("form").submit();
 }
 </script>
+
 </body>
 </html>
-Chatly is 
