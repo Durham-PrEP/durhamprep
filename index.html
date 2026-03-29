@@ -734,12 +734,13 @@
           </ul>
           <a href=" https://calendly.com/clinic-healrx/hiv-prep-consultation" class="btn btn-primary">Book Online For PrEP →</a>
           <a href=" https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="btn btn-primary">Book Online For PEP→</a>  
-          
+           </div>
+  </section>
           <h3>Clinic Hours</h3>  
-          <p>Walk-ins welcome during all open hours.</p>
+          <p>Walk-ins welcome during all open hours. Outside of Clinic Hours, reach out by chat, email or phone</p>
           <ul class="hours-list">
             <li><span>Monday – Friday</span><strong>9:00 AM – 5:00 PM</strong></li>
-            <li><span>Saturday</span><strong>10:00 AM – 3:00 PM</strong></li>
+            <li><span>Saturday</span><strong>Closed</strong></li>
             <li><span>Sunday</span><strong>Closed</strong></li>
           </ul>
           <a href="tel:+9054200441" class="btn btn-outline" style="width:100%; justify-content:center;">📞 +1 (905) 420-0441</a>
@@ -815,6 +816,42 @@
     }
   </script>
 
+// ── PEP Risk Quiz ──
+function runPepQuiz() {
+  const checks = document.querySelectorAll('.quiz-option input[type="checkbox"]');
+  const selectedOptions = Array.from(checks).filter(c => c.checked);
+  const selected = selectedOptions.length;
+  const result = document.getElementById('quiz-result');
+
+  // Check if 72-hour window is selected
+  const within72 = selectedOptions[3]?.checked; // 4th option = <72 hours
+
+  if (selected === 0) {
+    result.style.background = 'rgba(139,168,191,0.08)';
+    result.style.borderColor = 'rgba(139,168,191,0.2)';
+    result.style.color = 'var(--muted)';
+    result.innerHTML =
+      '🔵 &nbsp;No options selected. If you’re unsure about a recent exposure, we recommend speaking with our clinic. <a href="#book" style="color:var(--teal); font-weight:600;">Book a consultation →</a>';
+
+  } else if (within72 && selected >= 1) {
+    result.style.background = 'rgba(220,38,38,0.12)';
+    result.style.borderColor = 'rgba(220,38,38,0.35)';
+    result.style.color = '#fecaca';
+    result.innerHTML =
+      '🚨 &nbsp;<strong style="color:white">You may need PEP immediately.</strong> PEP must be started within 72 hours of exposure. <br><br><a href="#book" style="color:#fff; font-weight:600;">Book an urgent appointment →</a> or call us now.';
+
+  } else if (!within72 && selected >= 1) {
+    result.style.background = 'rgba(251,191,36,0.12)';
+    result.style.borderColor = 'rgba(251,191,36,0.35)';
+    result.style.color = '#fde68a';
+    result.innerHTML =
+      '⚠️ &nbsp;<strong>PEP may no longer be effective.</strong> If your exposure was more than 72 hours ago, PEP may not work—but we can still help assess your risk and next steps. <a href="#book" style="color:#fff; font-weight:600;">Speak with a clinician →</a>';
+  }
+
+  result.classList.add('show');
+  result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+</script>
 </body>
 </html>
 Chatly is 
