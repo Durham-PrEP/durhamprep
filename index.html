@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Durham PrEP Clinic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f7f9fc;
+      text-align: center;
+    }
+
+    header {
+      background: #0b3c5d;
+      color: white;
+      padding: 30px 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .container {
+      padding: 30px;
+    }
+
+    .button {
+      display: block;
+      width: 80%;
+      max-width: 320px;
+      margin: 12px auto;
+      padding: 15px;
+      background: #1d7cf2;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .button.red {
+      background: #e63946;
+    }
+
+    .section {
+      padding: 60px 20px;
+      border-top: 1px solid #ddd;
+      background: white;
+    }
+
+    .section:nth-child(even) {
+      background: #f1f5f9;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Durham PrEP Clinic</h1>
+  <p>Protect yourself. Fast, simple, confidential care.</p>
+</header>
+
+<div class="container">
+  <a href="#prep" class="button">Start PrEP</a>
+  <a href="#pep" class="button red">Need PEP Now</a>
+  <a href="#book" class="button">Book Appointment</a>
+  <a href="#chat" class="button">Ask a Question</a>
+</div>
+
+<div id="prep" class="section">
+  <h2>Start PrEP</h2>
+  <p>PrEP is a daily medication that can significantly reduce your risk of HIV.</p>
+
+  <button onclick="showResult()" class="button">Am I at risk?</button>
+  <p id="result"></p>
+
+  <a href="#book" class="button">Get Started</a>
+</div>
+
+<div id="pep" class="section">
+  <h2>Need PEP?</h2>
+  <p>If you may have been exposed to HIV in the last 72 hours, start treatment immediately.</p>
+
+  <a href="tel:+9054200441" class="button red">Call Now</a>
+</div>
+
+<div id="book" class="section">
+  <h2>Book an Appointment</h2>
+  <p>Confidential, fast, and judgment-free care.</p>
+
+  <!-- REPLACE THIS LINK -->
+  <a href="https://calendly.com/clinic-healrx/hiv-prep-consultation" class="button">Book Now</a>
+</div>
+<a href="https://calendly.com/clinic-healrx/hiv-pep-urgent-consult" class="button">Book Now</a>
+</div>
+<div id="chat" class="section">
+  <h2>Chat With Us</h2>
+  <p>Have questions? Use the chat bubble to message us anytime.</p>
+</div>
+
+<script>
+function showResult() {
+  document.getElementById("result").innerHTML =
+  "Based on your answers, you may benefit from PrEP. Book an appointment to get started.";
+}
+</script>
+
+<!-- PASTE TIDIO CHAT CODE HERE BEFORE THIS LINE -->
+
+</body>
+</html>
