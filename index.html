@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Durham PrEP Clinic | Owned by HealRx Medical Clinic and Pharmacy</title>
+  <title>Durham PrEP Clinic | HealRx Medical Clinic and Pharmacy</title>
   <meta
     name="description"
-    content="Confidential PrEP, PEP, STI and Sexual Health Support at Durham PrEP Clinic in affiliation with HealRx Medical Clinic and Pharmacy"
+    content="Confidential PrEP, PEP, STI and sexual health support at Durham PrEP Clinic in affiliation with HealRx Medical Clinic and Pharmacy."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,6 +36,10 @@
       --radius: 24px;
       --max: 1220px;
       --transition: 0.28s ease;
+      --teal: #03989E;
+      --teal-deep: #027378;
+      --teal-soft: #e8fbfb;
+      --neutral-light: #f6f8fc;
     }
 
     * {
@@ -142,6 +146,16 @@
       box-shadow: var(--shadow);
     }
 
+    .btn-teal {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(3, 152, 158, 0.2);
+    }
+
+    .btn-teal:hover {
+      transform: translateY(-2px);
+    }
+
     .site-header {
       position: sticky;
       top: 0;
@@ -233,7 +247,7 @@
         radial-gradient(circle at 88% 18%, rgba(255,255,255,0.12), transparent 20%),
         linear-gradient(135deg, #173b9e 0%, #2d5ad3 45%, #af2d89 100%);
       color: #fff;
-      min-height: calc(86vh - 84px);
+      min-height: calc(84vh - 84px);
       display: flex;
       align-items: center;
     }
@@ -253,17 +267,37 @@
     .hero-grid {
       position: relative;
       z-index: 1;
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       text-align: center;
       display: grid;
       justify-items: center;
       gap: 24px;
-      padding: 96px 0;
+      padding: 96px 0 80px;
     }
 
-    .hero .eyebrow {
-      color: #fad8ee;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.18);
+      color: #fff;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.28);
+      margin-bottom: 8px;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #90ff90;
     }
 
     .hero-title {
@@ -271,12 +305,12 @@
       font-size: clamp(3rem, 6.1vw, 6rem);
       line-height: 0.9;
       font-weight: 600;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .hero-text {
-      max-width: 760px;
-      margin: 0 auto 30px;
+      max-width: 800px;
+      margin: 0 auto 26px;
       color: rgba(255,255,255,0.92);
       font-size: 1.08rem;
     }
@@ -303,6 +337,36 @@
       border: 1px solid rgba(255,255,255,0.16);
       font-size: 0.9rem;
       color: rgba(255,255,255,0.97);
+    }
+
+    .stats {
+      background: #fff;
+      border-top: 1px solid rgba(28, 70, 182, 0.06);
+      border-bottom: 1px solid rgba(28, 70, 182, 0.06);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.03);
+    }
+
+    .stats-content {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      text-align: center;
+      padding: 28px 0;
+    }
+
+    .stat-item h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--royal-deep);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-item p {
+      font-size: 0.98rem;
+      color: var(--ink-soft);
+      font-weight: 600;
     }
 
     .intro-card-section {
@@ -373,6 +437,50 @@
     .panel p {
       color: var(--ink-soft);
       margin-bottom: 14px;
+    }
+
+    .prep-intro {
+      background: var(--neutral-light);
+    }
+
+    .prep-intro-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .intro-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .mini-card {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+      text-align: center;
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .mini-card .ic-icon {
+      font-size: 1.9rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .mini-card h4 {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--royal-deep);
+      margin-bottom: 0.35rem;
+    }
+
+    .mini-card p {
+      font-size: 0.84rem;
+      color: var(--ink-soft);
+      margin: 0;
     }
 
     .info-grid {
@@ -506,6 +614,78 @@
 
     .service-card .btn {
       width: 100%;
+    }
+
+    .how-it-works {
+      background: var(--neutral-light);
+    }
+
+    .how-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .section-sub {
+      color: var(--ink-soft);
+      font-size: 1.02rem;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+    }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      position: relative;
+    }
+
+    .steps-grid::before {
+      content: "";
+      position: absolute;
+      top: 38px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--royal), var(--magenta));
+      z-index: 0;
+      opacity: 0.25;
+    }
+
+    .step {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 1.75rem 1.2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .step-num {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1rem;
+      background: linear-gradient(135deg, var(--royal), var(--magenta));
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .step h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--royal-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.88rem;
+      color: var(--ink-soft);
     }
 
     .coverage-box {
@@ -809,6 +989,48 @@
       margin-top: 18px;
     }
 
+    .info-strip {
+      background: var(--white);
+    }
+
+    .info-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .strip-card {
+      background: var(--neutral-light);
+      border-radius: 18px;
+      padding: 2rem;
+      text-align: center;
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .strip-card .info-icon {
+      font-size: 2.2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .strip-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--royal-deep);
+      margin-bottom: 0.5rem;
+    }
+
+    .strip-card p {
+      color: var(--ink-soft);
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .strip-card a {
+      color: var(--royal);
+      font-weight: 600;
+      font-size: 0.92rem;
+    }
+
     .contact-grid {
       display: grid;
       grid-template-columns: 0.95fr 1.05fr;
@@ -864,6 +1086,21 @@
       word-break: break-word;
     }
 
+    .map-embed {
+      margin-top: 22px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(28, 70, 182, 0.08);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .map-embed iframe {
+      display: block;
+      width: 100%;
+      height: 320px;
+    }
+
     .trust-bottom {
       background: linear-gradient(to bottom, #eef4ff 0%, #f8f3ff 100%);
       border-top: 1px solid rgba(28, 70, 182, 0.08);
@@ -900,27 +1137,49 @@
     footer {
       background: linear-gradient(135deg, #173b9e 0%, #a92f87 100%);
       color: rgba(255,255,255,0.88);
-      padding: 38px 0;
+      padding: 42px 0 28px;
     }
 
-    .footer-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: center;
-      gap: 18px;
+    .footer-content {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
     }
 
     .footer-brand {
       font-family: "Cormorant Garamond", serif;
-      font-size: 1.7rem;
+      font-size: 1.9rem;
       color: #fff;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    .footer-copy {
-      max-width: 720px;
-      font-size: 0.92rem;
+    .footer h4 {
+      color: #fff;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .footer p,
+    .footer a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.76);
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    .footer a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 1.5rem;
+      text-align: center;
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.58);
     }
 
     .booking-modal {
@@ -1022,13 +1281,26 @@
     @media (max-width: 1080px) {
       .info-grid,
       .services-grid,
-      .contact-grid {
+      .contact-grid,
+      .prep-intro-inner,
+      .footer-content {
         grid-template-columns: 1fr;
       }
 
-      .trust-grid,
-      .form-grid {
+      .steps-grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .steps-grid::before {
+        display: none;
+      }
+
+      .trust-grid,
+      .form-grid,
+      .stats-content,
+      .info-strip-inner,
+      .intro-cards {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1076,6 +1348,10 @@
       .brand-sub {
         font-size: 0.62rem;
       }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 560px) {
@@ -1105,7 +1381,10 @@
       .screening-card-header,
       .booking-modal-header,
       .booking-modal-body,
-      .booking-modal-footer {
+      .booking-modal-footer,
+      .strip-card,
+      .mini-card,
+      .step {
         padding-left: 24px;
         padding-right: 24px;
       }
@@ -1139,7 +1418,7 @@
       <nav class="nav" id="nav">
         <a href="#" class="brand" aria-label="Durham PrEP Clinic home">
           <span class="brand-name">Durham PrEP Clinic</span>
-          <span class="brand-sub">In affiliation with HealRx Medical Clinic and Pharmacy</span>
+          <span class="brand-sub">In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</span>
         </a>
 
         <div class="nav-links">
@@ -1165,9 +1444,10 @@
       <div class="container">
         <div class="hero-grid">
           <div class="reveal">
-            <h1 class="hero-title">Durham Region's Number One Clinic for HIV PrEP, PEP and Sexual Health Care</h1>
+            <div class="hero-badge">Accepting New Patients</div>
+            <h1 class="hero-title">Durham Region’s Number One Clinic for HIV PrEP, PEP and Sexual Health Care</h1>
             <p class="hero-text">
-              Durham PrEP Clinic offers confidential access to physician and pharmacy services designed to make care easier and faster.
+              Confidential, judgment-free access to physician and pharmacy care designed to make HIV prevention, urgent post-exposure care, and sexual health support easier and faster.
             </p>
 
             <div class="hero-actions">
@@ -1175,7 +1455,31 @@
               <a href="#contact" class="btn btn-secondary">Contact the Clinic</a>
               <button type="button" class="btn btn-light" id="openBookingModal">Book an Appointment</button>
             </div>
+
+            <div class="hero-points">
+              <span>✔ Physician + pharmacist team</span>
+              <span>✔ Same-location assessment and prescribing</span>
+              <span>✔ Dispensing on the spot</span>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="container">
+        <div class="stats-content">
+          <div class="stat-item">
+            <h3>Fast</h3>
+            <p>Access to PrEP and PEP Care</p>
+          </div>
+          <div class="stat-item">
+            <h3>Same-Day</h3>
+            <p>Prescriptions via HealRx Pharmacy</p>
+          </div>
+          <div class="stat-item">
+            <h3>Private</h3>
+            <p>Confidential and Judgment-Free</p>
           </div>
         </div>
       </div>
@@ -1186,7 +1490,7 @@
         <div class="intro-card reveal">
           <h3>Your Health. Your Choice.</h3>
           <p>
-            Sexual health is not for one type of person. It is for anyone who wants knowledge, and support without stigma or delay
+            Sexual health is not for one type of person. It is for anyone who wants knowledge, protection, and support without stigma or delay.
           </p>
 
           <div class="intro-list">
@@ -1196,11 +1500,11 @@
             </div>
             <div class="intro-list-item">
               <strong>Urgent PEP Consult</strong>
-              <span>Urgent assessment for anyone with a recent potential exposure to HIV </span>
+              <span>Urgent assessment for anyone with a recent potential exposure to HIV.</span>
             </div>
             <div class="intro-list-item">
               <strong>On-Site Care</strong>
-              <span>Consultation, prescribing, and dispensing in one place to reduce delays to treatment</span>
+              <span>Consultation, prescribing, and dispensing in one place to reduce delays to treatment.</span>
             </div>
           </div>
         </div>
@@ -1210,23 +1514,23 @@
     <section class="section simple-section" id="about">
       <div class="container">
         <div class="panel reveal">
-          <span class="eyebrow">About Durham PrEP Clinic</span>
+          <span class="eyebrow">About HealRx</span>
           <h2 class="section-title">Built for people who deserve clarity, protection, and care.</h2>
 
           <p>
-            We built the Durham PrEP Clinic for people who are too often overlooked, unheard, or left navigating their health alone.
+            We built HealRx for the people who are too often overlooked, unheard, or left navigating their health alone.
           </p>
 
           <p>
-            Because the truth is, HIV prevention and sexual health are still surrounded by silence, stigma, and misinformation. Too many people are left feeling uncertain, afraid, or unsupported when they deserve clarity, protection, and care.
+            Because the truth is—HIV prevention and sexual health are still surrounded by silence, stigma, and misinformation. And too many people are left feeling uncertain, afraid, or unsupported when they deserve clarity, protection, and care.
           </p>
 
           <p>
-            <strong>Sejal Shah</strong>, pharmacist and founder, has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication, she is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare, it’s personal.
+            <strong>Sejal Shah</strong>, pharmacist and founder, has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication—she is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare—it’s personal.
           </p>
 
           <p>
-            <strong>Dr. Ronak Brahmbhatt</strong> is a general family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care, delivered in a way that is respectful, discreet, and grounded in trust. He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
+            <strong>Dr. Ronak Brahmbhatt</strong> is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care—delivered in a way that is respectful, discreet, and grounded in trust. He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
           </p>
 
           <p>
@@ -1240,7 +1544,7 @@
           </p>
 
           <p>
-            Whether you’re here to protect yourself, seek treatment, or simply understand your options, you are not alone.
+            Whether you’re here to protect yourself, seek treatment, or simply understand your options—you are not alone.
           </p>
 
           <p>
@@ -1250,52 +1554,46 @@
       </div>
     </section>
 
-    <section class="section" id="understanding">
+    <section class="section prep-intro" id="understanding">
       <div class="container">
-        <span class="eyebrow reveal">What Does This Mean?</span>
-        <h2 class="section-title reveal">Understanding HIV, PrEP and PEP</h2>
-        <p class="section-copy reveal">
-          Many people have heard the terms, but don't know what they mean. Here's a breakdown:
-        </p>
-
-        <div class="info-grid">
-          <article class="info-card reveal">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 21s-7-4.6-7-11a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 6.4-7 11-7 11Z" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
-            <h3>What is HIV?</h3>
-            <p>
-              HIV is a virus that affects the immune system. Without treatment, it can weaken the body’s ability to fight infections and illness. Early prevention, testing, and treatment matter.
+        <div class="prep-intro-inner">
+          <div class="reveal">
+            <span class="eyebrow">Understanding HIV, PrEP and PEP</span>
+            <h2 class="section-title">Clear explanations, without overwhelming wording.</h2>
+            <p class="section-copy" style="margin-bottom: 16px;">
+              HIV is a virus that affects the immune system. Without treatment, it can weaken the body’s ability to fight infections and illness.
             </p>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4Z" stroke="url(#icon-gradient)"/>
-                <path d="M9.5 12l1.5 1.5L14.5 10" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
-            <h3>What is PrEP?</h3>
-            <p>
-              PrEP stands for <strong>Pre-Exposure Prophylaxis</strong>. It is medication taken before a possible HIV exposure to help reduce the chance of getting HIV.
+            <p class="section-copy" style="margin-bottom: 16px;">
+              <strong>PrEP</strong> stands for <strong>Pre-Exposure Prophylaxis</strong>. It is medication taken before a possible HIV exposure to help reduce the chance of getting HIV.
             </p>
-          </article>
-
-          <article class="info-card reveal">
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 8v5l3 3" stroke="url(#icon-gradient)"/>
-                <circle cx="12" cy="12" r="9" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
-            <h3>What is PEP?</h3>
-            <p>
-              PEP stands for <strong>Post-Exposure Prophylaxis</strong>. It is a combination of medications used after a possible HIV exposure. Treatmeant should be started within 72 hours of exposure.
+            <p class="section-copy" style="margin-bottom: 20px;">
+              <strong>PEP</strong> stands for <strong>Post-Exposure Prophylaxis</strong>. It is urgent medication used after a possible HIV exposure. Timing is important.
             </p>
-          </article>
+            <a href="#screening-links" class="btn btn-primary">Choose an Assessment</a>
+          </div>
+
+          <div class="intro-cards reveal">
+            <div class="mini-card">
+              <div class="ic-icon">🦠</div>
+              <h4>What is HIV?</h4>
+              <p>A virus that can affect the immune system without treatment.</p>
+            </div>
+            <div class="mini-card">
+              <div class="ic-icon">🛡️</div>
+              <h4>What is PrEP?</h4>
+              <p>Pre-exposure medication to help prevent HIV.</p>
+            </div>
+            <div class="mini-card">
+              <div class="ic-icon">⏱️</div>
+              <h4>What is PEP?</h4>
+              <p>Urgent post-exposure medication where timing matters.</p>
+            </div>
+            <div class="mini-card">
+              <div class="ic-icon">💬</div>
+              <h4>Who is it for?</h4>
+              <p>Anyone who wants prevention, clarity, and support without stigma.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1304,7 +1602,7 @@
       <div class="container">
         <div class="services-header reveal">
           <span class="eyebrow">Services</span>
-          <h2 class="section-title">Your Sexual Health Made Easy</h2>
+          <h2 class="section-title">Simple, more visual, and easier to understand.</h2>
           <p class="section-copy">
             We make it easier for patients to understand what care they need and how to get started quickly.
           </p>
@@ -1372,12 +1670,45 @@
       </div>
     </section>
 
+    <section class="section how-it-works">
+      <div class="container">
+        <div class="how-inner">
+          <span class="eyebrow reveal">How it Works</span>
+          <h2 class="section-title reveal">Getting started is simple.</h2>
+          <p class="section-sub reveal">No referral needed. Here’s what to expect when you begin care with us.</p>
+
+          <div class="steps-grid">
+            <div class="step reveal">
+              <div class="step-num">1</div>
+              <h4>Choose Your Path</h4>
+              <p>Start with a PrEP or PEP assessment, or contact us directly if you are unsure where to begin.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">2</div>
+              <h4>Clinical Review</h4>
+              <p>We consult, assess, and review your needs in a respectful and confidential setting.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">3</div>
+              <h4>Prescription and Coverage</h4>
+              <p>If appropriate, we prescribe and help guide you through coverage options and next steps.</p>
+            </div>
+            <div class="step reveal">
+              <div class="step-num">4</div>
+              <h4>Dispensing and Follow-Up</h4>
+              <p>Medication can be dispensed on site, with follow-up care arranged without unnecessary delay.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="screening-links">
       <div class="container">
-        <span class="eyebrow reveal">Screening Assessments</span>
-        <h2 class="section-title reveal">Choose the Care you Need</h2>
+        <span class="eyebrow reveal">Assessments</span>
+        <h2 class="section-title reveal">Choose the screening assessment you need.</h2>
         <p class="section-copy reveal">
-         Unsure of what you need? Select the assessment below based on whether you are looking for prevention before exposure or urgent care after a possible exposure.
+          Select the assessment below based on whether you are looking for prevention before exposure or urgent care after a possible exposure.
         </p>
 
         <div class="assessment-links">
@@ -1399,7 +1730,7 @@
     <section class="section" id="screening">
       <div class="container">
         <span class="eyebrow reveal">Screening Questionnaires</span>
-        <h2 class="section-title reveal">PrEP Screening vs PEP Screening</h2>
+        <h2 class="section-title reveal">Separated clearly for prevention and urgent post-exposure care.</h2>
 
         <div class="screening-wrapper">
           <div class="screening-card reveal" id="prep-screening">
@@ -1638,54 +1969,75 @@
       </div>
     </section>
 
+    <section class="section info-strip">
+      <div class="container">
+        <div class="info-strip-inner">
+          <div class="strip-card reveal">
+            <div class="info-icon">📍</div>
+            <h3>Location</h3>
+            <p>1550 Bayly Street, Pickering, ON, L1W 3W1</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=1550+Bayly+Street,+Pickering,+ON,+L1W+3W1" target="_blank" rel="noopener noreferrer">Get Directions →</a>
+          </div>
+
+          <div class="strip-card reveal">
+            <div class="info-icon">🏥</div>
+            <h3>Care Model</h3>
+            <p>Physician and pharmacist team with same-location consultation, prescribing, and dispensing.</p>
+          </div>
+
+          <div class="strip-card reveal">
+            <div class="info-icon">📞</div>
+            <h3>Contact Us</h3>
+            <p>clinic.healrx@gmail.com<br>905-420-0441</p>
+            <a href="#contact">Contact the Clinic →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="contact">
       <div class="container">
         <span class="eyebrow reveal">Contact Us</span>
-        <h2 class="section-title reveal">Let’s Make Care Easier to Access.</h2>
+        <h2 class="section-title reveal">Let’s make care easier to access.</h2>
         <p class="section-copy reveal">
           Reach out to Durham PrEP Clinic for confidential and supportive sexual health care.
         </p>
 
         <div class="contact-grid">
           <div class="contact-card reveal">
-  <h3>Clinic Details</h3>
-  <p>Private, respectful care in a professional environment designed to make patients feel comfortable, informed and supported.</p>
+            <h3>Clinic Details</h3>
+            <p>Private, respectful care in a professional environment designed to make patients feel comfortable, informed and supported.</p>
 
-  <div class="contact-info">
-    <div>
-      <strong>Location</strong>
-      <span>1550 Bayly Street, Pickering, ON, L1W 3W1</span>
-    </div>
-    <div>
-      <strong>Phone</strong>
-      <a href="tel:9054200441">905-420-0441</a>
-    </div>
-    <div>
-      <strong>Email</strong>
-      <a href="mailto:clinic.healrx@gmail.com">clinic.healrx@gmail.com</a>
-    </div>
-    <div>
-      <strong>Affiliation</strong>
-      <span>HealRx Medical Clinic and Pharmacy Ltd.</span>
-    </div>
-  </div>
-
-  <div class="map-embed">
-    <iframe
-      src="https://www.google.com/maps?q=1550%20Bayly%20Street%2C%20Pickering%2C%20ON%2C%20L1W%203W1&z=15&output=embed"
-      width="100%"
-      height="320"
-      style="border:0;"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-      title="HealRx clinic location map">
-    </iframe>
-    <a
-  href="https://www.google.com/maps/search/?api=1&query=1550+Bay
-  </div>
-</div>
+            <div class="contact-info">
+              <div>
+                <strong>Location</strong>
+                <span>1550 Bayly Street, Pickering, ON, L1W 3W1</span>
               </div>
+              <div>
+                <strong>Phone</strong>
+                <a href="tel:9054200441">905-420-0441</a>
+              </div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:clinic.healrx@gmail.com">clinic.healrx@gmail.com</a>
+              </div>
+              <div>
+                <strong>Affiliation</strong>
+                <span>HealRx Medical Clinic and Pharmacy Ltd.</span>
+              </div>
+            </div>
+
+            <div class="map-embed">
+              <iframe
+                src="https://www.google.com/maps?q=1550%20Bayly%20Street%2C%20Pickering%2C%20ON%2C%20L1W%203W1&z=15&output=embed"
+                width="100%"
+                height="320"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="HealRx clinic location map">
+              </iframe>
             </div>
           </div>
 
@@ -1757,16 +2109,39 @@
     </section>
   </main>
 
-  <footer>
+  <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
+      <div class="footer-content">
         <div>
           <div class="footer-brand">Durham PrEP Clinic</div>
-          <div class="footer-copy">
-            Confidential PrEP, PEP, STI and pharmacy support for patients seeking faster access to care.
-          </div>
+          <p>Owned and operated by HealRx Medical Clinic and Pharmacy Ltd. Providing confidential, compassionate HIV prevention care in the Durham region.</p>
+          <p>clinic.healrx@gmail.com</p>
+          <p>905-420-0441</p>
         </div>
-        <div class="footer-copy">© <span id="year"></span> Durham PrEP Clinic. All rights reserved.</div>
+        <div>
+          <h4>Services</h4>
+          <a href="#services">PrEP</a>
+          <a href="#services">PEP</a>
+          <a href="#services">STI Care</a>
+          <a href="#coverage">Coverage Support</a>
+        </div>
+        <div>
+          <h4>Links</h4>
+          <a href="#about">About</a>
+          <a href="#screening-links">Assessments</a>
+          <a href="#contact">Contact</a>
+          <a href="#" id="footerBookTrigger">Book Appointment</a>
+        </div>
+        <div>
+          <h4>Clinic Details</h4>
+          <p>1550 Bayly Street</p>
+          <p>Pickering, ON, L1W 3W1</p>
+          <p>In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year"></span> Durham PrEP Clinic. All rights reserved.
       </div>
     </div>
   </footer>
@@ -1849,6 +2224,7 @@
     const bookingModal = document.getElementById("bookingModal");
     const openBookingModalBtn = document.getElementById("openBookingModal");
     const closeBookingModalBtn = document.getElementById("closeBookingModal");
+    const footerBookTrigger = document.getElementById("footerBookTrigger");
 
     function openBookingModal() {
       bookingModal.classList.add("open");
@@ -1864,11 +2240,13 @@
 
     openBookingModalBtn.addEventListener("click", openBookingModal);
     closeBookingModalBtn.addEventListener("click", closeBookingModal);
+    footerBookTrigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      openBookingModal();
+    });
 
     bookingModal.addEventListener("click", (e) => {
-      if (e.target === bookingModal) {
-        closeBookingModal();
-      }
+      if (e.target === bookingModal) closeBookingModal();
     });
 
     document.addEventListener("keydown", (e) => {
@@ -1895,8 +2273,7 @@
 
     function requireAnswers(ids) {
       for (const id of ids) {
-        const value = document.getElementById(id).value;
-        if (value === "") return false;
+        if (document.getElementById(id).value === "") return false;
       }
       return true;
     }
@@ -1955,7 +2332,7 @@
           "A clinician should assess ongoing exposure risk and suitability for PrEP.",
           "Discuss testing, baseline workup and medication planning."
         ];
-        contactText = "Recommended next step: arrange a PrEP appointment with DURHAM PrEP CLINIC.";
+        contactText = "Recommended next step: arrange a PrEP appointment with Durham PrEP Clinic.";
       }
 
       result.innerHTML = buildResultHTML(level, title, summary, bullets, contactText, PREP_BOOKING_URL);
@@ -1993,7 +2370,6 @@
       const result = document.getElementById("pepResult");
 
       let score = condomBreak + analVaginal + visibleBlood + sharedEquipment;
-
       if (partnerStatus === "high") score += 4;
       if (partnerStatus === "moderate") score += 2;
       if (exposureType === "needle") score += 3;
@@ -2029,7 +2405,7 @@
           "Timing matters and urgent assessment is recommended.",
           "Do not delay clinical review when exposure may be within the 72-hour window."
         ];
-        contactText = "Recommended next step: contact DURHAM PrEP CLINIC immediately for urgent PEP assessment.";
+        contactText = "Recommended next step: contact Durham PrEP Clinic immediately for urgent PEP assessment.";
       } else if ((within72 === "within72" && score >= 4) || within72 === "unsure") {
         level = "moderate";
         title = "Moderate PEP urgency screen";
