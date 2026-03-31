@@ -16,6 +16,56 @@
   />
 
   <style>
+    .founder-block {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 28px;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.founder-photo {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+.founder-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-content h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  margin-bottom: 4px;
+}
+
+.founder-title {
+  display: block;
+  color: #b14cff; /* magenta accent */
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.founder-content p {
+  margin-bottom: 12px;
+  color: var(--slate);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .founder-block {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .founder-photo {
+    max-width: 220px;
+    margin: 0 auto;
+  }
     :root {
       --royal: #1c46b6;
       --royal-deep: #15358a;
@@ -1488,9 +1538,25 @@
             Because the truth is—HIV prevention and sexual health are still surrounded by silence, stigma, and misinformation. And too many people are left feeling uncertain, afraid, or unsupported when they deserve clarity, protection, and care.
           </p>
 
-          <p>
-            <strong>Sejal Shah</strong>, pharmacist and founder, has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication—she is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare—it’s personal.
-          </p>
+          <div class="founder-block">
+
+  <div class="founder-photo">
+    <img src="images/sejal.jpg" alt="Sejal Shah, Pharmacist and Founder">
+  </div>
+
+  <div class="founder-content">
+    <h3>Sejal Shah</h3>
+    <span class="founder-title">Pharmacist & Founder</span>
+
+    <p>
+      Sejal Shah has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication.
+    </p>
+
+    <p>
+      She is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare—it’s personal.
+    </p>
+
+  </div>
 
           <p>
             <strong>Dr. Ronak Brahmbhatt</strong> is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care—delivered in a way that is respectful, discreet, and grounded in trust. He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
