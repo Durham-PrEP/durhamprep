@@ -33,6 +33,11 @@
       --max: 1220px;
       --transition: 0.28s ease;
       --neutral-light: #f6f8fc;
+      --gold: #ffd166;
+      --coral: #ff7a8a;
+      --lavender: #8d7bff;
+      --hotpink: #ff62c0;
+      --mint: #ecfff8;
     }
 
     * {
@@ -709,7 +714,10 @@
     }
 
     .screening-card {
-      background: linear-gradient(180deg, #ffffff 0%, #faf6ff 100%);
+      background:
+        radial-gradient(circle at top right, rgba(255, 214, 102, 0.16), transparent 25%),
+        radial-gradient(circle at bottom left, rgba(178, 47, 139, 0.14), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #fbf7ff 100%);
       border: 1px solid rgba(28, 70, 182, 0.1);
       border-radius: 32px;
       box-shadow: var(--shadow-lg);
@@ -718,7 +726,9 @@
 
     .screening-card-header {
       padding: 26px 30px;
-      background: linear-gradient(135deg, rgba(28,70,182,0.08), rgba(178,47,139,0.08));
+      background:
+        linear-gradient(135deg, rgba(28,70,182,0.12), rgba(178,47,139,0.12)),
+        linear-gradient(90deg, #f6f3ff 0%, #fff7fb 100%);
       border-bottom: 1px solid rgba(28, 70, 182, 0.08);
     }
 
@@ -764,11 +774,6 @@
       padding: 20px;
       box-shadow: 0 14px 26px rgba(28, 70, 182, 0.06);
       transition: var(--transition);
-    }
-
-    .field:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 20px 34px rgba(28, 70, 182, 0.10);
     }
 
     .field.full {
@@ -845,6 +850,155 @@
       display: none;
     }
 
+    .assessment-stage {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .assessment-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .assessment-progress-bar {
+      flex: 1;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(28, 70, 182, 0.10);
+      overflow: hidden;
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .assessment-progress-fill {
+      height: 100%;
+      width: 0%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--hotpink) 50%, var(--lavender) 100%);
+      transition: width 0.35s ease;
+    }
+
+    .assessment-progress-text {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--royal-deep);
+      white-space: nowrap;
+    }
+
+    .question-step {
+      display: none;
+      animation: fadeStep 0.35s ease;
+    }
+
+    .question-step.active {
+      display: block;
+    }
+
+    @keyframes fadeStep {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .question-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f2ff 100%);
+      border: 1px solid rgba(178, 47, 139, 0.14);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 36px rgba(28, 70, 182, 0.08);
+    }
+
+    .question-kicker {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(28,70,182,0.10), rgba(178,47,139,0.10));
+      color: var(--magenta-deep);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 16px;
+    }
+
+    .question-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      line-height: 1;
+      color: var(--royal-deep);
+      margin-bottom: 10px;
+    }
+
+    .question-copy {
+      color: var(--ink-soft);
+      margin-bottom: 22px;
+      font-size: 0.98rem;
+    }
+
+    .choice-group.big {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .choice-btn.big {
+      min-width: 0;
+      border-radius: 20px;
+      padding: 18px 20px;
+      text-align: left;
+      justify-content: flex-start;
+      font-size: 0.96rem;
+      font-weight: 700;
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.12);
+      box-shadow: 0 10px 22px rgba(28, 70, 182, 0.05);
+    }
+
+    .choice-btn.big:hover {
+      background: linear-gradient(180deg, #fff6fc 0%, #f5efff 100%);
+    }
+
+    .choice-btn.big.active {
+      background: linear-gradient(135deg, var(--royal) 0%, var(--magenta) 100%);
+      color: #fff;
+    }
+
+    .assessment-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .assessment-nav .btn {
+      min-width: 140px;
+    }
+
+    .assessment-notes {
+      margin-top: 22px;
+      padding: 20px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7f2ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .assessment-notes label {
+      display: block;
+      font-weight: 600;
+      color: var(--royal-deep);
+      margin-bottom: 10px;
+    }
+
+    .assessment-notes textarea {
+      min-height: 110px;
+    }
+
     .quiz-actions {
       display: flex;
       flex-wrap: wrap;
@@ -857,7 +1011,9 @@
       padding: 28px;
       border-radius: 24px;
       border: 1px solid rgba(28, 70, 182, 0.10);
-      background: linear-gradient(180deg, #ffffff 0%, #f8f2ff 100%);
+      background:
+        radial-gradient(circle at top right, rgba(255, 209, 102, 0.16), transparent 24%),
+        linear-gradient(180deg, #ffffff 0%, #faf3ff 100%);
       display: none;
       box-shadow: 0 18px 34px rgba(28, 70, 182, 0.08);
     }
@@ -920,47 +1076,113 @@
       margin-top: 18px;
     }
 
-    .coverage-box {
-      margin-top: 34px;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
-      border: 1px solid rgba(28, 70, 182, 0.1);
+    .coverage-wrap {
+      display: grid;
+      gap: 24px;
+      margin-top: 30px;
+    }
+
+    .coverage-intro-card {
+      background: linear-gradient(135deg, #ffffff 0%, #f7f2ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.10);
       border-radius: 28px;
       padding: 28px;
       box-shadow: var(--shadow);
     }
 
-    .coverage-box h3 {
+    .coverage-intro-card h3 {
       font-family: "Cormorant Garamond", serif;
       font-size: 2rem;
       color: var(--royal-deep);
-      margin-bottom: 12px;
+      margin-bottom: 10px;
       line-height: 1;
     }
 
-    .coverage-box p {
+    .coverage-intro-card p {
       color: var(--ink-soft);
-      margin-bottom: 12px;
+      margin: 0;
     }
 
-    .coverage-list {
-      list-style: none;
+    .coverage-bubbles {
       display: grid;
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
     }
 
-    .coverage-list li {
-      position: relative;
-      padding-left: 18px;
-      color: var(--ink);
+    .coverage-bubble {
+      background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.10);
+      border-radius: 26px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
     }
 
-    .coverage-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--royal);
-      font-size: 1.1rem;
+    .coverage-bubble:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .coverage-pill {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(28,70,182,0.10), rgba(178,47,139,0.10));
+      color: var(--magenta-deep);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .coverage-bubble h4 {
+      font-size: 1.08rem;
+      color: var(--royal-deep);
+      margin-bottom: 8px;
+    }
+
+    .coverage-bubble p {
+      color: var(--ink-soft);
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .coverage-action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .coverage-chip {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 18px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #ffffff 0%, #f6f8ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.12);
+      font-weight: 700;
+      color: var(--royal-deep);
+      box-shadow: 0 8px 16px rgba(28, 70, 182, 0.05);
+    }
+
+    .coverage-helper {
+      background: linear-gradient(135deg, #fff7fb 0%, #f5f0ff 100%);
+      border: 1px solid rgba(178, 47, 139, 0.12);
+      border-radius: 24px;
+      padding: 22px;
+    }
+
+    .coverage-helper strong {
+      display: block;
+      color: var(--royal-deep);
+      margin-bottom: 8px;
+    }
+
+    .coverage-helper p {
+      margin: 0;
+      color: var(--ink-soft);
     }
 
     .info-strip {
@@ -1272,7 +1494,8 @@
       .form-grid,
       .stats-content,
       .info-strip-inner,
-      .intro-cards {
+      .intro-cards,
+      .coverage-bubbles {
         grid-template-columns: 1fr;
       }
     }
@@ -1319,7 +1542,8 @@
 
       .steps-grid,
       .trust-grid,
-      .form-grid {
+      .form-grid,
+      .choice-group.big {
         grid-template-columns: 1fr;
       }
 
@@ -1331,6 +1555,14 @@
       .founder-photo {
         max-width: 240px;
         margin: 0 auto;
+      }
+
+      .assessment-nav {
+        flex-direction: column;
+      }
+
+      .assessment-nav .btn {
+        width: 100%;
       }
     }
 
@@ -1364,7 +1596,11 @@
       .strip-card,
       .mini-card,
       .step,
-      .founder-block {
+      .founder-block,
+      .question-card,
+      .coverage-intro-card,
+      .coverage-bubble,
+      .coverage-helper {
         padding-left: 24px;
         padding-right: 24px;
       }
@@ -1389,7 +1625,7 @@
       <nav class="nav" id="nav">
         <a href="#" class="brand" aria-label="Durham PrEP Clinic home">
           <span class="brand-name">Durham PrEP Clinic</span>
-          <span class="brand-sub">Owned by HealRx Medical Clinic and Pharmacy</span>
+          <span class="brand-sub">In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</span>
         </a>
 
         <div class="nav-links">
@@ -1417,10 +1653,20 @@
           <div class="reveal">
             <div class="hero-badge">Accepting New Patients</div>
             <h1 class="hero-title">Durham Region’s Number One Clinic for HIV PrEP, PEP and Sexual Health Care</h1>
+            <p class="hero-text">
+              Confidential, judgment-free access to physician and pharmacy care designed to make HIV prevention, urgent post-exposure care, and sexual health support easier and faster.
+            </p>
+
             <div class="hero-actions">
               <a href="#screening-links" class="btn btn-primary">Start Your Assessment</a>
               <a href="#contact" class="btn btn-secondary">Contact the Clinic</a>
               <button type="button" class="btn btn-light" id="openBookingModal">Book an Appointment</button>
+            </div>
+
+            <div class="hero-points">
+              <span>✔ Physician + pharmacist team</span>
+              <span>✔ Same-location assessment and prescribing</span>
+              <span>✔ Dispensing on the spot</span>
             </div>
           </div>
         </div>
@@ -1441,6 +1687,32 @@
           <div class="stat-item">
             <h3>Private</h3>
             <p>Confidential and Judgment-Free</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro-card-section">
+      <div class="container">
+        <div class="intro-card reveal">
+          <h3>Your Health. Your Choice.</h3>
+          <p>
+            Sexual health is not for one type of person. It is for anyone who wants knowledge, protection, and support without stigma or delay.
+          </p>
+
+          <div class="intro-list">
+            <div class="intro-list-item">
+              <strong>PrEP Screening</strong>
+              <span>Quick review for patients considering prevention before exposure.</span>
+            </div>
+            <div class="intro-list-item">
+              <strong>Urgent PEP Consult</strong>
+              <span>Rapid assessment for anyone with a recent potential exposure to HIV.</span>
+            </div>
+            <div class="intro-list-item">
+              <strong>On-Site Care</strong>
+              <span>Consultation, prescribing, and dispensing in one place to reduce delays to treatment.</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1472,21 +1744,13 @@
             </div>
           </div>
 
-          <div class="founder-block">
-            <div class="founder-photo">
-              <img src="images/ronak.jpg" alt="Dr. Ronak Brahmbhatt, Family Physician">
-            </div>
-            <div class="founder-content">
-              <h3>Dr. Ronak Brahmbhatt</h3>
-              <span class="founder-title">Family Physician</span>
-              <p>
-                Dr. Ronak Brahmbhatt is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care.
-              </p>
-              <p>
-                He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
-              </p>
-            </div>
-          </div>
+          <p>
+            <strong>Dr. Ronak Brahmbhatt</strong> is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care.
+          </p>
+
+          <p>
+            He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
+          </p>
 
           <p>
             Together, as a family-run clinic, we are building something different.
@@ -1514,6 +1778,7 @@
         <div class="prep-intro-inner">
           <div class="reveal">
             <span class="eyebrow">Understanding HIV, PrEP and PEP</span>
+            <h2 class="section-title">Clear explanations, without overwhelming wording.</h2>
             <p class="section-copy" style="margin-bottom: 16px;">
               HIV is a virus that affects the immune system. Without treatment, it can weaken the body’s ability to fight infections and illness.
             </p>
@@ -1555,7 +1820,8 @@
     <section class="section services" id="services">
       <div class="container">
         <div class="services-header reveal">
-          <span class="eyebrow">Services Offered</span>
+          <span class="eyebrow">Services</span>
+          <h2 class="section-title">Simple, visual, and easier to understand.</h2>
           <p class="section-copy">
             We make it easier for patients to understand what care they need and how to get started quickly.
           </p>
@@ -1620,7 +1886,7 @@
             <div class="step reveal">
               <div class="step-num">2</div>
               <h4>Clinical Review</h4>
-              <p>We consult, assess, and review your healthcare needs</p>
+              <p>We consult, assess, and review your needs in a respectful and confidential setting.</p>
             </div>
             <div class="step reveal">
               <div class="step-num">3</div>
@@ -1640,9 +1906,9 @@
     <section class="section" id="screening-links">
       <div class="container">
         <span class="eyebrow reveal">Assessments</span>
-        <h2 class="section-title reveal">Choose the screening assessment you need.</h2>
+        <h2 class="section-title reveal">Choose the care you need.</h2>
         <p class="section-copy reveal">
-          Select the assessment below based on whether you are looking for prevention before exposure or urgent care after a possible exposure.
+          Unsure what you need? Select the assessment below based on whether you are looking for prevention before exposure or urgent care after a possible exposure.
         </p>
 
         <div class="assessment-links">
@@ -1664,6 +1930,8 @@
     <section class="section" id="screening">
       <div class="container">
         <span class="eyebrow reveal">Screening Questionnaires</span>
+        <h2 class="section-title reveal">PrEP Screening vs PEP Screening</h2>
+
         <div class="screening-wrapper">
           <div class="screening-card reveal" id="prep-screening">
             <div class="screening-card-header">
@@ -1675,89 +1943,145 @@
                 This is a screening tool only and is not a diagnosis. A final decision should always be made by a licensed clinician after reviewing the full clinical picture.
               </div>
 
-              <form id="prepForm">
-                <div class="form-grid">
-                  <div class="field">
-                    <label>In the last 6 months, has the patient had more than one sexual partner?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepPartners" value="">
-                      <button type="button" class="choice-btn" data-target="prepPartners" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepPartners" data-value="0">No</button>
-                    </div>
+              <form id="prepForm" class="assessment-stage">
+                <div class="assessment-progress">
+                  <div class="assessment-progress-bar">
+                    <div class="assessment-progress-fill" id="prepProgressFill"></div>
                   </div>
+                  <div class="assessment-progress-text" id="prepProgressText">1 / 8</div>
+                </div>
 
-                  <div class="field">
-                    <label>Has the patient had sex with a partner whose HIV status was unknown?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepUnknownStatus" value="">
-                      <button type="button" class="choice-btn" data-target="prepUnknownStatus" data-value="3">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepUnknownStatus" data-value="0">No</button>
+                <input class="choice-input" type="hidden" id="prepPartners" value="">
+                <input class="choice-input" type="hidden" id="prepUnknownStatus" value="">
+                <input class="choice-input" type="hidden" id="prepCondomless" value="">
+                <input class="choice-input" type="hidden" id="prepSti" value="">
+                <input class="choice-input" type="hidden" id="prepHivPositivePartner" value="">
+                <input class="choice-input" type="hidden" id="prepInjection" value="">
+                <input class="choice-input" type="hidden" id="prepHousing" value="">
+                <input class="choice-input" type="hidden" id="prepConcern" value="">
+
+                <div class="question-step active" data-step="1">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 1</span>
+                    <h4 class="question-title">Has the patient had more than one sexual partner in the last 6 months?</h4>
+                    <p class="question-copy">This helps us understand whether prevention support may be helpful.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepPartners" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepPartners" data-value="0">No</button>
                     </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Has the patient had condomless vaginal or anal sex recently?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepCondomless" value="">
-                      <button type="button" class="choice-btn" data-target="prepCondomless" data-value="3">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepCondomless" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Has the patient had an STI diagnosis in the last 12 months?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepSti" value="">
-                      <button type="button" class="choice-btn" data-target="prepSti" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepSti" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Does the patient have a sexual partner living with HIV, or a partner with unclear treatment or viral suppression status?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepHivPositivePartner" value="">
-                      <button type="button" class="choice-btn" data-target="prepHivPositivePartner" data-value="4">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepHivPositivePartner" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Has the patient shared needles or injection equipment?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepInjection" value="">
-                      <button type="button" class="choice-btn" data-target="prepInjection" data-value="4">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepInjection" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Is the patient in a situation that may increase exposure risk, such as unstable housing, shared living, or other higher-risk circumstances?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepHousing" value="">
-                      <button type="button" class="choice-btn" data-target="prepHousing" data-value="1">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepHousing" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Does the patient personally feel they are at ongoing risk and wants extra protection?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="prepConcern" value="">
-                      <button type="button" class="choice-btn" data-target="prepConcern" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="prepConcern" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field full">
-                    <label for="prepNotes">Additional notes</label>
-                    <textarea id="prepNotes" placeholder="Optional notes..."></textarea>
                   </div>
                 </div>
 
-                <div class="quiz-actions">
-                  <button type="submit" class="btn btn-primary">Calculate PrEP Risk</button>
-                  <button type="button" class="btn btn-light" onclick="resetPrep()">Reset</button>
+                <div class="question-step" data-step="2">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 2</span>
+                    <h4 class="question-title">Has the patient had sex with a partner whose HIV status was unknown?</h4>
+                    <p class="question-copy">Unknown partner status may increase the need for prevention review.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepUnknownStatus" data-value="3">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepUnknownStatus" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 1)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="3">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 3</span>
+                    <h4 class="question-title">Has the patient had condomless vaginal or anal sex recently?</h4>
+                    <p class="question-copy">This helps guide whether PrEP may be appropriate to discuss.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepCondomless" data-value="3">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepCondomless" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 2)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="4">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 4</span>
+                    <h4 class="question-title">Has the patient had an STI diagnosis in the last 12 months?</h4>
+                    <p class="question-copy">Recent STI history can be part of the prevention conversation.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepSti" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepSti" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 3)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="5">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 5</span>
+                    <h4 class="question-title">Does the patient have a sexual partner living with HIV, or a partner with unclear treatment or viral suppression status?</h4>
+                    <p class="question-copy">This may increase the value of a PrEP consult.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepHivPositivePartner" data-value="4">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepHivPositivePartner" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 4)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="6">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 6</span>
+                    <h4 class="question-title">Has the patient shared needles or injection equipment?</h4>
+                    <p class="question-copy">Shared equipment may make prevention support more important.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepInjection" data-value="4">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepInjection" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 5)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="7">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 7</span>
+                    <h4 class="question-title">Is the patient in a situation that may increase exposure risk, such as unstable housing or shared living circumstances?</h4>
+                    <p class="question-copy">Life circumstances can affect prevention needs too.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepHousing" data-value="1">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepHousing" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 6)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="8">
+                  <div class="question-card">
+                    <span class="question-kicker">PrEP Question 8</span>
+                    <h4 class="question-title">Does the patient personally feel they are at ongoing risk and want extra protection?</h4>
+                    <p class="question-copy">Patient concern matters and should always be taken seriously.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepConcern" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big prep-step-choice" data-target="prepConcern" data-value="0">No</button>
+                    </div>
+
+                    <div class="assessment-notes">
+                      <label for="prepNotes">Additional notes</label>
+                      <textarea id="prepNotes" placeholder="Optional notes..."></textarea>
+                    </div>
+
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('prep', 7)">Back</button>
+                      <button type="submit" class="btn btn-primary">Calculate PrEP Risk</button>
+                    </div>
+                  </div>
                 </div>
               </form>
 
@@ -1775,93 +2099,155 @@
                 PEP is time-sensitive. This screen helps guide urgency but does not replace clinician review.
               </div>
 
-              <form id="pepForm">
-                <div class="form-grid">
-                  <div class="field">
-                    <label>Did the possible exposure happen within the last 72 hours?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepHours" value="">
-                      <button type="button" class="choice-btn" data-target="pepHours" data-value="within72">Yes, within 72 hours</button>
-                      <button type="button" class="choice-btn" data-target="pepHours" data-value="over72">No, over 72 hours</button>
-                      <button type="button" class="choice-btn" data-target="pepHours" data-value="unsure">Not sure</button>
-                    </div>
+              <form id="pepForm" class="assessment-stage">
+                <div class="assessment-progress">
+                  <div class="assessment-progress-bar">
+                    <div class="assessment-progress-fill" id="pepProgressFill"></div>
                   </div>
+                  <div class="assessment-progress-text" id="pepProgressText">1 / 8</div>
+                </div>
 
-                  <div class="field">
-                    <label>Type of possible exposure</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepExposureType" value="">
-                      <button type="button" class="choice-btn" data-target="pepExposureType" data-value="sexual">Sexual</button>
-                      <button type="button" class="choice-btn" data-target="pepExposureType" data-value="needle">Shared needle</button>
-                      <button type="button" class="choice-btn" data-target="pepExposureType" data-value="blood">Blood exposure</button>
-                      <button type="button" class="choice-btn" data-target="pepExposureType" data-value="other">Other / unsure</button>
+                <input class="choice-input" type="hidden" id="pepHours" value="">
+                <input class="choice-input" type="hidden" id="pepExposureType" value="">
+                <input class="choice-input" type="hidden" id="pepPartnerStatus" value="">
+                <input class="choice-input" type="hidden" id="pepCondomBreak" value="">
+                <input class="choice-input" type="hidden" id="pepAnalVaginal" value="">
+                <input class="choice-input" type="hidden" id="pepVisibleBlood" value="">
+                <input class="choice-input" type="hidden" id="pepSharedEquipment" value="">
+                <input class="choice-input" type="hidden" id="pepSymptoms" value="">
+
+                <div class="question-step active" data-step="1">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 1</span>
+                    <h4 class="question-title">Did the possible exposure happen within the last 72 hours?</h4>
+                    <p class="question-copy">PEP is time-sensitive, so timing is the first thing we need to know.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepHours" data-value="within72">Yes, within 72 hours</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepHours" data-value="over72">No, over 72 hours</button>
                     </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Was the source partner HIV positive or of unknown status?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepPartnerStatus" value="">
-                      <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="high">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="moderate">Unknown</button>
-                      <button type="button" class="choice-btn" data-target="pepPartnerStatus" data-value="low">No / known negative</button>
+                    <div class="choice-group big" style="margin-top:14px;">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepHours" data-value="unsure">Not sure</button>
                     </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Was there condomless sex or condom failure?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepCondomBreak" value="">
-                      <button type="button" class="choice-btn" data-target="pepCondomBreak" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepCondomBreak" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Did the exposure involve vaginal or anal sex, or direct blood exposure?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepAnalVaginal" value="">
-                      <button type="button" class="choice-btn" data-target="pepAnalVaginal" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepAnalVaginal" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Was visible blood involved?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepVisibleBlood" value="">
-                      <button type="button" class="choice-btn" data-target="pepVisibleBlood" data-value="2">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepVisibleBlood" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Was injection equipment shared?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepSharedEquipment" value="">
-                      <button type="button" class="choice-btn" data-target="pepSharedEquipment" data-value="3">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepSharedEquipment" data-value="0">No</button>
-                    </div>
-                  </div>
-
-                  <div class="field">
-                    <label>Is the patient mainly seeking reassurance after a lower-risk or uncertain event?</label>
-                    <div class="choice-group">
-                      <input class="choice-input" type="hidden" id="pepSymptoms" value="">
-                      <button type="button" class="choice-btn" data-target="pepSymptoms" data-value="reassurance">Yes</button>
-                      <button type="button" class="choice-btn" data-target="pepSymptoms" data-value="concerned">No / significant exposure</button>
-                    </div>
-                  </div>
-
-                  <div class="field full">
-                    <label for="pepNotes">Additional notes</label>
-                    <textarea id="pepNotes" placeholder="Optional notes..."></textarea>
                   </div>
                 </div>
 
-                <div class="quiz-actions">
-                  <button type="submit" class="btn btn-primary">Calculate PEP Urgency</button>
-                  <button type="button" class="btn btn-light" onclick="resetPep()">Reset</button>
+                <div class="question-step" data-step="2">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 2</span>
+                    <h4 class="question-title">What type of exposure happened?</h4>
+                    <p class="question-copy">Choose the option that is closest to the event.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepExposureType" data-value="sexual">Sexual</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepExposureType" data-value="needle">Shared needle</button>
+                    </div>
+                    <div class="choice-group big" style="margin-top:14px;">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepExposureType" data-value="blood">Blood exposure</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepExposureType" data-value="other">Other / unsure</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 1)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="3">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 3</span>
+                    <h4 class="question-title">Was the source partner HIV positive or of unknown status?</h4>
+                    <p class="question-copy">This helps guide how urgent the next steps may be.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepPartnerStatus" data-value="high">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepPartnerStatus" data-value="moderate">Unknown</button>
+                    </div>
+                    <div class="choice-group big" style="margin-top:14px;">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepPartnerStatus" data-value="low">No / known negative</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 2)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="4">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 4</span>
+                    <h4 class="question-title">Was there condomless sex or condom failure?</h4>
+                    <p class="question-copy">This helps us understand whether a full urgent review is needed.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepCondomBreak" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepCondomBreak" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 3)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="5">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 5</span>
+                    <h4 class="question-title">Did the exposure involve vaginal or anal sex, or direct blood exposure?</h4>
+                    <p class="question-copy">This helps assess the urgency of the exposure.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepAnalVaginal" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepAnalVaginal" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 4)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="6">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 6</span>
+                    <h4 class="question-title">Was visible blood involved?</h4>
+                    <p class="question-copy">Visible blood can change how quickly someone should be assessed.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepVisibleBlood" data-value="2">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepVisibleBlood" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 5)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="7">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 7</span>
+                    <h4 class="question-title">Was injection equipment shared?</h4>
+                    <p class="question-copy">Shared equipment may increase the urgency of review.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepSharedEquipment" data-value="3">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepSharedEquipment" data-value="0">No</button>
+                    </div>
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 6)">Back</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="question-step" data-step="8">
+                  <div class="question-card">
+                    <span class="question-kicker">PEP Question 8</span>
+                    <h4 class="question-title">Is the patient mainly seeking reassurance after a lower-risk or uncertain event?</h4>
+                    <p class="question-copy">This still matters and deserves a proper answer and support.</p>
+                    <div class="choice-group big">
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepSymptoms" data-value="reassurance">Yes</button>
+                      <button type="button" class="choice-btn big pep-step-choice" data-target="pepSymptoms" data-value="concerned">No / significant exposure</button>
+                    </div>
+
+                    <div class="assessment-notes">
+                      <label for="pepNotes">Additional notes</label>
+                      <textarea id="pepNotes" placeholder="Optional notes..."></textarea>
+                    </div>
+
+                    <div class="assessment-nav">
+                      <button type="button" class="btn btn-light" onclick="goToStep('pep', 7)">Back</button>
+                      <button type="submit" class="btn btn-primary">Calculate PEP Urgency</button>
+                    </div>
+                  </div>
                 </div>
               </form>
 
@@ -1875,26 +2261,72 @@
     <section class="section simple-section" id="coverage">
       <div class="container">
         <span class="eyebrow reveal">Coverage</span>
-        <h2 class="section-title reveal">Guidance on cost and coverage.</h2>
+        <h2 class="section-title reveal">Understanding coverage should feel simple.</h2>
         <p class="section-copy reveal">
-          We help patients understand their options and work through coverage questions for both PrEP and PEP.
+          We help patients figure out what may apply to them and what the next step should be for both PrEP and PEP.
         </p>
 
-        <div class="coverage-box reveal">
-          <h3>PrEP coverage support</h3>
-          <p>
-            We offer guidance on coverage and help patients understand what program or insurance route may apply to them.
-          </p>
-          <ul class="coverage-list">
-            <li>OHIP+ may apply for patients 24 and under who do not have a private drug plan.</li>
-            <li>Ontario residents 65+ may have coverage through the Ontario Drug Benefit program.</li>
-            <li>Patients receiving ODSP or Ontario Works often have prescription drug coverage.</li>
-            <li>Many adults with high drug costs may qualify for Trillium support.</li>
-            <li>Most private insurance plans also cover a large portion of PrEP costs.</li>
-          </ul>
-          <p style="margin-top:12px;">
-            We also help patients navigate coverage for <strong>PEP</strong> and understand next steps as quickly as possible.
-          </p>
+        <div class="coverage-wrap">
+          <div class="coverage-intro-card reveal">
+            <h3>We help guide coverage, not just prescriptions.</h3>
+            <p>
+              Our team helps patients understand which public or private coverage route may fit their situation, and we help make the process feel less confusing.
+            </p>
+          </div>
+
+          <div class="coverage-bubbles">
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">OHIP+</span>
+              <h4>24 and under</h4>
+              <p>Patients 24 and under who have OHIP and do not have a private drug plan may qualify through OHIP+.</p>
+            </div>
+
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">Ontario Drug Benefit</span>
+              <h4>65+</h4>
+              <p>Ontario residents 65 and older may have prescription coverage through the Ontario Drug Benefit program.</p>
+            </div>
+
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">ODSP / Ontario Works</span>
+              <h4>Social assistance coverage</h4>
+              <p>Patients receiving ODSP or Ontario Works often have prescription drug coverage available.</p>
+            </div>
+
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">Trillium</span>
+              <h4>High medication costs</h4>
+              <p>Adults with higher drug costs may qualify for support through the Trillium Drug Program.</p>
+            </div>
+
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">Private Insurance</span>
+              <h4>Many plans help</h4>
+              <p>Most private insurance plans cover a significant portion of PrEP costs, depending on the plan.</p>
+            </div>
+
+            <div class="coverage-bubble reveal">
+              <span class="coverage-pill">PEP Support</span>
+              <h4>Urgent guidance matters</h4>
+              <p>We also help patients understand possible coverage options for PEP and what should happen next as quickly as possible.</p>
+            </div>
+          </div>
+
+          <div class="coverage-action-row reveal">
+            <div class="coverage-chip">Under 25</div>
+            <div class="coverage-chip">65+</div>
+            <div class="coverage-chip">ODSP</div>
+            <div class="coverage-chip">Ontario Works</div>
+            <div class="coverage-chip">Private Insurance</div>
+            <div class="coverage-chip">Need Help with PEP?</div>
+          </div>
+
+          <div class="coverage-helper reveal">
+            <strong>Not sure what applies to you?</strong>
+            <p>
+              That is completely okay. Contact the clinic and we can help review your situation, explain your options clearly, and guide you through the next step.
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -2140,21 +2572,6 @@
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    document.querySelectorAll(".choice-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        const targetId = button.dataset.target;
-        const value = button.dataset.value;
-        const hiddenInput = document.getElementById(targetId);
-
-        document.querySelectorAll(`.choice-btn[data-target="${targetId}"]`).forEach(btn => {
-          btn.classList.remove("active");
-        });
-
-        button.classList.add("active");
-        hiddenInput.value = value;
-      });
-    });
-
     function openBookingModal() {
       bookingModal.classList.add("open");
       bookingModal.setAttribute("aria-hidden", "false");
@@ -2186,6 +2603,63 @@
         closeBookingModal();
       }
     });
+
+    function updateProgress(type, step, total) {
+      const fill = document.getElementById(`${type}ProgressFill`);
+      const text = document.getElementById(`${type}ProgressText`);
+      const percent = (step / total) * 100;
+      if (fill) fill.style.width = `${percent}%`;
+      if (text) text.textContent = `${step} / ${total}`;
+    }
+
+    function goToStep(type, step) {
+      const wrapper = document.getElementById(`${type}Form`);
+      const steps = wrapper.querySelectorAll(".question-step");
+      steps.forEach(s => s.classList.remove("active"));
+      const target = wrapper.querySelector(`.question-step[data-step="${step}"]`);
+      if (target) target.classList.add("active");
+      updateProgress(type, step, steps.length);
+      wrapper.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    document.querySelectorAll(".prep-step-choice").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+        const value = button.dataset.value;
+        document.getElementById(targetId).value = value;
+
+        const group = button.closest(".choice-group");
+        group.querySelectorAll(".choice-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const currentStep = button.closest(".question-step");
+        const next = currentStep.nextElementSibling;
+        if (next && next.classList.contains("question-step")) {
+          setTimeout(() => goToStep("prep", Number(next.dataset.step)), 220);
+        }
+      });
+    });
+
+    document.querySelectorAll(".pep-step-choice").forEach((button) => {
+      button.addEventListener("click", () => {
+        const targetId = button.dataset.target;
+        const value = button.dataset.value;
+        document.getElementById(targetId).value = value;
+
+        const group = button.closest(".choice-group");
+        group.querySelectorAll(".choice-btn").forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const currentStep = button.closest(".question-step");
+        const next = currentStep.nextElementSibling;
+        if (next && next.classList.contains("question-step")) {
+          setTimeout(() => goToStep("pep", Number(next.dataset.step)), 220);
+        }
+      });
+    });
+
+    updateProgress("prep", 1, 8);
+    updateProgress("pep", 1, 8);
 
     function buildResultHTML(level, title, summary, bullets, contactText, bookingUrl) {
       return `
@@ -2355,13 +2829,6 @@
       result.scrollIntoView({ behavior: "smooth", block: "nearest" });
     });
 
-    function resetChoiceGroup(targetId) {
-      document.getElementById(targetId).value = "";
-      document.querySelectorAll(`.choice-btn[data-target="${targetId}"]`).forEach(btn => {
-        btn.classList.remove("active");
-      });
-    }
-
     function resetPrep() {
       [
         "prepPartners",
@@ -2372,11 +2839,14 @@
         "prepInjection",
         "prepHousing",
         "prepConcern"
-      ].forEach(resetChoiceGroup);
+      ].forEach(id => document.getElementById(id).value = "");
+
+      document.querySelectorAll(".prep-step-choice").forEach(btn => btn.classList.remove("active"));
       document.getElementById("prepNotes").value = "";
       const result = document.getElementById("prepResult");
       result.classList.remove("show");
       result.innerHTML = "";
+      goToStep("prep", 1);
     }
 
     function resetPep() {
@@ -2389,11 +2859,14 @@
         "pepVisibleBlood",
         "pepSharedEquipment",
         "pepSymptoms"
-      ].forEach(resetChoiceGroup);
+      ].forEach(id => document.getElementById(id).value = "");
+
+      document.querySelectorAll(".pep-step-choice").forEach(btn => btn.classList.remove("active"));
       document.getElementById("pepNotes").value = "";
       const result = document.getElementById("pepResult");
       result.classList.remove("show");
       result.innerHTML = "";
+      goToStep("pep", 1);
     }
 
     document.getElementById("year").textContent = new Date().getFullYear();
