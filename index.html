@@ -145,12 +145,14 @@
     }
 
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-      background: rgba(252, 253, 255, 0.9);
-      border-bottom: 1px solid rgba(28, 70, 182, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,243,255,0.96));
+  border-bottom: 1px solid rgba(28, 70, 182, 0.12);
+  box-shadow: 0 6px 18px rgba(28, 70, 182, 0.08);
+}
     }
 
     .nav {
@@ -192,10 +194,19 @@
     }
 
     .nav-links a {
-      position: relative;
-      font-size: 0.94rem;
-      font-weight: 500;
-    }
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--royal-deep);
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  background: linear-gradient(135deg, rgba(28,70,182,0.12), rgba(178,47,139,0.12));
+  color: var(--magenta-deep);
+}
 
     .nav-links a::after {
       content: "";
@@ -217,7 +228,20 @@
       align-items: center;
       gap: 12px;
     }
+.nav-refill {
+  background: linear-gradient(135deg, var(--royal), var(--magenta));
+  color: #fff !important;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(114, 56, 177, 0.25);
+  transition: 0.3s ease;
+}
 
+.nav-refill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(114, 56, 177, 0.32);
+}
     .menu-toggle {
       display: none;
       background: none;
@@ -1486,10 +1510,9 @@
     }
 
     .refill-float-btn {
-      position: fixed;
-      right: 20px;
-      bottom: 22px;
-      z-index: 2100;
+  padding: 14px 20px;
+  font-size: 0.9rem;
+}
       border: none;
       border-radius: 999px;
       padding: 16px 22px;
@@ -1683,13 +1706,13 @@
         </a>
 
         <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#understanding">Understanding HIV, PrEP & PEP</a>
-          <a href="#services">Services</a>
-          <a href="#screening-links">Assessments</a>
-          <a href="#coverage">Coverage</a>
-          <a href="#contact">Contact</a>
-        </div>
+  <a href="#about">About</a>
+  <a href="#understanding">Understanding</a>
+  <a href="#services">Services</a>
+  <a href="#coverage">Coverage</a>
+  <a href="#contact">Contact</a>
+  <a href="javascript:void(0)" onclick="openRefillModal()">Refill</a>
+</div>
 
         <div class="nav-actions">
           <a href="#screening-links" class="btn btn-secondary">Start Assessment</a>
@@ -1710,7 +1733,7 @@
               <a href="#screening-links" class="btn btn-primary">Start Your Assessment</a>
               <a href="#contact" class="btn btn-secondary">Contact the Clinic</a>
               <button type="button" class="btn btn-primary" id="openBookingModal">Book an Appointment</button>
-              <button type="button" class="btn btn-light" onclick="openRefillModal()">Refill Prescription</button>
+              <<a href="javascript:void(0)" class="nav-refill" onclick="openRefillModal()">Refill</a>
             </div>
           </div>
         </div>
