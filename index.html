@@ -16,64 +16,11 @@
   />
 
   <style>
-    .founder-block {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 28px;
-  align-items: center;
-  margin: 40px 0;
-}
-
-.founder-photo {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-.founder-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.founder-content h3 {
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.8rem;
-  margin-bottom: 4px;
-}
-
-.founder-title {
-  display: block;
-  color: #b14cff; /* magenta accent */
-  font-weight: 600;
-  margin-bottom: 12px;
-}
-
-.founder-content p {
-  margin-bottom: 12px;
-  color: var(--slate);
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .founder-block {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .founder-photo {
-    max-width: 220px;
-    margin: 0 auto;
-  }
     :root {
       --royal: #1c46b6;
       --royal-deep: #15358a;
       --magenta: #b22f8b;
       --magenta-deep: #8d236d;
-      --blue-soft: #edf3ff;
-      --violet-soft: #f6efff;
-      --pink-soft: #fdeef8;
       --white: #ffffff;
       --ink: #1f2856;
       --ink-soft: #5f6793;
@@ -83,12 +30,8 @@
       --success: #2f7b69;
       --warn: #9a6b30;
       --danger: #b94e61;
-      --radius: 24px;
       --max: 1220px;
       --transition: 0.28s ease;
-      --teal: #03989E;
-      --teal-deep: #027378;
-      --teal-soft: #e8fbfb;
       --neutral-light: #f6f8fc;
     }
 
@@ -194,16 +137,6 @@
     .btn-light:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow);
-    }
-
-    .btn-teal {
-      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
-      color: #fff;
-      box-shadow: 0 14px 30px rgba(3, 152, 158, 0.2);
-    }
-
-    .btn-teal:hover {
-      transform: translateY(-2px);
     }
 
     .site-header {
@@ -479,7 +412,7 @@
       margin: 0 auto;
       background: #fff;
       border: 1px solid var(--line);
-      border-radius: var(--radius);
+      border-radius: 24px;
       padding: 38px;
       box-shadow: var(--shadow);
     }
@@ -487,6 +420,52 @@
     .panel p {
       color: var(--ink-soft);
       margin-bottom: 14px;
+    }
+
+    .founder-block {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+      margin: 34px 0;
+      padding: 22px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8f3ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.08);
+    }
+
+    .founder-photo {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #f3f6ff;
+    }
+
+    .founder-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .founder-content h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      margin-bottom: 4px;
+      color: var(--royal-deep);
+    }
+
+    .founder-title {
+      display: block;
+      color: var(--magenta);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .founder-content p {
+      margin-bottom: 12px;
+      color: var(--ink-soft);
     }
 
     .prep-intro {
@@ -531,56 +510,6 @@
       font-size: 0.84rem;
       color: var(--ink-soft);
       margin: 0;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      margin-top: 34px;
-    }
-
-    .info-card {
-      background: linear-gradient(180deg, #ffffff 0%, #f7f3ff 100%);
-      border: 1px solid rgba(28, 70, 182, 0.1);
-      border-radius: 26px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-    }
-
-    .info-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .icon-wrap {
-      width: 56px;
-      height: 56px;
-      border-radius: 18px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, rgba(28,70,182,0.12), rgba(178,47,139,0.12));
-      margin-bottom: 16px;
-    }
-
-    .icon-wrap svg {
-      width: 28px;
-      height: 28px;
-      stroke: url(#icon-gradient);
-    }
-
-    .info-card h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.9rem;
-      line-height: 1;
-      color: var(--royal-deep);
-      margin-bottom: 12px;
-    }
-
-    .info-card p {
-      color: var(--ink-soft);
-      margin-bottom: 0;
     }
 
     .services {
@@ -738,49 +667,6 @@
       color: var(--ink-soft);
     }
 
-    .coverage-box {
-      margin-top: 34px;
-      background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
-      border: 1px solid rgba(28, 70, 182, 0.1);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-    }
-
-    .coverage-box h3 {
-      font-family: "Cormorant Garamond", serif;
-      font-size: 2rem;
-      color: var(--royal-deep);
-      margin-bottom: 12px;
-      line-height: 1;
-    }
-
-    .coverage-box p {
-      color: var(--ink-soft);
-      margin-bottom: 12px;
-    }
-
-    .coverage-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .coverage-list li {
-      position: relative;
-      padding-left: 18px;
-      color: var(--ink);
-    }
-
-    .coverage-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--royal);
-      font-size: 1.1rem;
-    }
-
     .assessment-links {
       display: flex;
       flex-wrap: wrap;
@@ -890,11 +776,6 @@
       background: transparent;
       border: none;
       padding: 0;
-      box-shadow: none;
-    }
-
-    .field.full:hover {
-      transform: none;
       box-shadow: none;
     }
 
@@ -1037,6 +918,49 @@
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 18px;
+    }
+
+    .coverage-box {
+      margin-top: 34px;
+      background: linear-gradient(180deg, #ffffff 0%, #f4f7ff 100%);
+      border: 1px solid rgba(28, 70, 182, 0.1);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .coverage-box h3 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2rem;
+      color: var(--royal-deep);
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .coverage-box p {
+      color: var(--ink-soft);
+      margin-bottom: 12px;
+    }
+
+    .coverage-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .coverage-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--ink);
+    }
+
+    .coverage-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--royal);
+      font-size: 1.1rem;
     }
 
     .info-strip {
@@ -1329,7 +1253,6 @@
     }
 
     @media (max-width: 1080px) {
-      .info-grid,
       .services-grid,
       .contact-grid,
       .prep-intro-inner,
@@ -1386,11 +1309,6 @@
         padding: 76px 0;
       }
 
-      .trust-grid,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
       .brand-name {
         font-size: 1.55rem;
       }
@@ -1399,8 +1317,20 @@
         font-size: 0.62rem;
       }
 
-      .steps-grid {
+      .steps-grid,
+      .trust-grid,
+      .form-grid {
         grid-template-columns: 1fr;
+      }
+
+      .founder-block {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .founder-photo {
+        max-width: 240px;
+        margin: 0 auto;
       }
     }
 
@@ -1423,7 +1353,6 @@
 
       .panel,
       .service-card,
-      .info-card,
       .contact-card,
       .form-card,
       .intro-card,
@@ -1434,7 +1363,8 @@
       .booking-modal-footer,
       .strip-card,
       .mini-card,
-      .step {
+      .step,
+      .founder-block {
         padding-left: 24px;
         padding-right: 24px;
       }
@@ -1454,21 +1384,12 @@
   </style>
 </head>
 <body>
-  <svg width="0" height="0" style="position:absolute">
-    <defs>
-      <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#1c46b6" />
-        <stop offset="100%" stop-color="#b22f8b" />
-      </linearGradient>
-    </defs>
-  </svg>
-
   <header class="site-header">
     <div class="container">
       <nav class="nav" id="nav">
         <a href="#" class="brand" aria-label="Durham PrEP Clinic home">
           <span class="brand-name">Durham PrEP Clinic</span>
-          <span class="brand-sub">Owned by HealRx Medical Clinic and Pharmacy</span>
+          <span class="brand-sub">Owned by HealRx Medical Clinic and Pharmacy Ltd.</span>
         </a>
 
         <div class="nav-links">
@@ -1496,11 +1417,17 @@
           <div class="reveal">
             <div class="hero-badge">Accepting New Patients</div>
             <h1 class="hero-title">Durham Region’s Number One Clinic for HIV PrEP, PEP and Sexual Health Care</h1>
-            </p>
             <div class="hero-actions">
               <a href="#screening-links" class="btn btn-primary">Start Your Assessment</a>
               <a href="#contact" class="btn btn-secondary">Contact the Clinic</a>
               <button type="button" class="btn btn-light" id="openBookingModal">Book an Appointment</button>
+            </div>
+
+            <div class="hero-points">
+              <span>✔ Physician + pharmacist team</span>
+              <span>✔ Same-location assessment and prescribing</span>
+              <span>✔ Dispensing on the spot</span>
+            </div>
           </div>
         </div>
       </div>
@@ -1523,44 +1450,67 @@
           </div>
         </div>
       </div>
-    
+    </section>
+
+          <div class="intro-list">
+            <div class="intro-list-item">
+              <strong>PrEP Screening</strong>
+              <span>Quick review for patients considering prevention before exposure.</span>
+            </div>
+            <div class="intro-list-item">
+              <strong>Urgent PEP Consult</strong>
+              <span>Rapid assessment for anyone with a recent potential exposure to HIV.</span>
+            </div>
+            <div class="intro-list-item">
+              <strong>On-Site Care</strong>
+              <span>Consultation, prescribing, and dispensing in one place to reduce delays to treatment.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section simple-section" id="about">
       <div class="container">
         <div class="panel reveal">
-          <span class="eyebrow">About Durham PrEP Clinic</span>
+          <span class="eyebrow">About HealRx</span>
           <h2 class="section-title">Built for people who deserve clarity, protection, and care.</h2>
 
           <p>
-            We built the Durham PrEP Clinic for the people who are too often overlooked, unheard, or left navigating their health alone.
-          </p>
-
-          <p>
-            Because the truth is—HIV prevention and sexual health are still surrounded by silence, stigma, and misinformation. And too many people are left feeling uncertain, afraid, or unsupported when they deserve clarity, protection, and care.
+            We built HealRx for the people who are too often overlooked, unheard, or left navigating their health alone.
           </p>
 
           <div class="founder-block">
+            <div class="founder-photo">
+              <img src="images/sejal.jpg" alt="Sejal Shah, Pharmacist and Founder">
+            </div>
+            <div class="founder-content">
+              <h3>Sejal Shah</h3>
+              <span class="founder-title">Pharmacist & Founder</span>
+              <p>
+                Sejal Shah has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication.
+              </p>
+              <p>
+                She is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare — it’s personal.
+              </p>
+            </div>
+          </div>
 
-  <div class="founder-photo">
-    <img src="images/sejal.jpg" alt="Sejal Shah, Pharmacist and Founder">
-  </div>
-
-  <div class="founder-content">
-    <h3>Sejal Shah</h3>
-    <span class="founder-title">Pharmacist & Founder</span>
-
-    <p>
-      Sejal Shah has spent years working in the HIV space and has seen firsthand how powerful the right support can be. Her mission goes beyond dispensing medication.
-    </p>
-
-    <p>
-      She is deeply committed to educating, advocating, and standing beside every patient with compassion and without judgment. To her, this isn’t just healthcare—it’s personal.
-    </p>
-
-  </div>
-
-          <p>
-            <strong>Dr. Ronak Brahmbhatt</strong> is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care—delivered in a way that is respectful, discreet, and grounded in trust. He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
-          </p>
+          <div class="founder-block">
+            <div class="founder-photo">
+              <img src="images/ronak.jpg" alt="Dr. Ronak Brahmbhatt, Family Physician">
+            </div>
+            <div class="founder-content">
+              <h3>Dr. Ronak Brahmbhatt</h3>
+              <span class="founder-title">Family Physician</span>
+              <p>
+                Dr. Ronak Brahmbhatt is a family physician with a focused passion for HIV prevention and inclusive care. His work centers on PrEP, PEP, STI treatment and prevention, and gender-affirming care.
+              </p>
+              <p>
+                He believes every patient deserves to feel safe being honest about their health, their risks, and their needs.
+              </p>
+            </div>
+          </div>
 
           <p>
             Together, as a family-run clinic, we are building something different.
@@ -1573,7 +1523,7 @@
           </p>
 
           <p>
-            Whether you’re here to protect yourself, seek treatment, or simply understand your options—you are not alone.
+            Whether you’re here to protect yourself, seek treatment, or simply understand your options — you are not alone.
           </p>
 
           <p>
@@ -1587,8 +1537,8 @@
       <div class="container">
         <div class="prep-intro-inner">
           <div class="reveal">
-            <span class="eyebrow">Terminology</span>
-            <h2 class="section-title">Understanding HIV, PrEP and PEP</h2>
+            <span class="eyebrow">Understanding HIV, PrEP and PEP</span>
+            <h2 class="section-title">Clear explanations, without overwhelming wording.</h2>
             <p class="section-copy" style="margin-bottom: 16px;">
               HIV is a virus that affects the immune system. Without treatment, it can weaken the body’s ability to fight infections and illness.
             </p>
@@ -1631,7 +1581,7 @@
       <div class="container">
         <div class="services-header reveal">
           <span class="eyebrow">Services</span>
-          <h2 class="section-title">Comprehensive HIV prevention and sexual health care under one roof</h2>
+          <h2 class="section-title">Simple, visual, and easier to understand.</h2>
           <p class="section-copy">
             We make it easier for patients to understand what care they need and how to get started quickly.
           </p>
@@ -1640,12 +1590,6 @@
         <div class="services-grid">
           <article class="service-card reveal">
             <span class="service-chip">HIV Prevention</span>
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7l7-4Z" stroke="url(#icon-gradient)"/>
-                <path d="M9.5 12l1.5 1.5L14.5 10" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
             <h3>PrEP</h3>
             <p><strong>Pre-Exposure Prophylaxis</strong> is medication used before a possible exposure to help prevent HIV.</p>
             <ul>
@@ -1659,12 +1603,6 @@
 
           <article class="service-card reveal">
             <span class="service-chip">Urgent HIV Care</span>
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M12 8v5l3 3" stroke="url(#icon-gradient)"/>
-                <circle cx="12" cy="12" r="9" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
             <h3>PEP</h3>
             <p><strong>Post-Exposure Prophylaxis</strong> is urgent medication used after a possible HIV exposure. Timing matters.</p>
             <ul>
@@ -1678,13 +1616,6 @@
 
           <article class="service-card reveal">
             <span class="service-chip">Sexual Health Support</span>
-            <div class="icon-wrap">
-              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 19h12" stroke="url(#icon-gradient)"/>
-                <path d="M9 5h6l1 9H8l1-9Z" stroke="url(#icon-gradient)"/>
-                <path d="M10 9h4" stroke="url(#icon-gradient)"/>
-              </svg>
-            </div>
             <h3>STI Care</h3>
             <p>Respectful support for sexual health concerns, testing guidance, treatment planning, and follow-up care.</p>
             <ul>
@@ -1736,7 +1667,10 @@
       <div class="container">
         <span class="eyebrow reveal">Assessments</span>
         <h2 class="section-title reveal">Choose the screening assessment you need.</h2>
-      
+        <p class="section-copy reveal">
+          Select the assessment below based on whether you are looking for prevention before exposure or urgent care after a possible exposure.
+        </p>
+
         <div class="assessment-links">
           <a href="#prep-screening" class="assessment-link reveal">
             <h3>PrEP Assessment</h3>
@@ -1756,6 +1690,8 @@
     <section class="section" id="screening">
       <div class="container">
         <span class="eyebrow reveal">Screening Questionnaires</span>
+        <h2 class="section-title reveal">Separated clearly for prevention and urgent post-exposure care.</h2>
+
         <div class="screening-wrapper">
           <div class="screening-card reveal" id="prep-screening">
             <div class="screening-card-header">
@@ -1964,15 +1900,13 @@
       </div>
     </section>
 
-    <section class="section services" id="coverage">
+    <section class="section simple-section" id="coverage">
       <div class="container">
-        <div class="services-header reveal">
-          <span class="eyebrow">Coverage</span>
-          <h2 class="section-title">Guidance on cost and coverage.</h2>
-          <p class="section-copy">
-            We help patients understand their options and work through coverage questions for both PrEP and PEP.
-          </p>
-        </div>
+        <span class="eyebrow reveal">Coverage</span>
+        <h2 class="section-title reveal">Guidance on cost and coverage.</h2>
+        <p class="section-copy reveal">
+          We help patients understand their options and work through coverage questions for both PrEP and PEP.
+        </p>
 
         <div class="coverage-box reveal">
           <h3>PrEP coverage support</h3>
@@ -1980,11 +1914,11 @@
             We offer guidance on coverage and help patients understand what program or insurance route may apply to them.
           </p>
           <ul class="coverage-list">
-            <li>People <strong>24 and under</strong> who have OHIP and <strong>do not have a private drug plan</strong> may qualify through <strong>OHIP+</strong>.</li>
-            <li>Ontario residents <strong>65+</strong> are covered through the <strong>Ontario Drug Benefit</strong> program.</li>
-            <li>People receiving <strong>ODSP</strong> or <strong>Ontario Works</strong> generally have prescription drug coverage.</li>
-            <li>Many adults with high drug costs may qualify for the <strong>Trillium Drug Program</strong>.</li>
-            <li><strong>Most private insurance plans</strong> also cover a large portion of PrEP costs.</li>
+            <li>OHIP+ may apply for patients 24 and under who do not have a private drug plan.</li>
+            <li>Ontario residents 65+ may have coverage through the Ontario Drug Benefit program.</li>
+            <li>Patients receiving ODSP or Ontario Works often have prescription drug coverage.</li>
+            <li>Many adults with high drug costs may qualify for Trillium support.</li>
+            <li>Most private insurance plans also cover a large portion of PrEP costs.</li>
           </ul>
           <p style="margin-top:12px;">
             We also help patients navigate coverage for <strong>PEP</strong> and understand next steps as quickly as possible.
@@ -2073,22 +2007,22 @@
               <div class="form-grid">
                 <div class="field">
                   <label for="contactName">Full name</label>
-                  <input id="contactName" name="name" type="text" required />
+                  <input id="contactName" name="name" type="text" required>
                 </div>
 
                 <div class="field">
                   <label for="contactEmail">Email address</label>
-                  <input id="contactEmail" name="email" type="email" required />
+                  <input id="contactEmail" name="email" type="email" required>
                 </div>
 
                 <div class="field">
                   <label for="contactPhone">Phone number</label>
-                  <input id="contactPhone" name="phone" type="tel" />
+                  <input id="contactPhone" name="phone" type="tel">
                 </div>
 
                 <div class="field">
                   <label for="contactService">Service needed</label>
-                  <input id="contactService" name="service" type="text" placeholder="PrEP consultation / PEP urgent assessment / STI / General inquiry" />
+                  <input id="contactService" name="service" type="text" placeholder="PrEP consultation / PEP urgent assessment / STI / General inquiry">
                 </div>
 
                 <div class="field full">
@@ -2096,8 +2030,8 @@
                   <textarea id="contactMessage" name="message" placeholder="Tell us how we can help..."></textarea>
                 </div>
 
-                <input type="hidden" name="_subject" value="New Durham PrEP Clinic Contact Form Submission" />
-                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_subject" value="New Durham PrEP Clinic Contact Form Submission">
+                <input type="hidden" name="_captcha" value="false">
               </div>
 
               <div class="quiz-actions">
@@ -2158,9 +2092,9 @@
         </div>
         <div>
           <h4>Clinic Details</h4>
-          <p>1550 Bayly Street, Unit 6</p>
+          <p>1550 Bayly Street</p>
           <p>Pickering, ON, L1W 3W1</p>
-          <p>Durham PrEP Clinic/ HealRx Medical Clinic and Pharmacy Ltd.</p>
+          <p>In affiliation with HealRx Medical Clinic and Pharmacy Ltd.</p>
         </div>
       </div>
 
@@ -2211,6 +2145,10 @@
 
     const menuToggle = document.getElementById("menuToggle");
     const nav = document.getElementById("nav");
+    const bookingModal = document.getElementById("bookingModal");
+    const openBookingModalBtn = document.getElementById("openBookingModal");
+    const closeBookingModalBtn = document.getElementById("closeBookingModal");
+    const footerBookTrigger = document.getElementById("footerBookTrigger");
 
     if (menuToggle) {
       menuToggle.addEventListener("click", () => {
@@ -2245,11 +2183,6 @@
       });
     });
 
-    const bookingModal = document.getElementById("bookingModal");
-    const openBookingModalBtn = document.getElementById("openBookingModal");
-    const closeBookingModalBtn = document.getElementById("closeBookingModal");
-    const footerBookTrigger = document.getElementById("footerBookTrigger");
-
     function openBookingModal() {
       bookingModal.classList.add("open");
       bookingModal.setAttribute("aria-hidden", "false");
@@ -2264,10 +2197,13 @@
 
     openBookingModalBtn.addEventListener("click", openBookingModal);
     closeBookingModalBtn.addEventListener("click", closeBookingModal);
-    footerBookTrigger.addEventListener("click", (e) => {
-      e.preventDefault();
-      openBookingModal();
-    });
+
+    if (footerBookTrigger) {
+      footerBookTrigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        openBookingModal();
+      });
+    }
 
     bookingModal.addEventListener("click", (e) => {
       if (e.target === bookingModal) closeBookingModal();
@@ -2465,7 +2401,6 @@
         "prepHousing",
         "prepConcern"
       ].forEach(resetChoiceGroup);
-
       document.getElementById("prepNotes").value = "";
       const result = document.getElementById("prepResult");
       result.classList.remove("show");
@@ -2483,7 +2418,6 @@
         "pepSharedEquipment",
         "pepSymptoms"
       ].forEach(resetChoiceGroup);
-
       document.getElementById("pepNotes").value = "";
       const result = document.getElementById("pepResult");
       result.classList.remove("show");
