@@ -238,18 +238,104 @@
   transition: 0.3s ease;
 }
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(248,243,255,0.96));
+  border-bottom: 1px solid rgba(28, 70, 182, 0.12);
+  box-shadow: 0 6px 18px rgba(28, 70, 182, 0.08);
+}
+
+.nav {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: nowrap;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1;
+  flex: 0 0 auto;
+  max-width: 320px;
+  min-width: 220px;
+}
+
+.brand-name {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--royal-deep);
+  white-space: nowrap;
+}
+
+.brand-sub {
+  margin-top: 6px;
+  font-size: 0.58rem;
+  line-height: 1.35;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  color: var(--magenta);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.nav-links a {
+  position: relative;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--royal-deep);
+  padding: 8px 12px;
+  border-radius: 999px;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.nav-links a:hover {
+  background: linear-gradient(135deg, rgba(28,70,182,0.12), rgba(178,47,139,0.12));
+  color: var(--magenta-deep);
+}
+
+.nav-refill {
+  background: linear-gradient(135deg, var(--royal), var(--magenta));
+  color: #fff !important;
+  box-shadow: 0 10px 20px rgba(114, 56, 177, 0.25);
+}
+
 .nav-refill:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 26px rgba(114, 56, 177, 0.32);
 }
-    .menu-toggle {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.75rem;
-      color: var(--royal-deep);
-      cursor: pointer;
-    }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--royal-deep);
+  cursor: pointer;
+}
 
     .hero {
       position: relative;
