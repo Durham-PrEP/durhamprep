@@ -1780,6 +1780,58 @@
         bottom: 14px;
       }
     }
+    .reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.review-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f2ff 100%);
+  border: 1px solid rgba(178, 47, 139, 0.12);
+  border-radius: 26px;
+  padding: 26px;
+  box-shadow: var(--shadow);
+  transition: 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.review-stars {
+  font-size: 1.2rem;
+  letter-spacing: 0.15em;
+  color: #ffd166;
+  margin-bottom: 14px;
+}
+
+.review-text {
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  font-size: 0.96rem;
+}
+
+.review-author {
+  font-weight: 700;
+  color: var(--royal-deep);
+  font-size: 0.9rem;
+}
+
+.reviews-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+@media (max-width: 980px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
   </style>
 </head>
 <body>
@@ -2462,7 +2514,53 @@
         </div>
       </div>
     </section>
+<section class="section simple-section" id="reviews">
+  <div class="container">
+    <span class="eyebrow reveal">Patient Reviews</span>
+    <h2 class="section-title reveal">What patients are saying</h2>
+    <p class="section-copy reveal">
+      Real experiences from patients who trusted us with their care.
+    </p>
 
+    <div class="reviews-grid">
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          “Absolutely amazing care. Professional, compassionate, and made me feel comfortable from the very beginning.”
+        </p>
+        <div class="review-author">— Google Review</div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          “Very knowledgeable and completely judgment-free. The process was smooth and efficient.”
+        </p>
+        <div class="review-author">— Google Review</div>
+      </div>
+
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">
+          “Quick access, respectful care, and everything handled in one place. Highly recommend.”
+        </p>
+        <div class="review-author">— Google Review</div>
+      </div>
+
+    </div>
+
+    <div class="reviews-actions reveal">
+      <a href="https://share.google/SGKXUSQmC8dTOxTvN" target="_blank" class="btn btn-primary">
+  Read More Reviews
+</a>
+
+<a href="https://g.page/r/CeBpofEt9WwfEAE/review" target="_blank" class="btn btn-light">
+  Leave a Review
+</a>
+    </div>
+  </div>
+</section>
     <section class="section" id="contact">
       <div class="container">
         <span class="eyebrow reveal">Contact Us</span>
